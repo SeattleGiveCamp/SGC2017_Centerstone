@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.15
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Centerstone", "Centerstone\Centerstone.shproj", "{4EE89EBC-CF35-4936-B4BB-E0F50C06F32E}"
 EndProject
@@ -98,11 +98,8 @@ Global
 		{DE3A354B-3D22-44B8-8CF0-227E775A898C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE3A354B-3D22-44B8-8CF0-227E775A898C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DE3A354B-3D22-44B8-8CF0-227E775A898C}.Release|ARM.ActiveCfg = Release|Any CPU
-		{DE3A354B-3D22-44B8-8CF0-227E775A898C}.Release|ARM.Build.0 = Release|Any CPU
 		{DE3A354B-3D22-44B8-8CF0-227E775A898C}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{DE3A354B-3D22-44B8-8CF0-227E775A898C}.Release|iPhone.Build.0 = Release|Any CPU
 		{DE3A354B-3D22-44B8-8CF0-227E775A898C}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{DE3A354B-3D22-44B8-8CF0-227E775A898C}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{DE3A354B-3D22-44B8-8CF0-227E775A898C}.Release|x64.ActiveCfg = Release|Any CPU
 		{DE3A354B-3D22-44B8-8CF0-227E775A898C}.Release|x64.Build.0 = Release|Any CPU
 		{DE3A354B-3D22-44B8-8CF0-227E775A898C}.Release|x86.ActiveCfg = Release|Any CPU
