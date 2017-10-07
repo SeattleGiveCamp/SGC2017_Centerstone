@@ -5,6 +5,8 @@ using Microsoft.Azure.Mobile.Crashes;
 using System;
 
 using Xamarin.Forms;
+using Centerstone.Views;
+using Centerstone.Models;
 
 namespace Centerstone
 {
@@ -17,6 +19,8 @@ namespace Centerstone
         {
             InitializeComponent();
 
+			HIF hif = new HIF ();
+
             MobileCenter.Start($"android={Constants.MobileCenterAndroid};" +
                    $"uwp={Constants.MobileCenterUWP};" +
                    $"ios={Constants.MobileCenteriOS}",
@@ -28,10 +32,7 @@ namespace Centerstone
             else
                 DependencyService.Register<CloudDataStore>();
 
-            if (Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.iOS)
-                MainPage = new MainPage();
-            else
-                MainPage = new NavigationPage(new MainPage());
+			MainPage = new NavigationPage (new HomePage (hif));
         }
     }
 }
