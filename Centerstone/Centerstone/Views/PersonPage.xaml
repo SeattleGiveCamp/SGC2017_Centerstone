@@ -5,6 +5,11 @@
     </ContentPage.BindingContext>-->
     <ScrollView>
         <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
+            <Label Text="Name"/>
+            <Entry Text="{Binding Person.FullName}"/>
+            <Label Text="Birth of Date"/>
+            <DatePicker VerticalOptions="CenterAndExpand">
+            </DatePicker>
             <Label Text="Gender"/>
             <Picker x:Name="GenderPicker" SelectedItem="{Binding Person.CensusData.Gender}"/>
             <Label Text="Relation To Primary"/>
