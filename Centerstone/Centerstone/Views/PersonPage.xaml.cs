@@ -56,7 +56,7 @@ namespace Centerstone
             InitRacePickerItems();
             InitGenderPickerItems();
             InitEthnicityPickerItmes();
-            EducationPicker();
+            InitEducationPickerItmes();
             InitRelationPickerItmes();
 
         }
