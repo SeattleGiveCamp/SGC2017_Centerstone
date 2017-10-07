@@ -32,7 +32,7 @@ namespace Centerstone
             else
                 DependencyService.Register<CloudDataStore>();
 
-			MainPage = new NavigationPage (new HomePage (hif));
+			MainPage = new NavigationPage (new PersonPage (hif, new Person()));
         }
     }
 }

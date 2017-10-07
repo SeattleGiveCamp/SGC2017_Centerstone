@@ -48,6 +48,21 @@ namespace Centerstone
             { "12+ Some Post-Secondary", EducationType.MoreThanTwelve },
             { "2 or 4 Year College Graduate", EducationType.TwoToFourYearCollegeGraduate }
         };
+
+        public Dictionary<string, IncomeSourceType> incomeSourceOptions = new Dictionary<string, IncomeSourceType>
+        {
+            { "SSI", IncomeSourceType.SSI },
+            { "GA", IncomeSourceType.GA },
+            { "VA", IncomeSourceType.VA },
+            { "Soc Sec", IncomeSourceType.SocSec },
+            { "Military", IncomeSourceType.Military },
+            { "EarnedIncome", IncomeSourceType.EarnedIncome },
+            { "Pension", IncomeSourceType.Pension },
+            { "SelfEmployed", IncomeSourceType.SelfEmployed },
+            { "ChildSupport", IncomeSourceType.ChildSupport },
+            { "Unemployment", IncomeSourceType.Unemployment },
+            { "Other", IncomeSourceType.Other }
+        };
         public PersonPage(HIF hif, Person person)
         {
             InitializeComponent();
@@ -59,11 +74,20 @@ namespace Centerstone
             InitEthnicityPickerItmes();
             InitEducationPickerItmes();
             InitRelationPickerItmes();
+        }
 
+        void Handle_AddIncomeTypeClicked(object sender, System.EventArgs e)
+        {
+            Person.IncomeSources.Add(new IncomeSource());
+        }
+
+        void Handle_DeleteIncomeTypeClicked(object sender, System.EventArgs e)
+        {
+            Person.IncomeSources.Add(new IncomeSource());
         }
         public void InitRacePickerItems()
         {
-            Picker picker = this.FindByName<Picker>("RacePicker");
+            Picker picker = RacePicker;
             foreach (string name in racesOptions.Keys)
             {
                 picker.Items.Add(name);
@@ -72,7 +96,7 @@ namespace Centerstone
 
         public void InitGenderPickerItems()
         {
-            Picker picker = this.FindByName<Picker>("GenderPicker");
+            Picker picker = GenderPicker;
       
             for (int i = 0; i < genderOptions.Length; i++)
             {
@@ -82,7 +106,7 @@ namespace Centerstone
 
         public void InitEducationPickerItmes()
         {
-            Picker picker = this.FindByName<Picker>("EducationPicker");
+            Picker picker = EducationPicker;
             foreach (string name in educationTypeOptions.Keys)
             {
                 picker.Items.Add(name);
@@ -91,7 +115,7 @@ namespace Centerstone
 
         public void InitEthnicityPickerItmes()
         {
-            Picker picker = this.FindByName<Picker>("EthnicityPicker");
+            Picker picker = EthnicityPicker;
             foreach (string name in ethnicityOptions.Keys)
             {
                 picker.Items.Add(name);
@@ -100,11 +124,20 @@ namespace Centerstone
 
         public void InitRelationPickerItmes()
         {
-            Picker picker = this.FindByName<Picker>("RelationPicker");
+            Picker picker = RelationPicker;
             foreach (string name in relationOptions.Keys)
             {
                 picker.Items.Add(name);
             }
+        }
+
+        public void InitIncomeSourceItems()
+        {
+            //Picker picker = IncomeSourceTypePicker;
+            //foreach (string name in incomeSourceOptions.Keys)
+            //{
+            //    picker.Items.Add(name);
+            //}
         }
     }
 }

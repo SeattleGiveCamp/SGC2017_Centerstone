@@ -10,6 +10,27 @@
             <Label Text="Birth of Date"/>
             <DatePicker VerticalOptions="CenterAndExpand">
             </DatePicker>
+            <Button Text="Add Income Source" Clicked="Handle_AddIncomeTypeClicked" />
+            <ListView x:Name="IncomeSource" ItemsSource="{Binding Person.IncomeSources}" 
+                      VerticalOptions="FillAndExpand" HasUnevenRows="true" 
+                      IsPullToRefreshEnabled="true" 
+                      IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                      CachingStrategy="RecycleElement">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                <Label Text="{Binding IncomeSourceType}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
+                                <!--<Picker x:Name="IncomeSourceTypePicker" SelectedItem="{Binding IncomeSourceType}"/>-->
+
+                                <!--<Button Text="Delete" Clicked="Handle_DeleteIncomeTypeClicked" CommandParameter="{Binding }" CommandParameter="" />-->
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Label Text="{Binding Person.CensusData.Gender}"/>
+
             <Label Text="Gender"/>
             <Picker x:Name="GenderPicker" SelectedItem="{Binding Person.CensusData.Gender}"/>
             <Label Text="Relation To Primary"/>
