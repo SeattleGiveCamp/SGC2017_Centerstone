@@ -1,29 +1,30 @@
 ﻿using System;
+using System.Linq;
+using System.Windows.Input;
+using Centerstone.Models;
 
 namespace Centerstone.ViewModels
 {
 	public class BasicInfoViewModel : ViewModelBase
 	{
-		string zip;
-		public string Zip {
-			get => zip;
-			set => SetProperty (ref zip, value);
-		}
+		public HIF HIF { get; set; }
 
-		string numberOfAdults;
-		public string NumberOfAdults {
-			get => numberOfAdults;
-			set => SetProperty (ref numberOfAdults, value);
-		}
+		public int NumberOfAdults => HIF.Adults.Count ();
 
-		string numberOfChildren;
-		public string NumberOfChildren {
-			get => numberOfChildren;
-			set => SetProperty (ref numberOfChildren, value);
-		}
+		public int NumberOfChildren => HIF.Children.Count ();
 
-		public BasicInfoViewModel ()
+		public decimal MinimumIncome => 1250.0M;
+
+		public string MinimumIncomeText => MinimumIncome.ToString ();
+
+		public ICommand IncreaseAdults { get; }
+		public ICommand DecreaseAdults { get; }
+		public ICommand IncreaseChildren { get; }
+		public ICommand DecreaseChildren { get; }
+
+		public BasicInfoViewModel (HIF hif)
 		{
+			HIF = hif;
 		}
 	}
 }
