@@ -36,16 +36,11 @@ namespace Centerstone
                         Title = "About"
                     };
 
-                    personPage = new PersonPage()
-                    {
-                        Title = "About"
-                    };
                     break;
             }
 
             Children.Add(itemsPage);
             Children.Add(aboutPage);
-            Children.Add(personPage);
 
             Title = Children[0].Title;
         }

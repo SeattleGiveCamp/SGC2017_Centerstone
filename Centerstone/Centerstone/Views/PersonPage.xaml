@@ -3,32 +3,30 @@
     <!--<ContentPage.BindingContext>
         <vm:AboutViewModel />
     </ContentPage.BindingContext>-->
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
-                  
-                </ContentView>
-            </StackLayout>
+    <ScrollView>
+        <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
+            <Label Text="Gender"/>
+            <Picker x:Name="GenderPicker" SelectedItem="{Binding Person.CensusData.Gender}"/>
+            <Label Text="Relation To Primary"/>
+            <Picker x:Name="RelationPicker" SelectedItem="{Binding Person.CensusData.Relation}"/>
+            <Label Text="Race"/>
+            <Picker x:Name="RacePicker" SelectedItem="{Binding Person.CensusData.Race}"/>
+            <Label Text="Ethnicity"/>
+            <Picker x:Name="EthnicityPicker" SelectedItem="{Binding Person.CensusData.Ethnicity}"/>
+            <Label Text="Education (24 Years or Order)" />
+            <Picker x:Name="EducationPicker" SelectedItem="{Binding Person.CensusData.Education}"/>
+            <Grid>
+                <Label Text="Disabled"/>
+                <Switch x:Name="DisabledSwitch" IsToggled="{Binding Person.CensusData.Disabled}"/>
+            </Grid>
+            <Grid>
+                <Label Text="Military Veteran"/>
+                <Switch x:Name="MilitarySwitch" IsToggled="{Binding Person.CensusData.IsMilitaryVeteran}"/>
+            </Grid>
+            <Grid>
+                <Label Text="Health Insurance"/>
+                <Switch x:Name="HealthInsuranceSwitch" IsToggled="{Binding Person.CensusData.HealthInsurance}"/>
+            </Grid>
         </StackLayout>
-        <ScrollView Grid.Row="1">
-            <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
-                <Label Text="Gender" FontSize="Medium" />
-                <!--<Entry Text="{Binding Item.Text}" FontSize="Small" />-->
-                <Label Text="Relation To Primary" FontSize="Medium" />
-                <!--<Editor Text="{Binding Item.Description}" FontSize="Small" Margin="0" />-->
-                <Label Text="Race" FontSize="Medium" />
-                <Label Text="Ethnicity" FontSize="Medium" />
-                <Label Text="Education (24 Years or Order)" FontSize="Medium" />
-                <Label Text="Included In Calucation" FontSize="Medium" />
-                <Label Text="Disabled" FontSize="Medium" />
-                <Label Text="Military Veteran" FontSize="Medium" />
-                <Label Text="Health Insurance" FontSize="Medium" />
-            </StackLayout>
-        </ScrollView>
-    </Grid>
+    </ScrollView>
 </ContentPage>
