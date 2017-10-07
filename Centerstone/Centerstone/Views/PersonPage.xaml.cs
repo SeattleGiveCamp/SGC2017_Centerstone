@@ -52,14 +52,12 @@ namespace Centerstone
             InitializeComponent();
 
             Person = new Person();
-
             BindingContext = this;
             InitRacePickerItems();
             InitGenderPickerItems();
             InitEthnicityPickerItmes();
+            EducationPicker();
             InitRelationPickerItmes();
-
-
 
         }
         public void InitRacePickerItems()
