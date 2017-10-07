@@ -47,11 +47,11 @@ namespace Centerstone
             { "12+ Some Post-Secondary", EducationType.MoreThanTwelve },
             { "2 or 4 Year College Graduate", EducationType.TwoToFourYearCollegeGraduate }
         };
-        public PersonPage()
+        public PersonPage(Person person)
         {
             InitializeComponent();
 
-            Person = new Person();
+            Person = person;
             BindingContext = this;
             InitRacePickerItems();
             InitGenderPickerItems();

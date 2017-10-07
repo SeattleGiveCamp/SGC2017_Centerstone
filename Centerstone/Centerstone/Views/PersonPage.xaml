@@ -3,31 +3,30 @@
     <!--<ContentPage.BindingContext>
         <vm:AboutViewModel />
     </ContentPage.BindingContext>-->
-        <ScrollView>
-            <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
-                <Label Text="Gender"/>
-                <Picker x:Name="GenderPicker"/>
-                <Label Text="Relation To Primary"/>
-                <Picker x:Name="RelationPicker"/>
-                <Label Text="Race"/>
-                <Picker x:Name="RacePicker"/>
-                <Label Text="Ethnicity"/>
-                <Picker x:Name="EthnicityPicker"/>
-                <Label Text="Education (24 Years or Order)" />
-                <Picker x:Name="EducationPicker"/>
-                <Grid>
-                    <Label Text="Disabled"/>
-                    <Switch x:Name="DisabledSwitch" IsToggled="{Binding Person.CensusData.Disabled}"/>
-                </Grid>
-
-                <Grid>
-                    <Label Text="Military Veteran"/>
-                    <Switch x:Name="MilitarySwitch" IsToggled="{Binding Person.CensusData.IsMilitaryVeteran}"/>
-                </Grid>
-                <Grid>
-                    <Label Text="Health Insurance"/>
-                    <Switch x:Name="HealthInsuranceSwitch" IsToggled="{Binding Person.CensusData.HealthInsurance}"/>
-                </Grid>
-            </StackLayout>
-        </ScrollView>
+    <ScrollView>
+        <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
+            <Label Text="Gender"/>
+            <Picker x:Name="GenderPicker"/>
+            <Label Text="Relation To Primary"/>
+            <Picker x:Name="RelationPicker"/>
+            <Label Text="Race"/>
+            <Picker x:Name="RacePicker"/>
+            <Label Text="Ethnicity"/>
+            <Picker x:Name="EthnicityPicker"/>
+            <Label Text="Education (24 Years or Order)" />
+            <Picker x:Name="EducationPicker"/>
+            <Grid>
+                <Label Text="Disabled"/>
+                <Switch x:Name="DisabledSwitch" IsToggled="{Binding Person.CensusData.Disabled}"/>
+            </Grid>
+            <Grid>
+                <Label Text="Military Veteran"/>
+                <Switch x:Name="MilitarySwitch" IsToggled="{Binding Person.CensusData.IsMilitaryVeteran}"/>
+            </Grid>
+            <Grid>
+                <Label Text="Health Insurance"/>
+                <Switch x:Name="HealthInsuranceSwitch" IsToggled="{Binding Person.CensusData.HealthInsurance}"/>
+            </Grid>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>
