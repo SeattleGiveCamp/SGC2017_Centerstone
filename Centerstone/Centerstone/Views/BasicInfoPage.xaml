@@ -7,26 +7,37 @@
     <ContentPage.ToolbarItems>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="ZIP" />
-            <Entry Text="{Binding Zip}" />
-            <Label Text="Number of Adults" />
-            <StackLayout Orientation="Horizontal">
-                <Label Text="{Binding NumberOfChildren}" />
-                <Button Text="+" Command="{Binding IncreaseAdults}" />
-                <Button Text="-" Command="{Binding DecreaseAdults}" />
+        <ScrollView>
+            <StackLayout>
+                <Label Text="ZIP" />
+                <Entry Text="{Binding Zip}" />
+                <Label Text="Number of Adults" />
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding NumberOfAdults}" />
+                    <Button Text="+" Command="{Binding IncreaseAdults}" />
+                    <Button Text="-" Command="{Binding DecreaseAdults}" />
+                </StackLayout>
+                <Label Text="Number of Children" />
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding NumberOfChildren}" />
+                    <Button Text="+" Command="{Binding IncreaseChildren}" />
+                    <Button Text="-" Command="{Binding DecreaseChildren}" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="The maximum income to apply is: " />
+                    <Label Text="{Binding MinimumIncome}" FontAttributes="Bold" />
+                </StackLayout>
+                <Label Text="Contact Method (either email or phone)" />
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Email" />
+                    <Entry Text="{Binding HIF.ContactEmail}" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Phone" />
+                    <Entry Text="{Binding HIF.ContactPhone}" />
+                </StackLayout>
+                <Button Text="Start Application" Clicked="Handle_StartApplication" />
             </StackLayout>
-            <Label Text="Number of Children" />
-            <StackLayout Orientation="Horizontal">
-                <Label Text="{Binding NumberOfChildren}" />
-                <Button Text="+" Command="{Binding IncreaseChildren}" />
-                <Button Text="-" Command="{Binding DecreaseChildren}" />
-            </StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Label Text="The maximum income to apply is: " />
-                <Label Text="{Binding MinimumIncome}" FontAttributes="Bold" />
-            </StackLayout>
-            <Button Text="Start Application" Clicked="Handle_StartApplication" />
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

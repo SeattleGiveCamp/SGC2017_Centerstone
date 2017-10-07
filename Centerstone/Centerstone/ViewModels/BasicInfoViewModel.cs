@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Windows.Input;
 using Centerstone.Models;
+using Xamarin.Forms;
 
 namespace Centerstone.ViewModels
 {
@@ -25,6 +26,18 @@ namespace Centerstone.ViewModels
 		public BasicInfoViewModel (HIF hif)
 		{
 			HIF = hif;
+
+			HIF.PropertyChanged += (sender, e) => {
+				OnPropertyChanged ("HIF");
+				OnPropertyChanged ("NumberOfAdults");
+				OnPropertyChanged ("NumberOfChildren");
+				OnPropertyChanged ("MinimumIncome");
+			};
+
+			IncreaseAdults = new Command (HIF.IncreaseAdults);
+			DecreaseAdults = new Command (HIF.DecreaseAdults);
+			IncreaseChildren = new Command (HIF.IncreaseChildren);
+			DecreaseChildren = new Command (HIF.DecreaseChildren);
 		}
 	}
 }
