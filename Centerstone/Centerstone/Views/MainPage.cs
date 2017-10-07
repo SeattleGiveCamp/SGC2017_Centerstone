@@ -35,8 +35,7 @@ namespace Centerstone
                     {
                         Title = "About"
                     };
-
-                    break;
+					break;
             }
 
             Children.Add(itemsPage);
