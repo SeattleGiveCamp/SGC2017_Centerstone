@@ -14,32 +14,35 @@ namespace Centerstone.MobileAppService.Controllers
         [HttpGet]
         public IEnumerable<Application> Get()
         {
-            return new Application();
+            throw new NotImplementedException();
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Application Get(int id)
         {
-            return new Application();
+            throw new NotImplementedException();
         }
 
         // POST api/values
         [HttpPost]
         public void Post([FromBody]Application app)
         {
+            throw new NotImplementedException();
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]Application app)
         {
+            throw new NotImplementedException();
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            throw new NotImplementedException();
         }
     }
 }

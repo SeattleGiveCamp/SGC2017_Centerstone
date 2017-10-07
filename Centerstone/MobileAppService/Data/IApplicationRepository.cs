@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Centerstone.MobileAppService.Models;
 
-namespace Centerstone.Data
+namespace Centerstone.MobileAppService.Data
 {
 	public interface IApplicationRepository
 	{
