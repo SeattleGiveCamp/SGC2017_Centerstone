@@ -1,7 +1,8 @@
-﻿using Centerstone.Models;
+using Centerstone.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Centerstone.Models;
 using Xamarin.Forms;
 
 namespace Centerstone
@@ -47,7 +48,7 @@ namespace Centerstone
             { "12+ Some Post-Secondary", EducationType.MoreThanTwelve },
             { "2 or 4 Year College Graduate", EducationType.TwoToFourYearCollegeGraduate }
         };
-        public PersonPage(Person person)
+        public PersonPage(HIF hif, Person person)
         {
             InitializeComponent();
 
