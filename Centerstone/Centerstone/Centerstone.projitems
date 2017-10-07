@@ -10,6 +10,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\Constants.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\EducationType .cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\EthnicityType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\GenderType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\RaceType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Item.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\CloudDataStore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\IDataStore.cs" />
