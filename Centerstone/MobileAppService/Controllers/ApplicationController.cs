@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Centerstone.MobileAppService.Data;
 using Centerstone.MobileAppService.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,39 +11,41 @@ namespace Centerstone.MobileAppService.Controllers
     [Route("api/[controller]")]
     public class ApplicationController : Controller
     {
-        // GET: api/values
-        [HttpGet]
-        public IEnumerable<Application> Get()
+		private readonly IApplicationRepository _applicationRepository;
+
+        public ApplicationController(IApplicationRepository applicationRepository)
         {
-            throw new NotImplementedException();
+            _applicationRepository = applicationRepository;
         }
 
-        // GET api/values/5
+		[HttpGet]
+        public IEnumerable<Application> Get()
+        {
+            return _applicationRepository.GetAll();
+        }
+
         [HttpGet("{id}")]
         public Application Get(int id)
         {
-            throw new NotImplementedException();
+            return _applicationRepository.Get(id);
         }
 
-        // POST api/values
         [HttpPost]
         public void Post([FromBody]Application app)
         {
-            throw new NotImplementedException();
+            _applicationRepository.Add(app);
         }
 
-        // PUT api/values/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]Application app)
         {
-            throw new NotImplementedException();
+            _applicationRepository.Update(app);
         }
 
-        // DELETE api/values/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _applicationRepository.Remove(id);
         }
     }
 }
