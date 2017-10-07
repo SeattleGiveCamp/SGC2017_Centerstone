@@ -2,18 +2,31 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="Centerstone.Views.BasicInfoPage">
+    x:Class="Centerstone.Views.BasicInfoPage"
+    Title="Basic Info">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Save" Clicked="Save_Clicked" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
             <Label Text="ZIP" />
             <Entry Text="{Binding Zip}" />
             <Label Text="Number of Adults" />
-            <Entry Text="{Binding NumberOfChildren}" />
+            <StackLayout Orientation="Horizontal">
+                <Label Text="{Binding NumberOfChildren}" />
+                <Button Text="+" Command="{Binding IncreaseAdults}" />
+                <Button Text="-" Command="{Binding DecreaseAdults}" />
+            </StackLayout>
             <Label Text="Number of Children" />
-            <Entry Text="{Binding NumberOfChildren}" />
+            <StackLayout Orientation="Horizontal">
+                <Label Text="{Binding NumberOfChildren}" />
+                <Button Text="+" Command="{Binding IncreaseChildren}" />
+                <Button Text="-" Command="{Binding DecreaseChildren}" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="The maximum income to apply is: " />
+                <Label Text="{Binding MinimumIncome}" FontAttributes="Bold" />
+            </StackLayout>
+            <Button Text="Start Application" Clicked="Handle_StartApplication" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
