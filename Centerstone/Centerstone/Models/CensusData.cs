@@ -4,6 +4,7 @@ namespace Centerstone.Models
     public class CensusData
     {
         public GenderType Gender { get; set; }
+        public RaceType Race { get; set; }
         public EthnicityType Ethnicity { get; set; }
         public EducationType Education { get; set; }
         public RelationType Relation { get; set; }
