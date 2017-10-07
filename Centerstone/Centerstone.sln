@@ -8,14 +8,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Centerstone.iOS", "iOS\Cent
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Centerstone.Droid", "Droid\Centerstone.Droid.csproj", "{522326A5-71B0-4FF5-9EE8-FE55E2BE3A81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Centerstone.MobileAppService", "MobileAppService\Centerstone.MobileAppService.csproj", "{DE3A354B-3D22-44B8-8CF0-227E775A898C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Centerstone.MobileAppService", "MobileAppService\Centerstone.MobileAppService.csproj", "{DE3A354B-3D22-44B8-8CF0-227E775A898C}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Centerstone\Centerstone.projitems*{1e3db28c-85f7-480e-8c85-69dbc0c17428}*SharedItemsImports = 4
 		Centerstone\Centerstone.projitems*{4ee89ebc-cf35-4936-b4bb-e0f50c06f32e}*SharedItemsImports = 13
 		Centerstone\Centerstone.projitems*{522326a5-71b0-4ff5-9ee8-fe55e2be3a81}*SharedItemsImports = 4
-		Centerstone\Centerstone.projitems*{a3350a86-c367-452d-ac5d-e3a724938fa2}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
