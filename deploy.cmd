@@ -57,6 +57,11 @@ IF DEFINED CLEAN_LOCAL_DEPLOYMENT_TEMP (
   mkdir "%DEPLOYMENT_TEMP%"
 )
 
+IF NOT DEFINED CSPROJ_PATH (
+  echo Missing CSPROJ_PATH app setting. Please configure in Azure portal and redeploy.
+  goto error
+)
+
 IF DEFINED MSBUILD_PATH goto MsbuildPathDefined
 SET MSBUILD_PATH=%ProgramFiles(x86)%\MSBuild\14.0\Bin\MSBuild.exe
 :MsbuildPathDefined
@@ -71,7 +76,8 @@ call :ExecuteCmd dotnet restore "Centerstone\Centerstone.sln"
 IF !ERRORLEVEL! NEQ 0 goto error
 
 :: 2. Build and publish
-call :ExecuteCmd dotnet publish "Centerstone\Centerstone.Web\Centerstone.Web.csproj" --output "%DEPLOYMENT_TEMP%" --configuration Release
+:: Note: we need the path to the CSPROJ file configured in Azure!
+call :ExecuteCmd dotnet publish "%CSPROJ_PATH%" --output "%DEPLOYMENT_TEMP%" --configuration Release
 IF !ERRORLEVEL! NEQ 0 goto error
 
 :: 3. KuduSync
