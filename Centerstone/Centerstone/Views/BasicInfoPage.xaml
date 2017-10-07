@@ -10,7 +10,7 @@
         <ScrollView>
             <StackLayout>
                 <Label Text="ZIP" />
-                <Entry Text="{Binding Zip}" />
+                <Entry Text="{Binding HIF.Zip}" />
                 <Label Text="Number of Adults" />
                 <StackLayout Orientation="Horizontal">
                     <Label Text="{Binding NumberOfAdults}" />
@@ -36,7 +36,7 @@
                     <Label Text="Phone" />
                     <Entry Text="{Binding HIF.ContactPhone}" />
                 </StackLayout>
-                <Button Text="Start Application" Clicked="Handle_StartApplication" />
+                <Button Text="Done" Clicked="Handle_StartApplication" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
