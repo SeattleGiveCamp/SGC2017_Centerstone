@@ -17,17 +17,20 @@
         </StackLayout>
         <ScrollView Grid.Row="1">
             <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
-                <Label Text="Gender" FontSize="Medium" />
-                <!--<Entry Text="{Binding Item.Text}" FontSize="Small" />-->
-                <Label Text="Relation To Primary" FontSize="Medium" />
-                <!--<Editor Text="{Binding Item.Description}" FontSize="Small" Margin="0" />-->
-                <Label Text="Race" FontSize="Medium" />
-                <Label Text="Ethnicity" FontSize="Medium" />
-                <Label Text="Education (24 Years or Order)" FontSize="Medium" />
-                <Label Text="Included In Calucation" FontSize="Medium" />
-                <Label Text="Disabled" FontSize="Medium" />
-                <Label Text="Military Veteran" FontSize="Medium" />
-                <Label Text="Health Insurance" FontSize="Medium" />
+                <Label Text="Gender"/>
+                <Picker x:Name="GenderPicker"/>
+                <Label Text="Relation To Primary"/>
+                <Picker x:Name="RelationPicker"/>
+                <Label Text="Race"/>
+                <Picker x:Name="RacePicker"/>
+                <Label Text="Ethnicity"/>
+                <Picker x:Name="EthnicityPicker"/>
+                <Label Text="Education (24 Years or Order)" />
+                <Picker x:Name="EducationPicker"/>
+                <Label Text="Included In Calucation"/>
+                <Label Text="Disabled"/>
+                <Label Text="Military Veteran"/>
+                <Label Text="Health Insurance"/>
             </StackLayout>
         </ScrollView>
     </Grid>
