@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace Centerstone.Models
 {
-	public class Person
+	public class Person : BaseModel
 	{
         public string FullName { get; set; }
 		public bool IsDesignatedAdult { get; set; }
@@ -18,6 +18,7 @@ namespace Centerstone.Models
 
 		public Person ()
 		{
+            CensusData.PropertyChanged += (s, e) => OnPropertyChanged("CensusData");
 		}
 
 		public static Person CreateChild ()

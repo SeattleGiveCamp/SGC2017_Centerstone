@@ -1,18 +1,18 @@
 ﻿using System;
 namespace Centerstone.Models
 {
-    public class CensusData: BaseModel
+    public class CensusData : BaseModel
     {
-        public GenderType gender 
-        public GenderType Gender {
+        string gender;
+        public string Gender
+        {
             get => gender;
-            set => SetPr
-
+            set => SetProperty(ref gender, value);
         }
-        public RaceType Race { get; set; }
-        public EthnicityType Ethnicity { get; set; }
-        public EducationType Education { get; set; }
-        public RelationType Relation { get; set; }
+        public string Race { get; set; } 
+        public string Ethnicity { get; set; }
+        public string Education { get; set; }
+        public string Relation { get; set; }
         public bool SecondaryApplicant { get; set; }
         public bool Disabled { get; set; }
         public bool IsMilitaryVeteran { get; set; }

@@ -6,12 +6,12 @@
     <ScrollView>
         <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
             <Label Text="Name"/>
-            <Entry Text="{Binding Person.FullName}"/>
+            <Entry Text="{Binding FullName}"/>
             <Label Text="Birth of Date"/>
             <DatePicker VerticalOptions="CenterAndExpand">
             </DatePicker>
             <Button Text="Add Income Source" Clicked="Handle_AddIncomeTypeClicked" />
-            <ListView x:Name="IncomeSource" ItemsSource="{Binding Person.IncomeSources}" 
+            <ListView x:Name="IncomeSource" ItemsSource="{Binding IncomeSources}" 
                       VerticalOptions="FillAndExpand" HasUnevenRows="true" 
                       IsPullToRefreshEnabled="true" 
                       IsRefreshing="{Binding IsBusy, Mode=OneWay}"
@@ -29,29 +29,32 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Label Text="{Binding Person.CensusData.Gender}"/>
+            <Label Text="{Binding CensusData.Gender}"/>
 
             <Label Text="Gender"/>
-            <Picker x:Name="GenderPicker" SelectedItem="{Binding Person.CensusData.Gender}"/>
+            <Picker x:Name="GenderPicker" SelectedItem="{Binding CensusData.Gender}"/>
+            <!--<Picker x:Name="GenderPicker" ItemsSource="{Binding SelectGender}" 
+                    SelectedIndex="{Binding CensusData.Gender}" />-->
+
             <Label Text="Relation To Primary"/>
-            <Picker x:Name="RelationPicker" SelectedItem="{Binding Person.CensusData.Relation}"/>
+            <Picker x:Name="RelationPicker" SelectedItem="{Binding CensusData.Relation}"/>
             <Label Text="Race"/>
-            <Picker x:Name="RacePicker" SelectedItem="{Binding Person.CensusData.Race}"/>
+            <Picker x:Name="RacePicker" SelectedItem="{Binding CensusData.Race}"/>
             <Label Text="Ethnicity"/>
-            <Picker x:Name="EthnicityPicker" SelectedItem="{Binding Person.CensusData.Ethnicity}"/>
+            <Picker x:Name="EthnicityPicker" SelectedItem="{Binding CensusData.Ethnicity}"/>
             <Label Text="Education (24 Years or Order)" />
-            <Picker x:Name="EducationPicker" SelectedItem="{Binding Person.CensusData.Education}"/>
+            <Picker x:Name="EducationPicker" SelectedItem="{Binding CensusData.Education}"/>
             <Grid>
                 <Label Text="Disabled"/>
-                <Switch x:Name="DisabledSwitch" IsToggled="{Binding Person.CensusData.Disabled}"/>
+                <Switch x:Name="DisabledSwitch" IsToggled="{Binding CensusData.Disabled}"/>
             </Grid>
             <Grid>
                 <Label Text="Military Veteran"/>
-                <Switch x:Name="MilitarySwitch" IsToggled="{Binding Person.CensusData.IsMilitaryVeteran}"/>
+                <Switch x:Name="MilitarySwitch" IsToggled="{Binding CensusData.IsMilitaryVeteran}"/>
             </Grid>
             <Grid>
                 <Label Text="Health Insurance"/>
-                <Switch x:Name="HealthInsuranceSwitch" IsToggled="{Binding Person.CensusData.HealthInsurance}"/>
+                <Switch x:Name="HealthInsuranceSwitch" IsToggled="{Binding CensusData.HealthInsurance}"/>
             </Grid>
         </StackLayout>
     </ScrollView>
