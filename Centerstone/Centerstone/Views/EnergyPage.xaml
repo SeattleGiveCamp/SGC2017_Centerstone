@@ -34,7 +34,6 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <us:ImageButton />
                 <Switch x:Name="tempS"/>
 
                 <c:ImageButton />
