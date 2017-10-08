@@ -33,5 +33,15 @@ namespace Centerstone
 
             return items;
         }
+
+		public Task<string> GetIncomeRulesString()
+		{
+			return client.GetStringAsync($"/api/hif/incomerules");
+		}
+
+		public List<IncomeRules> GetIncomeRulesFromString(string json)
+		{
+			return JsonConvert.DeserializeObject<List<IncomeRules>>(json);
+		}
     }
 }

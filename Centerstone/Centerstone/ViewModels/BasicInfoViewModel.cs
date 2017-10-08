@@ -7,39 +7,101 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.IO;
+using System.Reflection;
 
 namespace Centerstone.ViewModels
 {
 	public class BasicInfoViewModel : ViewModelBase
 	{
 		public HIF HIF { get; set; }
-        public ObservableCollection<IncomeRules> rules { get; set; }
+		public static List<IncomeRules> IncomeRules { get; private set; }
         public int NumberOfAdults => HIF.Adults.Count ();
 
 		public int NumberOfChildren => HIF.Children.Count ();
         public int NumberOfPeople => HIF.People.Count();
-
-        public decimal MinimumIncome { get; set; }
-
-		public string MinimumIncomeText => MinimumIncome.ToString ();
 
 		public ICommand IncreaseAdults { get; }
 		public ICommand DecreaseAdults { get; }
 		public ICommand IncreaseChildren { get; }
 		public ICommand DecreaseChildren { get; }
 
+		static BasicInfoViewModel()
+		{
+			string j = null;
+			var localPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "incomerule.json");
+			if (File.Exists(localPath) && new FileInfo(localPath).Length > 200)
+			{
+				try
+				{
+					j = File.ReadAllText(localPath);
+				}
+				catch (Exception ex)
+				{
+					Console.WriteLine(ex);
+				}
+			}
+			if (string.IsNullOrEmpty(j))
+			{
+				var assembly = Assembly.GetExecutingAssembly();
+				var names = assembly.GetManifestResourceNames();
+				var resName = "Centerstone.iOS.Data.incomerule.json";
+				if (!names.Contains(resName))
+				{
+					resName = "Centerstone.Droid.Data.incomerule.json";
+				}
+
+				using (Stream stream = assembly.GetManifestResourceStream(resName))
+				{
+					using (StreamReader r = new StreamReader(stream))
+					{
+						j = r.ReadToEnd();
+					}
+				}
+			}
+
+			var dataStore = new HIFCloudDataStore();
+
+			IncomeRules = new List<Models.IncomeRules>();
+			try
+			{
+				IncomeRules = dataStore.GetIncomeRulesFromString(j);
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex);
+			}
+
+			//
+			// Refresh from the web
+			//
+			Task.Run(async () =>
+			{
+				try
+				{
+					var j2 = await dataStore.GetIncomeRulesString();
+					File.WriteAllText(localPath, j2);
+					IncomeRules = dataStore.GetIncomeRulesFromString(j2);
+				}
+				catch (Exception ex)
+				{
+					Console.WriteLine(ex);
+				}
+			});
+		}
+
 		public BasicInfoViewModel (HIF hif)
 		{
 			HIF = hif;
-            rules = new ObservableCollection<IncomeRules>();
-            Task.Run(() => ExecuteLoadItemsCommand()).Wait();
+
+			CalculateMaxIncome(hif.People.Count);
 
             HIF.PropertyChanged += (sender, e) => {
 				OnPropertyChanged ("HIF");
 				OnPropertyChanged ("NumberOfAdults");
 				OnPropertyChanged ("NumberOfChildren");
 				OnPropertyChanged ("MinimumIncome");
-                CalculateMaxIncomeAsync(hif.People.Count);
+                CalculateMaxIncome(hif.People.Count);
             };
 
 			IncreaseAdults = new Command (HIF.IncreaseAdults);
@@ -48,51 +110,15 @@ namespace Centerstone.ViewModels
 			DecreaseChildren = new Command (HIF.DecreaseChildren);
 		}
 
-        public void CalculateMaxIncomeAsync(int maxHousedSize)
+		public void CalculateMaxIncome(int maxHousedSize)
         {
             if (maxHousedSize > 0) {
-                var foundIncomeRule = rules.FirstOrDefault(x => x.HouseholdSize == maxHousedSize);
+				var foundIncomeRule = IncomeRules.FirstOrDefault(x => x.HouseholdSize == maxHousedSize);
                 if (foundIncomeRule != null)
                 {
-                    MinimumIncome = foundIncomeRule.MaxIncome;
+					HIF.MaximumIncome = foundIncomeRule.MaxIncome;
                 }
             }            
-        }
-
-        public async Task GetAllIncomeRules()
-        {        
-            var items = await HIFDataStore.GetItemsAsync(true);
-            foreach (var item in items)
-            {
-                rules.Add(item);
-            }
-        }
-
-
-        async Task ExecuteLoadItemsCommand()
-        {
-            if (IsBusy)
-                return;
-
-            IsBusy = true;
-
-            try
-            {
-                rules.Clear();
-                var items = await HIFDataStore.GetItemsAsync(true);
-                foreach (var item in items)
-                {
-                    rules.Add(item);
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-            }
-            finally
-            {
-                IsBusy = false;
-            }
         }
     }
 }
