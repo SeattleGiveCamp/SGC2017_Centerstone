@@ -45,7 +45,7 @@ namespace Centerstone.Views
         {
             Navigation.PushAsync(new TestIncomeRulesPage());
         }
-    }
+
 		protected override void OnAppearing ()
 		{
 			base.OnAppearing ();
