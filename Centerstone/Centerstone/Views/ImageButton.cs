@@ -8,6 +8,7 @@ namespace Centerstone.Views
 	{
 		public ImageButton ()
 		{
+			Text = "Take a Picture!";
 		}
 	}
 }

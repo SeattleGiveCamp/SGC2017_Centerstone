@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Centerstone.Views.EnergyPage"
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Centerstone.Views.EnergyPage"
+    xmlns:us="clr-namespace:Centerstone.Views"
     Title="Energy Info">
     <ContentPage.ToolbarItems>
     </ContentPage.ToolbarItems>
@@ -11,6 +15,11 @@
                 
                 <Label Text="Household Status" />
                 <Picker x:Name="HouseholdStatusPicker" SelectedItem="{Binding HouseholdStatus}"/>
+
+                <Label Text="Heat Sources" />
+                <Picker x:Name="HeatSourcesPicker" SelectedItem="{Binding HeatSources}"/>
+
+                <us:ImageButton />
                 
                 <Button Text="Done" Clicked="Handle_Done" />
             </StackLayout>
