@@ -1,38 +1,48 @@
 ﻿using System;
 using System.Collections.Generic;
-using Centerstone.MobileAppService.Models;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Centerstone.MobileAppService.Data
 {
     public class ApplicationRepository : IApplicationRepository
     {
-        public ApplicationRepository()
+        private HIFContext context;
+        private DbSet<HifApplication> hifSet;
+
+        public ApplicationRepository(HIFContext context)
         {
+            this.context = context;
+            hifSet = context.Set<HifApplication>();
         }
 
-        public void Add(Application app)
+        public void Add(HifApplication app)
         {
-            throw new NotImplementedException();
+            hifSet.Add(app);
+            context.SaveChanges();
         }
 
-        public Application Get(int id)
+        public HifApplication Get(int id)
         {
-            throw new NotImplementedException();
+            return hifSet.SingleOrDefault(a => a.ApplicationId == id);
         }
 
-        public IEnumerable<Application> GetAll()
+        public IEnumerable<HifApplication> GetAll()
         {
-            throw new NotImplementedException();
+            return hifSet.AsEnumerable();
         }
 
-        public Application Remove(int id)
+        public void Remove(int id)
         {
-            throw new NotImplementedException();
+            HifApplication app = Get(id);
+            hifSet.Remove(app);
+            context.SaveChanges();
         }
 
-        public void Update(Application app)
+        public void Update(HifApplication app)
         {
-            throw new NotImplementedException();
+            context.Entry(app).State = EntityState.Modified;
+            context.SaveChanges();
         }
     }
 }

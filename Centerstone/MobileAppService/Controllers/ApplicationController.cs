@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Centerstone.MobileAppService.Data;
-using Centerstone.MobileAppService.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Centerstone.MobileAppService.Controllers
@@ -19,25 +18,25 @@ namespace Centerstone.MobileAppService.Controllers
         }
 
 		[HttpGet]
-        public IEnumerable<Application> Get()
+        public IEnumerable<HifApplication> Get()
         {
             return _applicationRepository.GetAll();
         }
 
         [HttpGet("{id}")]
-        public Application Get(int id)
+        public HifApplication Get(int id)
         {
             return _applicationRepository.Get(id);
         }
 
         [HttpPost]
-        public void Post([FromBody]Application app)
+        public void Post([FromBody]HifApplication app)
         {
             _applicationRepository.Add(app);
         }
 
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]Application app)
+        public void Put(int id, [FromBody]HifApplication app)
         {
             _applicationRepository.Update(app);
         }

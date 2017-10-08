@@ -10,9 +10,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Centerstone.Droid", "Droid\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Centerstone.MobileAppService", "MobileAppService\Centerstone.MobileAppService.csproj", "{DE3A354B-3D22-44B8-8CF0-227E775A898C}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DbScripts", "DbScripts\DbScripts.sqlproj", "{BD2EA76D-014B-4887-8236-529CF3620A37}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Centerstone.Models", "Centerstone.Models\Centerstone.Models.csproj", "{ECDBCDA8-C918-4E2D-B675-641517C42A8D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Centerstone.Models", "Centerstone.Models\Centerstone.Models.csproj", "{ECDBCDA8-C918-4E2D-B675-641517C42A8D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Centerstone.Web", "Centerstone.Web\Centerstone.Web.csproj", "{78C488D7-AA56-41EF-AB07-CE11F8BFA011}"
 EndProject
@@ -107,42 +105,6 @@ Global
 		{DE3A354B-3D22-44B8-8CF0-227E775A898C}.Release|x64.Build.0 = Release|Any CPU
 		{DE3A354B-3D22-44B8-8CF0-227E775A898C}.Release|x86.ActiveCfg = Release|Any CPU
 		{DE3A354B-3D22-44B8-8CF0-227E775A898C}.Release|x86.Build.0 = Release|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Debug|ARM.Build.0 = Debug|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Debug|ARM.Deploy.0 = Debug|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Debug|iPhone.Build.0 = Debug|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Debug|iPhone.Deploy.0 = Debug|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Debug|iPhoneSimulator.Deploy.0 = Debug|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Debug|x64.Build.0 = Debug|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Debug|x64.Deploy.0 = Debug|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Debug|x86.Build.0 = Debug|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Debug|x86.Deploy.0 = Debug|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Release|ARM.ActiveCfg = Release|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Release|ARM.Build.0 = Release|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Release|ARM.Deploy.0 = Release|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Release|iPhone.Build.0 = Release|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Release|iPhone.Deploy.0 = Release|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Release|iPhoneSimulator.Deploy.0 = Release|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Release|x64.ActiveCfg = Release|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Release|x64.Build.0 = Release|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Release|x64.Deploy.0 = Release|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Release|x86.ActiveCfg = Release|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Release|x86.Build.0 = Release|Any CPU
-		{BD2EA76D-014B-4887-8236-529CF3620A37}.Release|x86.Deploy.0 = Release|Any CPU
 		{ECDBCDA8-C918-4E2D-B675-641517C42A8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ECDBCDA8-C918-4E2D-B675-641517C42A8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECDBCDA8-C918-4E2D-B675-641517C42A8D}.Debug|ARM.ActiveCfg = Debug|Any CPU
