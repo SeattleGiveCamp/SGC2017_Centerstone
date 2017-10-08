@@ -39,7 +39,7 @@ namespace Centerstone.Views
 
 		void Handle_TipsClicked (object sender, System.EventArgs e)
 		{
-			Navigation.PushAsync (new TipsPage ());
+			Navigation.PushAsync (new TipsPage (hif));
 		}
 
         //void Handle_IncomesClicked(object sender, System.EventArgs e)

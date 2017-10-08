@@ -33,7 +33,7 @@
                 <Label Text="• Raise the heat temperature in your home gradually, since sudden increases will substantially increase your energy usage"></Label>
                 <sig:SignaturePadView
 		            x:Name="signature"
-                      MinimumHeightRequest="20"
+                    MinimumHeightRequest="40"
 		            StrokeWidth="3"
 		            StrokeColor="Black">
                 </sig:SignaturePadView>

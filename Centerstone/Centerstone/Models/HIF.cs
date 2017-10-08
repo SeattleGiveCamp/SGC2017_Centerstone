@@ -93,11 +93,11 @@ namespace Centerstone.Models
 			}
 		}
 
-		HifImage tipsSignatuure;
-		public HifImage TipsSignatuure
+		HifImage tipsSignature;
+		public HifImage TipsSignature
 		{
-			get => tipsSignatuure;
-			set => SetProperty(ref  tipsSignatuure, value);
+			get => tipsSignature;
+			set => SetProperty(ref  tipsSignature, value);
 		}
 
 		public HIF ()
