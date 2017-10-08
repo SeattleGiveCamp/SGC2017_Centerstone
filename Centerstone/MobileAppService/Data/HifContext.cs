@@ -4,11 +4,12 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Centerstone.MobileAppService.Data
 {
-    public partial class HIFContext : DbContext
+    public partial class HifContext : DbContext
     {
         public virtual DbSet<HifApplication> HifApplication { get; set; }
         public virtual DbSet<HouseholdMembers> HouseholdMembers { get; set; }
         public virtual DbSet<Images> Images { get; set; }
+        public virtual DbSet<IncomeRules> IncomeRules { get; set; }
         public virtual DbSet<IncomeTypes> IncomeTypes { get; set; }
         public virtual DbSet<StoredImages> StoredImages { get; set; }
 
@@ -28,7 +29,7 @@ namespace Centerstone.MobileAppService.Data
 
                 entity.Property(e => e.ApplicationId).HasColumnName("ApplicationID");
 
-                entity.Property(e => e.BakupHeatCost).HasColumnType("binary(1)");
+                entity.Property(e => e.BackupHeatCost).HasColumnType("binary(1)");
 
                 entity.Property(e => e.HeatSource)
                     .IsRequired()
@@ -62,9 +63,11 @@ namespace Centerstone.MobileAppService.Data
 
                 entity.Property(e => e.PhoneNumber).HasMaxLength(20);
 
-                entity.Property(e => e.TargetGrouop2).HasColumnType("nchar(1)");
-
                 entity.Property(e => e.TargetGroup1).HasColumnType("nchar(1)");
+
+                entity.Property(e => e.TargetGroup2).HasColumnType("nchar(1)");
+
+                entity.Property(e => e.UniqueAppId).IsRequired();
 
                 entity.Property(e => e.UsedSurrogate).HasColumnType("binary(1)");
             });
@@ -123,6 +126,8 @@ namespace Centerstone.MobileAppService.Data
 
                 entity.Property(e => e.ImageId).HasColumnName("ImageID");
 
+                entity.Property(e => e.ApplicantGuid).HasColumnName("ApplicantGUID");
+
                 entity.Property(e => e.ApplicationId).HasColumnName("ApplicationID");
 
                 entity.Property(e => e.FileName)
@@ -137,11 +142,24 @@ namespace Centerstone.MobileAppService.Data
                     .IsRequired()
                     .HasMaxLength(50);
 
+                entity.Property(e => e.UniqueImageId).IsRequired();
+
                 entity.HasOne(d => d.Application)
                     .WithMany(p => p.Images)
                     .HasForeignKey(d => d.ApplicationId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Hif_Images_AppID");
+            });
+
+            modelBuilder.Entity<IncomeRules>(entity =>
+            {
+                entity.HasKey(e => e.RowId);
+
+                entity.Property(e => e.RowId)
+                    .HasColumnName("RowID")
+                    .ValueGeneratedNever();
+
+                entity.Property(e => e.HouseholdAdjust).HasColumnType("decimal(4, 2)");
             });
 
             modelBuilder.Entity<IncomeTypes>(entity =>

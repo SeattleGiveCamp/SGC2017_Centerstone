@@ -11,6 +11,8 @@ namespace Centerstone.MobileAppService.Data
         }
 
         public long ImageId { get; set; }
+        public string UniqueImageId { get; set; }
+        public string ApplicantGuid { get; set; }
         public long ApplicationId { get; set; }
         public string FileName { get; set; }
         public string ImageName { get; set; }

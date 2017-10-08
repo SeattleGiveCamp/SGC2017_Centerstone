@@ -32,7 +32,7 @@ namespace Centerstone.MobileAppService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddSingleton<HIFContext, HIFContext>();
+            services.AddSingleton<HifContext, HifContext>();
             services.AddSingleton<IHifRepository, HifRepository>();
 
             services.AddSwaggerGen(c =>

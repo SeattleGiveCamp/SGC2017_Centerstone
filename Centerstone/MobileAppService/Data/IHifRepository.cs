@@ -12,5 +12,6 @@ namespace Centerstone.MobileAppService.Data
         void Remove(int id);
         HifApplication Get(int id);
 		IEnumerable<HifApplication> GetAll();
+        IEnumerable<IncomeRules> GetIncomeRules();
 	}
 }

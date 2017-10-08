@@ -46,5 +46,11 @@ namespace Centerstone.MobileAppService.Controllers
         {
             _hifRepository.Remove(id);
         }
+
+        [HttpGet("incomerules")]
+        public IEnumerable<IncomeRules> GetIncomeRules()
+        {
+            return _hifRepository.GetIncomeRules();
+        }
     }
 }

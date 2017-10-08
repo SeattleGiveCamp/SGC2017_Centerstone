@@ -7,13 +7,15 @@ namespace Centerstone.MobileAppService.Data
 {
     public class HifRepository : IHifRepository
     {
-        private HIFContext context;
+        private HifContext context;
         private DbSet<HifApplication> hifSet;
+        private DbSet<IncomeRules> incomeRuleSet;
 
-        public HifRepository(HIFContext context)
+        public HifRepository(HifContext context)
         {
             this.context = context;
             hifSet = context.Set<HifApplication>();
+            incomeRuleSet = context.Set<IncomeRules>();
         }
 
         public void Add(HifApplication app)
@@ -43,6 +45,11 @@ namespace Centerstone.MobileAppService.Data
         {
             context.Entry(app).State = EntityState.Modified;
             context.SaveChanges();
+        }
+
+        public IEnumerable<IncomeRules> GetIncomeRules()
+        {
+            return incomeRuleSet.AsEnumerable();
         }
     }
 }
