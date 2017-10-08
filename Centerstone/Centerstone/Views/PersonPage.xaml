@@ -7,7 +7,7 @@
     Title="{Binding Title}">
  
     <ScrollView>
-        <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
+        <StackLayout Orientation="Vertical">
             <Label Text="Name"/>
             <Entry Text="{Binding Person.FullName}" />
             

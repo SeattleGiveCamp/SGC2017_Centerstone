@@ -3,13 +3,12 @@
     Title="Centerstone HIF App">
 	<ContentPage.Content>
         <StackLayout Orientation="Vertical">
-            <Label Text="You're almost ready to save money!" HorizontalOptions="Center" />
-            <Button Text="Basic" Clicked="Handle_BasicInfoClicked" />
-            <Button Text="Household" Clicked="Handle_EnergyClicked" />
-            <Button Text="People" Clicked="Handle_PeopleClicked" />
-            <Button Text="Images" Clicked="Handle_ImagesClicked" />
-            <Button Text="Tips" Clicked="Handle_TipsClicked" />
-            <!--<Button Text="No Income Form" Clicked="Handle_IncomesClicked" />-->
+            <!--<Label Text="You're almost ready to save money!" HorizontalOptions="Center" />-->
+            <Button Text="Basic" Clicked="Handle_BasicInfoClicked" Style="{StaticResource buttonStyle}" />
+            <Button Text="Household" Clicked="Handle_EnergyClicked" Style="{StaticResource buttonStyle}"/>
+            <Button Text="People" Clicked="Handle_PeopleClicked" Style="{StaticResource buttonStyle}" />
+            <Button Text="Images" Clicked="Handle_ImagesClicked" Style="{StaticResource buttonStyle}" />
+            <Button Text="Tips" Clicked="Handle_TipsClicked" Style="{StaticResource buttonStyle}" />
             <Button Text="Start Over" Clicked="Handle_StartOver" />
         </StackLayout>
 	</ContentPage.Content>

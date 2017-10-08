@@ -1,9 +1,46 @@
 {
   "images": [
     {
+      "scale": "2x",
+      "size": "20x20",
+      "idiom": "iphone",
+      "filename": "Icon-Small-40.png"
+    },
+    {
+      "scale": "3x",
+      "size": "20x20",
+      "idiom": "iphone",
+      "filename": "Icon-Notification@3x.png"
+    },
+    {
+      "scale": "1x",
+      "size": "20x20",
+      "idiom": "ipad",
+      "filename": "Icon-Notification.png"
+    },
+    {
+      "scale": "2x",
+      "size": "20x20",
+      "idiom": "ipad",
+      "filename": "Icon-Small-40.png"
+    },
+    {
+      "scale": "2x",
+      "size": "83.5x83.5",
+      "idiom": "ipad",
+      "filename": "Icon-83.5@2x.png"
+    },
+    {
       "scale": "1x",
       "size": "1024x1024",
-      "idiom": "watch-marketing"
+      "idiom": "ios-marketing",
+      "filename": "centerstone_logo_1024.png"
+    },
+    {
+      "scale": "1x",
+      "size": "1024x1024",
+      "idiom": "watch-marketing",
+      "filename": "centerstone_logo_1024.png"
     },
     {
       "scale": "2x",
@@ -56,12 +93,14 @@
     {
       "scale": "1x",
       "size": "40x40",
-      "idiom": "ipad"
+      "idiom": "ipad",
+      "filename": "Icon-Small-40.png"
     },
     {
       "scale": "2x",
       "size": "40x40",
-      "idiom": "ipad"
+      "idiom": "ipad",
+      "filename": "Icon-Small-40@2x.png"
     },
     {
       "scale": "1x",
@@ -71,7 +110,8 @@
     {
       "scale": "2x",
       "size": "76x76",
-      "idiom": "ipad"
+      "idiom": "ipad",
+      "filename": "Icon-76@2x.png"
     }
   ],
   "properties": {},

@@ -9,17 +9,19 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <Label Text="ZIP" />
+                <Label Text="ZIP"/>
                 <Entry Text="{Binding HIF.Zip}" />
                 <Label Text="Number of Adults" />
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="{Binding NumberOfAdults}" />
+                <StackLayout Orientation="Horizontal" BackgroundColor="#7e6b57">
+                    <BoxView VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Label Text="{Binding NumberOfAdults}" Style="{StaticResource ChildAndAdultLabel}"/>
                     <Button Text="+" Command="{Binding IncreaseAdults}" />
                     <Button Text="-" Command="{Binding DecreaseAdults}" />
                 </StackLayout>
                 <Label Text="Number of Children" />
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="{Binding NumberOfChildren}" />
+                <StackLayout Orientation="Horizontal" BackgroundColor="#7e6b57">
+                    <BoxView VerticalOptions="Center" HorizontalOptions="Center" />
+                    <Label Text="{Binding NumberOfChildren}"  Style="{StaticResource ChildAndAdultLabel}" />
                     <Button Text="+" Command="{Binding IncreaseChildren}" />
                     <Button Text="-" Command="{Binding DecreaseChildren}" />
                 </StackLayout>
@@ -27,14 +29,17 @@
                     <Label Text="The maximum income to apply is: " />
                     <Label Text="{Binding MinimumIncome}" FontAttributes="Bold" />
                 </StackLayout>
-                <Label Text="Contact Method (either email or phone)" />
                 <StackLayout Orientation="Vertical">
+                    <Label Text="Contact Method" Style="{StaticResource TitleLabel}"/>
+                    <Label Text="(Either email or phone)"/>
+                    <StackLayout Orientation="Vertical">
                     <Label Text="Email" />
                     <Entry Text="{Binding HIF.ContactEmail}" />
                 </StackLayout>
                 <StackLayout Orientation="Vertical">
                     <Label Text="Phone" />
                     <Entry Text="{Binding HIF.ContactPhone}" />
+                </StackLayout>
                 </StackLayout>
                 <Button Text="Done" Clicked="Handle_StartApplication" />
             </StackLayout>
