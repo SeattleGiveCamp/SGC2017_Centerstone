@@ -8,43 +8,43 @@ using Microsoft.AspNetCore.Mvc;
 namespace Centerstone.MobileAppService.Controllers
 {
     [Route("api/[controller]")]
-    public class ApplicationController : Controller
+    public class HifController : Controller
     {
-		private readonly IApplicationRepository _applicationRepository;
+		private readonly IHifRepository _hifRepository;
 
-        public ApplicationController(IApplicationRepository applicationRepository)
+        public HifController(IHifRepository hifRepository)
         {
-            _applicationRepository = applicationRepository;
+            _hifRepository = hifRepository;
         }
 
 		[HttpGet]
         public IEnumerable<HifApplication> Get()
         {
-            return _applicationRepository.GetAll();
+            return _hifRepository.GetAll();
         }
 
         [HttpGet("{id}")]
         public HifApplication Get(int id)
         {
-            return _applicationRepository.Get(id);
+            return _hifRepository.Get(id);
         }
 
         [HttpPost]
         public void Post([FromBody]HifApplication app)
         {
-            _applicationRepository.Add(app);
+            _hifRepository.Add(app);
         }
 
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]HifApplication app)
         {
-            _applicationRepository.Update(app);
+            _hifRepository.Update(app);
         }
 
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            _applicationRepository.Remove(id);
+            _hifRepository.Remove(id);
         }
     }
 }

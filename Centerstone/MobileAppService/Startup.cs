@@ -32,7 +32,7 @@ namespace Centerstone.MobileAppService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddSingleton<IApplicationRepository, ApplicationRepository>();
+            services.AddSingleton<IHifRepository, HifRepository>();
 
             services.AddSwaggerGen(c =>
             {
@@ -53,7 +53,8 @@ namespace Centerstone.MobileAppService
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
-            
+
+            app.UseDeveloperExceptionPage();
         }
     }
 }

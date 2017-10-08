@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Centerstone.MobileAppService.Data
 {
-	public interface IApplicationRepository
+    public interface IHifRepository
 	{
 		void Add(HifApplication app);
 		void Update(HifApplication app);
