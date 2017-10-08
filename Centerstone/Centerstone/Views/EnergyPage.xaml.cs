@@ -28,7 +28,7 @@ namespace Centerstone.Views
 
         void Handle_Done (object sender, System.EventArgs e)
 		{
-			Navigation.PopToRootAsync (false);
+			Navigation.PopToRootAsync (true);
 		}
 
         //void Handle_AddIncomeTypeClicked(object sender, System.EventArgs e)

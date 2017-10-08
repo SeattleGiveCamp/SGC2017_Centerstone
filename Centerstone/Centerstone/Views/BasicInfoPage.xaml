@@ -25,7 +25,7 @@
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <Label Text="The maximum income to apply is: " />
-                    <Label Text="{Binding MinimumIncome}" FontAttributes="Bold" />
+                    <Label Text="{Binding HIF.MaximumIncomeText}" FontAttributes="Bold" />
                 </StackLayout>
                 <Label Text="Contact Method (either email or phone)" />
                 <StackLayout Orientation="Vertical">

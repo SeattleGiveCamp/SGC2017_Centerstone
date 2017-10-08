@@ -24,6 +24,19 @@ namespace Centerstone.Models
 
         public string Zip { get; set; }
 
+		decimal maximumIncome = 0.0M;
+		public decimal MaximumIncome
+		{
+			get => maximumIncome;
+			set
+			{
+				if (SetProperty(ref maximumIncome, value))
+					OnPropertyChanged("MaximumIncomeText");
+			}
+		}
+
+		public string MaximumIncomeText => MaximumIncome.ToString("C");
+
         public Temp[] HeatSourcesTypes => Helpers.HeatSources.All.Select(x => new Temp(x)).ToArray();
         public ObservableCollection<IncomeSource> HeatSourcess { get; set; } =
         new ObservableCollection<IncomeSource>();
@@ -80,7 +93,12 @@ namespace Centerstone.Models
 			}
 		}
 
-		public HifImage TipsSignatuure { get; set; }
+		HifImage tipsSignatuure;
+		public HifImage TipsSignatuure
+		{
+			get => tipsSignatuure;
+			set => SetProperty(ref  tipsSignatuure, value);
+		}
 
 		public HIF ()
 		{

@@ -38,7 +38,7 @@ namespace Centerstone.Views
                         //Person.NoIncomeSingurate
                     }
                 }
-                await Navigation.PopToRootAsync(false);
+                await Navigation.PopToRootAsync(true);
             }
         }
 

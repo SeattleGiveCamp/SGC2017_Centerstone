@@ -31,10 +31,10 @@ namespace Centerstone.Views
 						//TODO: these bytes need to be stored in some model.
 					}
 				}
-				await Navigation.PopToRootAsync (false);
+				await Navigation.PopToRootAsync (true);
 			}
 			else {
-				DisplayAlert ("Please sign", "A signature is needed as proof that you read these tips.", "OK");
+				await DisplayAlert ("Please sign", "A signature is needed as proof that you read these tips.", "OK");
 			}
         }
         
