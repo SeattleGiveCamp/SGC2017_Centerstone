@@ -12,9 +12,7 @@ namespace Centerstone.MobileAppService.Data
 
         public long PersonId { get; set; }
         public long ApplicationId { get; set; }
-        public string LastName { get; set; }
-        public string FirstName { get; set; }
-        public string MiddleInitial { get; set; }
+        public string FullName { get; set; }
         public string Ssn { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string RelationToPrimary { get; set; }
@@ -22,11 +20,11 @@ namespace Centerstone.MobileAppService.Data
         public string Ethnicity { get; set; }
         public string Race { get; set; }
         public string Education { get; set; }
-        public string Disability { get; set; }
-        public string MilitaryVeteran { get; set; }
-        public string HealthInsurance { get; set; }
-        public string IsPrimary { get; set; }
-        public string PaidAdult { get; set; }
+        public bool Disability { get; set; }
+        public bool MilitaryVeteran { get; set; }
+        public bool HealthInsurance { get; set; }
+        public bool IsPrimary { get; set; }
+        public bool PaidAdult { get; set; }
 
         public HifApplication Application { get; set; }
         public ICollection<IncomeTypes> IncomeTypes { get; set; }

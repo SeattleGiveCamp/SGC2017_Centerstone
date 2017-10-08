@@ -22,7 +22,7 @@ namespace Centerstone.Views
 
 		void Handle_EnergyClicked (object sender, System.EventArgs e)
 		{
-			Navigation.PushAsync (new EnergyPage ());
+			Navigation.PushAsync (new EnergyPage (hif));
 		}
 
 		void Handle_PeopleClicked (object sender, System.EventArgs e)
@@ -39,5 +39,10 @@ namespace Centerstone.Views
 		{
 			Navigation.PushAsync (new TipsPage ());
 		}
-	}
+
+        void Handle_IncomesClicked(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new TestIncomeRulesPage());
+        }
+    }
 }

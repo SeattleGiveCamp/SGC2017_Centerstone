@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Centerstone.MobileAppService.Data;
+using Centerstone.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Centerstone.MobileAppService.Controllers
@@ -20,31 +23,56 @@ namespace Centerstone.MobileAppService.Controllers
 		[HttpGet]
         public IEnumerable<HifApplication> Get()
         {
-            return _hifRepository.GetAll();
+            return _hifRepository.GetAllApplications();
         }
 
         [HttpGet("{id}")]
         public HifApplication Get(int id)
         {
-            return _hifRepository.Get(id);
+            return _hifRepository.GetApplication(id);
         }
 
         [HttpPost]
-        public void Post([FromBody]HifApplication app)
+        public void Post([FromBody]HIF hif)
         {
-            _hifRepository.Add(app);
+            HifApplication entity = new HifApplication()
+            {
+                UniqueAppId = hif.UniqueApplicationId.ToString(),
+                PhoneNumber = hif.ContactPhone,
+                Email = hif.ContactEmail,
+                HouseholdIncome = hif.MonthlyHouseholdIncome,
+                HousingStatus = hif.HouseholdStatus,
+                HousingType = hif.HouseholdType,
+                HeatSource = hif.HeatSources.Aggregate((current, next) => current + ", " + next)
+            };
+
+            foreach (Person person in hif.People)
+            {
+                _hifRepository.AddPerson(new HouseholdMembers()
+                {
+                    IsPrimary = person.IsPrimary,
+                    FullName = person.FullName,
+                    DateOfBirth = person.DateOfBirth,
+                    Ssn = person.SocialSecurityNumber
+                });
+            }
+
+            using (StreamReader reader = new StreamReader(Request.Body, Encoding.UTF8))
+                entity.HifJsonData = reader.ReadToEnd();
+
+			_hifRepository.AddApplication(entity);
         }
 
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]HifApplication app)
+        [HttpPost("postimage")]
+        public void PostImage(int id, string type, [FromBody]byte[] image)
         {
-            _hifRepository.Update(app);
+            throw new NotImplementedException();
         }
 
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpGet("incomerules")]
+        public IEnumerable<IncomeRules> GetIncomeRules()
         {
-            _hifRepository.Remove(id);
+            return _hifRepository.GetIncomeRules();
         }
     }
 }

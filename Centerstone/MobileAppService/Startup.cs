@@ -32,6 +32,7 @@ namespace Centerstone.MobileAppService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddSingleton<HifContext, HifContext>();
             services.AddSingleton<IHifRepository, HifRepository>();
 
             services.AddSwaggerGen(c =>
@@ -43,7 +44,9 @@ namespace Centerstone.MobileAppService
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+			app.UseDeveloperExceptionPage();
+
+			loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
             app.UseMvc();
@@ -54,7 +57,6 @@ namespace Centerstone.MobileAppService
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
 
-            app.UseDeveloperExceptionPage();
         }
     }
 }

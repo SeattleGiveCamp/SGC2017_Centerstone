@@ -11,16 +11,21 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\Constants.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\NegateBooleanConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\IncomeRules.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\RelationType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\EducationType.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\EthnicityType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Helpers.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\GenderType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\RaceType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Item.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\CloudDataStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\HIFCloudDataStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\IHIFDataStore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\IDataStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\HIFDataStore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\MockDataStore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AboutViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\IncomeRulesModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\PersonViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ViewModelBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ItemDetailViewModel.cs" />
@@ -50,8 +55,6 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Models\HIF.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Person.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\HouseholdType.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\HouseholdStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\HeatSource.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\IncomeSource.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\CensusData.cs" />
@@ -60,6 +63,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\BaseModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TestIncomeRulesPage.xaml.cs">
+      <DependentUpon>TestIncomeRulesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\TipsPage.xaml.cs">
       <DependentUpon>TipsPage.xaml</DependentUpon>
@@ -73,12 +79,19 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\ImagesPage.xaml.cs">
       <DependentUpon>ImagesPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ImageButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\HouseholdTypes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\HouseholdStatuses.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\BasePage.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\ItemDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\TestIncomeRulesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\ItemsPage.xaml">
@@ -115,5 +128,8 @@
       <Generator>
       </Generator>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Data\incomerule.json" />
   </ItemGroup>
 </Project>

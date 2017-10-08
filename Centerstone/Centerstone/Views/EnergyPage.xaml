@@ -1,7 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Centerstone.Views.EnergyPage"
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Centerstone.Views.EnergyPage"
+    xmlns:c="clr-namespace:Centerstone.Views;"
     Title="Energy Info">
-	<ContentPage.Content>
-        <Label Text="Put household enery info here." />
-	</ContentPage.Content>
+    <ContentPage.ToolbarItems>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Household Type" />
+                <Picker x:Name="HouseholdTypePicker" SelectedItem="{Binding HouseholdType}" />
+                
+                <Label Text="Household Status" />
+                <Picker x:Name="HouseholdStatusPicker" SelectedItem="{Binding HouseholdStatus}"/>
+
+                <Label Text="Heat Sources" />
+                <Picker x:Name="HeatSourcesPicker" SelectedItem="{Binding HeatSources}"/>
+                <ListView x:Name="HeatSourcesxListItem" ItemsSource="{Binding HeatSourcesTypes}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" Padding="10">
+                                    <Label Text="{Binding Name}"/>
+                                    <Switch IsToggled="{Binding Value}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Switch x:Name="tempS"/>
+
+                <c:ImageButton />
+                
+                <Button Text="Done" Clicked="Handle_Done" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
 </ContentPage>

@@ -1,61 +1,61 @@
-﻿Create Database CenterStone
-GO
+﻿--Create Database CenterStone
+--GO
 
-USE CenterStone
-GO
-
+--USE CenterStone
+--GO
 
 CREATE TABLE HifApplication
 (
-	ApplicationID bigint identity(1, 1) PRIMARY KEY NOT NULL,
-	LiveStreetAddress nvarchar(max) NOT NULL,
-	LiveCity nvarchar(30) NOT NULL,
-	LiveState nvarchar(30) NOT NULL,
-	LiveZipCode nvarchar(30) NOT NULL,
-	MailingAddress nvarchar(max),
-	MailingCity nvarchar(30),
-	MailingState nvarchar(30),
-	MailingZipCode nvarchar(30),
-	PhoneNumber nvarchar(20),
-	MessagePhone nvarchar(20),
-	DurationYears int,
-	DurationMonth int,
-	HousingStatus nvarchar(30),
-	CostMonthly decimal (18, 2),
-	HousingType nvarchar(30),
-	NumberBedrooms int,
-	TotalPeople int NOT NULL,
-	HouseholdIncome decimal(18,2) NOT NULL,
-	TargetGroup1 nchar,
-	TargetGroup2 nchar,
-	HeatSource nvarchar(30) NOT NULL,
-	AnnualHeatCost decimal(18,2) NOT NULL,
-	BackupHeatCost binary,
-	UsedSurrogate binary,
-	TotalEnergyCost decimal (18, 2),
-	TotalAnnualElectricCosts decimal (18, 2) NOT NULL
+    ApplicationID bigint identity(1, 1) PRIMARY KEY NOT NULL,
+    UniqueAppId nvarchar(max), 
+    LiveStreetAddress nvarchar(max),
+    LiveCity nvarchar(30),
+    LiveState nvarchar(30),
+    LiveZipCode nvarchar(30),
+    MailingAddress nvarchar(max),
+    MailingCity nvarchar(30),
+    MailingState nvarchar(30),
+    MailingZipCode nvarchar(30),
+    PhoneNumber nvarchar(20),
+    MessagePhone nvarchar(20),
+    DurationYears int,
+    DurationMonth int,
+    HousingStatus nvarchar(30),
+    CostMonthly decimal (18, 2),
+    HousingType nvarchar(30),
+    NumberBedrooms int,
+    TotalPeople int,
+    HouseholdIncome decimal(18,2),
+    TargetGroup1 bit,
+    TargetGroup2 bit,
+    HeatSource nvarchar(30),
+    AnnualHeatCost decimal(18,2),
+    BackupHeatCost bit,
+    UsedSurrogate bit,
+    TotalEnergyCost decimal (18, 2),
+    TotalAnnualElectricCosts decimal (18, 2), 
+    HifJsonData nvarchar(max),
+    Email nvarchar(max)
 )
 GO
 
 CREATE TABLE HouseholdMembers
 (
-	PersonID bigint identity(1,1) PRIMARY KEY NOT NULL,
-	ApplicationID bigint NOT NULL,
-	LastName nvarchar(max) NOT NULL,
-	FirstName nvarchar(max) NOT NULL,
-	MiddleInitial nchar,
-	SSN nvarchar(11) NOT NULL,
-	DateOfBirth date NOT NULL,
-	RelationToPrimary nvarchar(30) NOT NULL,
-	Gender nvarchar(20) NOT NULL,
-	Ethnicity nvarchar(50),
-	Race nvarchar(max),
-	Education nvarchar(max),
-	Disability nchar,
-	MilitaryVeteran nchar, 
-	HealthInsurance nchar,
-	IsPrimary nchar,
-	PaidAdult nchar
+    PersonID bigint identity(1,1) PRIMARY KEY NOT NULL,
+    ApplicationID bigint,
+    FullName nvarchar(max),
+    SSN nvarchar(11),
+    DateOfBirth date,
+    RelationToPrimary nvarchar(30),
+    Gender nvarchar(20),
+    Ethnicity nvarchar(50),
+    Race nvarchar(max),
+    Education nvarchar(max),
+    Disability bit,
+    MilitaryVeteran bit, 
+    HealthInsurance bit,
+    IsPrimary  bit,
+    PaidAdult bit
 )
 GO
 
@@ -68,21 +68,21 @@ GO
 
 CREATE TABLE IncomeTypes
 (
-	RowID bigint identity(1,1) PRIMARY KEY NOT NULL,
-	ApplicationID bigint NOT NULL,
-	PersonID bigint NOT NULL,
-	SSI binary,
-	TANF binary,
-	GA binary,
-	VA binary,
-	SocialSecurity binary,
-	Military binary,
-	EarnedIncome binary,
-	Pension binary,
-	SelfEmployed binary,
-	ChildSupport binary,
-	Unemployment binary,
-	Other binary
+    RowID bigint identity(1,1) PRIMARY KEY NOT NULL,
+    ApplicationID bigint,
+    PersonID bigint,
+    SSI bit,
+    TANF bit,
+    GA bit,
+    VA bit,
+    SocialSecurity bit,
+    Military bit,
+    EarnedIncome bit,
+    Pension bit,
+    SelfEmployed bit,
+    ChildSupport bit,
+    Unemployment bit,
+    Other bit
 )
 GO
 
@@ -102,12 +102,14 @@ ALTER TABLE IncomeTypes CHECK CONSTRAINT FK_Income_Household_Person
 
 CREATE TABLE Images
 (
-	ImageID bigint identity(1,1) PRIMARY KEY NOT NULL,
-	ApplicationID bigint NOT NULL,
-	FileName nvarchar(50) NOT NULL,
-	ImageName nvarchar(50) NOT NULL,
-	ImageType nvarchar(50) NOT NULL,
-	--create foreign key to applicaiton
+    ImageID bigint identity(1,1) PRIMARY KEY NOT NULL,
+    UniqueImageId nvarchar(max) ,
+    ApplicantGUID nvarchar(max), 
+    ApplicationID bigint ,
+    FileName nvarchar(50) ,
+    ImageName nvarchar(50),
+    ImageType nvarchar(50),
+    --create foreign key to applicaiton
 )
 
 ALTER TABLE Images  WITH NOCHECK ADD CONSTRAINT FK_Hif_Images_AppID FOREIGN KEY([ApplicationID]) REFERENCES HifApplication ([ApplicationID])
@@ -118,12 +120,22 @@ GO
 
 CREATE TABLE StoredImages
 (
-	RowId bigint identity(1,1) PRIMARY KEY NOT NULL,
-	ImageID bigint NOT NULL,
-	ImageData VARBINARY NOT NULL,
+    RowId bigint identity(1,1) PRIMARY KEY NOT NULL,
+    ImageID bigint,
+    ImageData VARBINARY,
 )
 
 ALTER TABLE StoredImages  WITH NOCHECK ADD CONSTRAINT FK_Images_StoredImages_ImageID FOREIGN KEY(ImageId) REFERENCES Images (ImageId)
 GO
 
 ALTER TABLE StoredImages CHECK CONSTRAINT FK_Images_StoredImages_ImageID
+
+CREATE TABLE IncomeRules
+(
+    RowID bigint PRIMARY KEY NOT NULL,
+    HouseholdSize int NOT NULL,
+    MaxIncome decimal(18,2) NOT NULL,
+    HouseholdAdjust decimal(4,2) NOT NULL
+)
+
+--DROP TABLE HifApplication, HouseholdMembers, Images, IncomeRules, IncomeTypes, StoredImages

@@ -3,13 +3,25 @@ using System.Collections.ObjectModel;
 
 namespace Centerstone.Models
 {
-	public class Person
+	public class Person : BaseModel
 	{
 		public bool IsDesignatedAdult { get; set; }
+		public bool IsPrimary { get; set; }
 
+		public string FullName { get; set; }
 		public DateTime DateOfBirth { get; set; }
 
-		public Image SocialSecurityImage { get; set; }
+		string socialSecurityNumber;
+		public string SocialSecurityNumber {
+			get => socialSecurityNumber;
+			set => SetProperty (ref socialSecurityNumber, value);
+		}
+
+		HifImage socialSecurityImage;
+		public HifImage SocialSecurityImage {
+			get => socialSecurityImage;
+			set => SetProperty (ref socialSecurityImage, value);
+		}
 
 		public ObservableCollection<IncomeSource> IncomeSources { get; set; } =
 			new ObservableCollection<IncomeSource> ();
@@ -18,6 +30,7 @@ namespace Centerstone.Models
 
 		public Person ()
 		{
+            CensusData.PropertyChanged += (s, e) => OnPropertyChanged("CensusData");
 		}
 
 		public static Person CreateChild ()
