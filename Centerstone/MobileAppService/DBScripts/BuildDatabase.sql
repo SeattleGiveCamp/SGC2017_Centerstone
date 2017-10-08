@@ -5,7 +5,7 @@ USE CenterStone
 GO
 
 
-CREATE TABLE HiffApplication
+CREATE TABLE HifApplication
 (
 	ApplicationID bigint identity(1, 1) PRIMARY KEY NOT NULL,
 	LiveStreetAddress nvarchar(max) NOT NULL,
@@ -59,11 +59,11 @@ CREATE TABLE HouseholdMembers
 )
 GO
 
-ALTER TABLE HouseholdMembers  WITH NOCHECK ADD CONSTRAINT [FK_Hiff_Household_AppId] FOREIGN KEY([ApplicationID])
-REFERENCES HiffApplication ([ApplicationID])
+ALTER TABLE HouseholdMembers  WITH NOCHECK ADD CONSTRAINT [FK_Hif_Household_AppId] FOREIGN KEY([ApplicationID])
+REFERENCES HifApplication ([ApplicationID])
 GO
 
-ALTER TABLE HouseHoldMembers CHECK CONSTRAINT [FK_Hiff_Household_AppID]
+ALTER TABLE HouseHoldMembers CHECK CONSTRAINT [FK_Hif_Household_AppID]
 GO
 
 CREATE TABLE IncomeTypes
@@ -86,11 +86,11 @@ CREATE TABLE IncomeTypes
 )
 GO
 
-ALTER TABLE [dbo].IncomeTypes  WITH NOCHECK ADD CONSTRAINT FK_Income_Hiff_AppID FOREIGN KEY([ApplicationID])
-REFERENCES HiffApplication ([ApplicationID])
+ALTER TABLE [dbo].IncomeTypes  WITH NOCHECK ADD CONSTRAINT FK_Income_Hif_AppID FOREIGN KEY([ApplicationID])
+REFERENCES HifApplication ([ApplicationID])
 GO
 
-ALTER TABLE [IncomeTypes] CHECK CONSTRAINT FK_Income_Hiff_AppID
+ALTER TABLE [IncomeTypes] CHECK CONSTRAINT FK_Income_Hif_AppID
 GO
 
 ALTER TABLE [dbo].IncomeTypes  WITH NOCHECK ADD CONSTRAINT FK_INCOME_Household_Person FOREIGN KEY(PersonID)
@@ -110,10 +110,10 @@ CREATE TABLE Images
 	--create foreign key to applicaiton
 )
 
-ALTER TABLE Images  WITH NOCHECK ADD CONSTRAINT FK_Hiff_Images_AppID FOREIGN KEY([ApplicationID]) REFERENCES HiffApplication ([ApplicationID])
+ALTER TABLE Images  WITH NOCHECK ADD CONSTRAINT FK_Hif_Images_AppID FOREIGN KEY([ApplicationID]) REFERENCES HifApplication ([ApplicationID])
 GO
 
-ALTER TABLE Images CHECK CONSTRAINT FK_Hiff_Images_AppId
+ALTER TABLE Images CHECK CONSTRAINT FK_Hif_Images_AppId
 GO
 
 CREATE TABLE StoredImages
