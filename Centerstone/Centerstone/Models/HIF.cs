@@ -96,7 +96,7 @@ namespace Centerstone.Models
 
 		public void DecreaseChildren ()
 		{
-			var toRemove = People.LastOrDefault ();
+			var toRemove = Children.LastOrDefault ();
 			if (toRemove != null)
 				People.Remove (toRemove);
 		}
