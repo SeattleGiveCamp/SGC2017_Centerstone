@@ -114,7 +114,7 @@ namespace Centerstone.MobileAppService.Data
                     .WithMany(p => p.HouseholdMembers)
                     .HasForeignKey(d => d.ApplicationId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Hiff_Household_AppId");
+                    .HasConstraintName("FK_Hif_Household_AppId");
             });
 
             modelBuilder.Entity<Images>(entity =>
@@ -141,7 +141,7 @@ namespace Centerstone.MobileAppService.Data
                     .WithMany(p => p.Images)
                     .HasForeignKey(d => d.ApplicationId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Hiff_Images_AppID");
+                    .HasConstraintName("FK_Hif_Images_AppID");
             });
 
             modelBuilder.Entity<IncomeTypes>(entity =>
@@ -190,7 +190,7 @@ namespace Centerstone.MobileAppService.Data
                     .WithMany(p => p.IncomeTypes)
                     .HasForeignKey(d => d.ApplicationId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Income_Hiff_AppID");
+                    .HasConstraintName("FK_Income_Hif_AppID");
 
                 entity.HasOne(d => d.Person)
                     .WithMany(p => p.IncomeTypes)
