@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Centerstone.PersonPage" xmlns:vm="clr-namespace:Centerstone;" Title="{Binding Title}">
     <!--<ContentPage.BindingContext>
         <vm:AboutViewModel />
@@ -6,7 +6,8 @@
     <ScrollView>
         <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
             <Label Text="Name"/>
-            <Entry Text="{Binding FullName}"/>
+            <Entry Text="{Binding FullName}" />
+            
             <Label Text="Birth of Date"/>
             <DatePicker VerticalOptions="CenterAndExpand">
             </DatePicker>
@@ -31,6 +32,10 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            
+            <Label Text="SocialSecurityNumber"/>
+            <Entry Text="{Binding SocialSecurityNumber}"/>
+            
             <Label Text="{Binding CensusData.Gender}"/>
 
             <Label Text="Gender"/>
