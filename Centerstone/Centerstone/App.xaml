@@ -42,7 +42,7 @@
 
             <Style x:Key="TitleLabel" TargetType="Label">
                 <Setter Property="TextColor" Value="{StaticResource BlackTextColor}" />
-                <Setter Property="FontSize" Value="10"/>
+                <Setter Property="FontSize" Value="Large"/>
                 <!--<Setter Property="FontAttributes" Value="Italic, Bold" />-->
                 <Setter Property="FontFamily" Value="Helvetica"/>
                 <Setter Property="HorizontalOptions" Value="Center" />

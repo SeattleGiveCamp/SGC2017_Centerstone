@@ -18,7 +18,7 @@ namespace Centerstone.Views
 			BindingContext = hif;
 			HouseholdTypePicker.ItemsSource = HouseholdTypes.All;
 			HouseholdStatusPicker.ItemsSource = HouseholdStatuses.All;
-			HeatSourcesPicker.ItemsSource = HeatSources.All;
+			//HeatSourcesPicker.ItemsSource = HeatSources.All;
         }
 
         void Handle_ItemClicked(object sender, System.EventArgs e)
