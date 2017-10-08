@@ -44,8 +44,8 @@ namespace Centerstone.Helpers
             "Military",
             "EarnedIncome",
             "Pension",
-            "SelfEmployed",
-            "ChildSupport",
+            "Self Employed",
+            "Child Support",
             "Unemployment",
             "Other",
         };
@@ -62,23 +62,21 @@ namespace Centerstone.Helpers
     public static class Races
     {
         public readonly static string[] All = {
-            "American Indian Or Alaskan Native",
+            "American Indian or Alaskan Native",
             "Asian",
-            "Black Or African American",
-            "Native Hawaiian Or Other Pacific Islander",
-            "Native Hawaiian Or Other Pacific Islander",
+            "Black or African American",
+            "Native Hawaiian or Other Pacific Islander",
+            "Native Hawaiian or Other Pacific Islander",
             "White",
-            "Multi Race",
+            "Multi-race",
             "Other",
-            "ChildSupport",
-            "Unemployment",
         };
     }
 
     public static class HeatSources
     {
         public static readonly string[] All = {
-            "Electrical",
+            "Electricity",
             "Natural Gas",
             "Propane",
             "Oil",

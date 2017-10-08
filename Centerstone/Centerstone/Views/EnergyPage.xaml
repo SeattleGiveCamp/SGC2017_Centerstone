@@ -10,7 +10,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <Label Text="Household Type" />
+                <Label Text="Housing Type" />
                 <Picker x:Name="HouseholdTypePicker" SelectedItem="{Binding HouseholdType}" />
                 
                 <Label Text="Household Status" />
@@ -32,10 +32,12 @@
                 </ListView>
                 <Switch x:Name="tempS"/>
 
-                <Label Text="Heat Bills" />
+                <Label Text="Account Verification" />
+                <Label Text="Please take a picture of your last heating bill." />
                 <c:HifImagesPickerView Images="{Binding HeatImages}" />
                 
-                <Label Text="Home Lease (if renting)" />
+                <Label Text="Address Verification" />
+                <Label Text="Please take a picture of your rental agreement." />
                 <c:HifImagesPickerView Images="{Binding LeaseImages}" />
                 
                 <Button Text="Done" Clicked="Handle_Done" />
