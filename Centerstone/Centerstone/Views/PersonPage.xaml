@@ -58,17 +58,18 @@
             <Label Text="Education (24 Years or Order)" />
             <Picker x:Name="EducationPicker" SelectedItem="{Binding Person.CensusData.Education}"/>
             <Grid>
-                <Label Text="Disabled"/>
+                <Label Text="Do you have a disabling condition?"/>
                 <Switch x:Name="DisabledSwitch" IsToggled="{Binding Person.CensusData.Disabled}"/>
             </Grid>
             <Grid>
-                <Label Text="Military Veteran"/>
+                <Label Text="Are you a Military Veteran?"/>
                 <Switch x:Name="MilitarySwitch" IsToggled="{Binding Person.CensusData.IsMilitaryVeteran}"/>
             </Grid>
             <Grid>
-                <Label Text="Health Insurance"/>
+                <Label Text="Do you have Health Insurance?"/>
                 <Switch x:Name="HealthInsuranceSwitch" IsToggled="{Binding Person.CensusData.HealthInsurance}"/>
             </Grid>
+
         </StackLayout>
     </ScrollView>
 </ContentPage>

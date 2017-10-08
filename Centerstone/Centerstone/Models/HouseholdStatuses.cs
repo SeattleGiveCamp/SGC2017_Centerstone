@@ -4,11 +4,11 @@ namespace Centerstone.Models
 	public class HouseholdStatuses
 	{
 		public static string[] All = {
-			"OwnOrBuy",
-			"Subsidized",
+			"Own or Buying",
+			"Subsidized Housing",
 			"Rental",
-			"RoomerOrBoarder",
-			"TempHousing"
+			"Renting a Room",
+			"Temporary Housing"
 		};
 	}
 }

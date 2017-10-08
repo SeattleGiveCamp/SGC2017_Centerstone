@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>centerstone</string>
+	<string>Centerstone</string>
 	<key>CFBundleName</key>
-	<string>centerstone</string>
+	<string>Centerstone</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.centerstone</string>
 	<key>CFBundleShortVersionString</key>
