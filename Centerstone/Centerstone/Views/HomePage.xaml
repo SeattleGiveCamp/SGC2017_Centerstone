@@ -4,11 +4,10 @@
 	<ContentPage.Content>
         <StackLayout Orientation="Vertical">
             <Label Text="This app will help you apply to Centerstone's Energy Assistance Program" HorizontalOptions="Center" />
-            <Button Text="Basic" Clicked="Handle_BasicInfoClicked" Style="{StaticResource buttonStyle}"/>
-            <Button Text="Household" Clicked="Handle_EnergyClicked" Style="{StaticResource buttonStyle}" />
-            <Button Text="People" Clicked="Handle_PeopleClicked" Style="{StaticResource buttonStyle}" />
-            <Button Text="Images" Clicked="Handle_ImagesClicked" Style="{StaticResource buttonStyle}" />
-            <Button Text="Ways to Conserve Energy" Clicked="Handle_TipsClicked" Style="{StaticResource buttonStyle}" />
+            <Button Text="Basic Information" Clicked="Handle_BasicInfoClicked" />
+            <Button Text="Heating Information" Clicked="Handle_EnergyClicked" />
+            <Button Text="People in the Household" Clicked="Handle_PeopleClicked" />
+            <Button Text="Ways to Conserve Energy" Clicked="Handle_TipsClicked" />
             <!--<Button Text="No Income Form" Clicked="Handle_IncomesClicked" />-->
             <Button Text="Submit Application" Clicked="Handle_Submit" Style="{StaticResource buttonStyle}" />
             <Button Text="Start Over" Clicked="Handle_StartOver" />

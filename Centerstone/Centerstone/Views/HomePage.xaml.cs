@@ -62,6 +62,14 @@ namespace Centerstone.Views
 
 		public async void Handle_Submit(object sender, EventArgs e)
 		{
+			var reasons = hif.CantSubmitReasons;
+			if (reasons.Count > 0)
+			{
+				var m = String.Join("\n\n", reasons);
+				await DisplayAlert("Cannot Submit Application", m, "OK");
+				return;
+			}
+
 			var cont = await DisplayAlert("Submit Current Application?", "You can only submit an application once. Please make sure it's completely filled out before continuing to submit.", "Submit", "Cancel");
 			if (!cont)
 				return;
