@@ -22,8 +22,10 @@
                             <StackLayout Padding="10">
                                 <Picker ItemsSource="{Binding IncomeSourceOptions}" 
                                         SelectedItem="{Binding IncomeSourceType}"/>
-                                <Button>Delete</Button>
-                                <Button>Take Photoes</Button>
+                                <Button Clicked="Handle_DeleteIncomeTypeClicked"
+                                        CommandParameter="{Binding .}"
+                                        Text="Delete"></Button>
+                                <Button Text="Take Photoes"></Button>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
