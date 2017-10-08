@@ -168,5 +168,41 @@ namespace Centerstone.Models
 			Console.WriteLine ("SAVED " + path);
 			System.IO.File.WriteAllText (path, j);
 		}
+
+		string Path => System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), UniqueApplicationId.ToString("N"));
+
+		public IEnumerable<HifImage> AllImages
+		{
+			get
+			{
+				var ssns = People.Where(x => x.SocialSecurityImage != null).Select(x => x.SocialSecurityImage);
+				var heats = HeatImages;
+				var leases = LeaseImages;
+				return ssns.Concat(heats).Concat(leases);
+			}
+		}
+
+		public void Delete()
+		{
+			foreach (var i in AllImages)
+			{
+				try
+				{
+					System.IO.File.Delete(i.Path);
+				}
+				catch (Exception ex)
+				{
+					Console.WriteLine(ex);
+				}
+			}
+			try
+			{
+				System.IO.File.Delete(Path);
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex);
+			}
+		}
 	}
 }
