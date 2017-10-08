@@ -9,9 +9,9 @@ namespace Microsoft.AspNetCore.Authentication
     public static class AzureAdAuthenticationBuilderExtensions
     {        
         public static AuthenticationBuilder AddAzureAd(this AuthenticationBuilder builder)
-            => builder.AddAzureAd2(_ => { });
+            => builder.AddAzureAd(_ => { });
 
-        public static AuthenticationBuilder AddAzureAd2(this AuthenticationBuilder builder, Action<AzureAdOptions> configureOptions)
+        public static AuthenticationBuilder AddAzureAd(this AuthenticationBuilder builder, Action<AzureAdOptions> configureOptions)
         {
             builder.Services.Configure(configureOptions);
             builder.Services.AddSingleton<IConfigureOptions<OpenIdConnectOptions>, ConfigureAzureOptions>();
