@@ -8,12 +8,13 @@ namespace Centerstone.Views
 {
 	public partial class HomePage : ContentPage
 	{
-		readonly HIF hif;
+		HIF hif;
 
 		public HomePage (HIF hif)
 		{
 			this.hif = hif;
 			InitializeComponent ();
+			BindingContext = hif;
 		}
 
 		void Handle_BasicInfoClicked (object sender, System.EventArgs e)
@@ -57,6 +58,18 @@ namespace Centerstone.Views
 			catch (Exception ex) {
 				Console.WriteLine (ex);
 			}
+		}
+
+		public async void Handle_StartOver(object sender, EventArgs e)
+		{
+			var cont = await DisplayAlert("Delete Current Application?", "A new application will be blank and you will have to enter all your information again.", "Start Over", "Cancel");
+			if (!cont)
+				return;
+
+			var newHif = HIF.CreateNew();
+			hif.Delete();
+			hif = newHif;
+			BindingContext = newHif;
 		}
 	}
 }

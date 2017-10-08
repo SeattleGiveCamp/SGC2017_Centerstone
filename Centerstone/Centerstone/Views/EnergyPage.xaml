@@ -32,7 +32,11 @@
                 </ListView>
                 <Switch x:Name="tempS"/>
 
-                <c:ImageButton />
+                <Label Text="Heat Bills" />
+                <c:HifImagesPickerView Images="{Binding HeatImages}" />
+                
+                <Label Text="Home Lease (if renting)" />
+                <c:HifImagesPickerView Images="{Binding LeaseImages}" />
                 
                 <Button Text="Done" Clicked="Handle_Done" />
             </StackLayout>
