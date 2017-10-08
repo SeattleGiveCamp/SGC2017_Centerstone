@@ -27,7 +27,7 @@ namespace Centerstone.Views
 
 		void Handle_PeopleClicked (object sender, System.EventArgs e)
 		{
-			Navigation.PushAsync (new PeoplePage ());
+			Navigation.PushAsync (new PeoplePage (hif));
 		}
 
 		void Handle_ImagesClicked (object sender, System.EventArgs e)

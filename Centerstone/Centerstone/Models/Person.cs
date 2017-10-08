@@ -5,7 +5,7 @@ namespace Centerstone.Models
 {
 	public class Person
 	{
-		public bool DesignatedAdult { get; set; }
+		public bool IsDesignatedAdult { get; set; }
 
 		public DateTime DateOfBirth { get; set; }
 
@@ -18,6 +18,18 @@ namespace Centerstone.Models
 
 		public Person ()
 		{
+		}
+
+		public static Person CreateChild ()
+		{
+			return new Person (); 
+		}
+
+		public static Person CreateAdult ()
+		{
+			return new Person () {
+				IsDesignatedAdult = true,
+			};
 		}
 	}
 }
