@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Centerstone.Models.IncomeGuideline>
+﻿@model IEnumerable<Centerstone.MobileAppService.Data.IncomeRules>
 
 @{
     ViewData["Title"] = "Index";
@@ -32,9 +32,9 @@
                 @Html.DisplayFor(modelItem => item.MaxIncome)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.myKey">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.myKey">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.myKey">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.RowId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.RowId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.RowId">Delete</a>
             </td>
         </tr>
 }

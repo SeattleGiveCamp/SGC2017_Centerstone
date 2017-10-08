@@ -31,10 +31,10 @@ namespace Centerstone.MobileAppService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
+            //services.AddTransient<HifContext, HifContext>();
+            //services.AddTransient<IHifRepository, HifRepository>();
             services.AddMvc();
-            services.AddSingleton<HifContext, HifContext>();
-            services.AddSingleton<IHifRepository, HifRepository>();
-
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });

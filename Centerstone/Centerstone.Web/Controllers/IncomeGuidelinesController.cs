@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Centerstone.Models;
 using Centerstone.Web.Models;
+using Centerstone.MobileAppService.Data;
 
 namespace Centerstone.Web.Controllers
 {
@@ -16,13 +16,13 @@ namespace Centerstone.Web.Controllers
         public async Task<IActionResult> Index()
         {
             //TODO: get list of guidelines.
-            List<IncomeGuideline> list = new List<IncomeGuideline>()
+            List<IncomeRules> list = new List<IncomeRules>()
             {
-                new IncomeGuideline(){HouseholdSize=1, MaxIncome=1256 },
-                new IncomeGuideline(){HouseholdSize=2, MaxIncome=1692 },
-                new IncomeGuideline(){HouseholdSize=3, MaxIncome=2127 },
-                new IncomeGuideline(){HouseholdSize=4, MaxIncome=2563 },
-                new IncomeGuideline(){HouseholdSize=5, MaxIncome=2998 },
+                new IncomeRules(){HouseholdSize=1, MaxIncome=1256 },
+                new IncomeRules(){HouseholdSize=2, MaxIncome=1692 },
+                new IncomeRules(){HouseholdSize=3, MaxIncome=2127 },
+                new IncomeRules(){HouseholdSize=4, MaxIncome=2563 },
+                new IncomeRules(){HouseholdSize=5, MaxIncome=2998 },
 
             };
 
@@ -58,7 +58,7 @@ namespace Centerstone.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("myKey,HouseholdSize,MaxIncome")] IncomeGuideline incomeGuideline)
+        public async Task<IActionResult> Create([Bind("HouseholdSize,MaxIncome")] IncomeRules incomeGuideline)
         {
             if (ModelState.IsValid)
             {
@@ -91,12 +91,12 @@ namespace Centerstone.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("myKey,HouseholdSize,MaxIncome")] IncomeGuideline incomeGuideline)
+        public async Task<IActionResult> Edit(int id, [Bind("HouseholdSize,MaxIncome")] IncomeRules incomeGuideline)
         {
-            if (id != incomeGuideline.myKey)
-            {
-                ModelState.AddModelError("", "Bad Request.");
-            }
+            //if (id != incomeGuideline.myKey)
+            //{
+            //    ModelState.AddModelError("", "Bad Request.");
+            //}
 
             if (ModelState.IsValid)
             {
@@ -106,14 +106,14 @@ namespace Centerstone.Web.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!IncomeGuidelineExists(incomeGuideline.myKey))
-                    {
-                        ModelState.AddModelError("", "Record not found");
-                    }
-                    else
-                    {
-                        ModelState.AddModelError("", "Database error!");
-                    }
+                    //if (!IncomeGuidelineExists(incomeGuideline.myKey))
+                    //{
+                    //    ModelState.AddModelError("", "Record not found");
+                    //}
+                    //else
+                    //{
+                    //    ModelState.AddModelError("", "Database error!");
+                    //}
                 }
                 catch (Exception ex)
                 {
