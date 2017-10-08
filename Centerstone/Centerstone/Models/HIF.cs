@@ -17,12 +17,15 @@ namespace Centerstone.Models
     }
     public class HIF : BaseModel
     {
+        public Guid UniqueApplicationId { get; set; }
+
         public string Zip { get; set; }
         public Temp[] HeatSourcesTypes => Helpers.HeatSources.All.Select(x => new Temp(x)).ToArray();
         public ObservableCollection<IncomeSource> HeatSourcess { get; set; } =
         new ObservableCollection<IncomeSource>();
-        public ObservableCollection<Person> People { get; set; } = 
-			new ObservableCollection<Person> ();
+
+		public ObservableCollection<Person> People { get; set; } =
+            new ObservableCollection<Person> ();
 		
 		public IEnumerable<Person> Adults => People.Where (x => x.IsDesignatedAdult);
 		public IEnumerable<Person> Children => People.Where (x => !x.IsDesignatedAdult);
@@ -47,15 +50,16 @@ namespace Centerstone.Models
 
 		public ObservableCollection<string> HeatSources { get; set; } =
 			new ObservableCollection<string> ();
-		public ObservableCollection<Image> HeatImages { get; set; } =
-			new ObservableCollection<Image> ();
-		public ObservableCollection<Image> LeaseImages { get; set; } =
-			new ObservableCollection<Image> ();
+		public ObservableCollection<HifImage> HeatImages { get; set; } =
+			new ObservableCollection<HifImage> ();
+		public ObservableCollection<HifImage> LeaseImages { get; set; } =
+			new ObservableCollection<HifImage> ();
 
-		public Image TipsSignatuure { get; set; }
+		public HifImage TipsSignatuure { get; set; }
 
 		public HIF ()
 		{
+			UniqueApplicationId = Guid.NewGuid ();
 			People.Add (Person.CreateAdult ());
 			People.CollectionChanged += People_CollectionChanged;
 		}

@@ -29,7 +29,7 @@ namespace Centerstone.MobileAppService.Data
 
                 entity.Property(e => e.ApplicationId).HasColumnName("ApplicationID");
 
-                entity.Property(e => e.BackupHeatCost).HasColumnType("binary(1)");
+                entity.Property(e => e.BackupHeatCost).HasColumnType("bit");
 
                 entity.Property(e => e.HeatSource)
                     .IsRequired()
@@ -63,13 +63,15 @@ namespace Centerstone.MobileAppService.Data
 
                 entity.Property(e => e.PhoneNumber).HasMaxLength(20);
 
-                entity.Property(e => e.TargetGroup1).HasColumnType("nchar(1)");
+                entity.Property(e => e.Email);
 
-                entity.Property(e => e.TargetGroup2).HasColumnType("nchar(1)");
+                entity.Property(e => e.TargetGroup1).HasColumnType("bit");
+
+                entity.Property(e => e.TargetGroup2).HasColumnType("bit");
 
                 entity.Property(e => e.UniqueAppId).IsRequired();
 
-                entity.Property(e => e.UsedSurrogate).HasColumnType("binary(1)");
+                entity.Property(e => e.UsedSurrogate).HasColumnType("bit");
             });
 
             modelBuilder.Entity<HouseholdMembers>(entity =>
@@ -82,27 +84,23 @@ namespace Centerstone.MobileAppService.Data
 
                 entity.Property(e => e.DateOfBirth).HasColumnType("date");
 
-                entity.Property(e => e.Disability).HasColumnType("nchar(1)");
+                entity.Property(e => e.Disability).HasColumnType("bit");
 
                 entity.Property(e => e.Ethnicity).HasMaxLength(50);
 
-                entity.Property(e => e.FirstName).IsRequired();
+                entity.Property(e => e.FullName).IsRequired();
 
                 entity.Property(e => e.Gender)
                     .IsRequired()
                     .HasMaxLength(20);
 
-                entity.Property(e => e.HealthInsurance).HasColumnType("nchar(1)");
+                entity.Property(e => e.HealthInsurance).HasColumnType("bit");
 
-                entity.Property(e => e.IsPrimary).HasColumnType("nchar(1)");
+                entity.Property(e => e.IsPrimary).HasColumnType("bit");
 
-                entity.Property(e => e.LastName).IsRequired();
+                entity.Property(e => e.MilitaryVeteran).HasColumnType("bit");
 
-                entity.Property(e => e.MiddleInitial).HasColumnType("nchar(1)");
-
-                entity.Property(e => e.MilitaryVeteran).HasColumnType("nchar(1)");
-
-                entity.Property(e => e.PaidAdult).HasColumnType("nchar(1)");
+                entity.Property(e => e.PaidAdult).HasColumnType("bit");
 
                 entity.Property(e => e.RelationToPrimary)
                     .IsRequired()
@@ -170,39 +168,39 @@ namespace Centerstone.MobileAppService.Data
 
                 entity.Property(e => e.ApplicationId).HasColumnName("ApplicationID");
 
-                entity.Property(e => e.ChildSupport).HasColumnType("binary(1)");
+                entity.Property(e => e.ChildSupport).HasColumnType("bit");
 
-                entity.Property(e => e.EarnedIncome).HasColumnType("binary(1)");
+                entity.Property(e => e.EarnedIncome).HasColumnType("bint");
 
                 entity.Property(e => e.Ga)
                     .HasColumnName("GA")
-                    .HasColumnType("binary(1)");
+                    .HasColumnType("bit");
 
-                entity.Property(e => e.Military).HasColumnType("binary(1)");
+                entity.Property(e => e.Military).HasColumnType("bit");
 
-                entity.Property(e => e.Other).HasColumnType("binary(1)");
+                entity.Property(e => e.Other).HasColumnType("bit");
 
-                entity.Property(e => e.Pension).HasColumnType("binary(1)");
+                entity.Property(e => e.Pension).HasColumnType("bit");
 
                 entity.Property(e => e.PersonId).HasColumnName("PersonID");
 
-                entity.Property(e => e.SelfEmployed).HasColumnType("binary(1)");
+                entity.Property(e => e.SelfEmployed).HasColumnType("bit");
 
-                entity.Property(e => e.SocialSecurity).HasColumnType("binary(1)");
+                entity.Property(e => e.SocialSecurity).HasColumnType("bit");
 
                 entity.Property(e => e.Ssi)
                     .HasColumnName("SSI")
-                    .HasColumnType("binary(1)");
+                    .HasColumnType("bit");
 
                 entity.Property(e => e.Tanf)
                     .HasColumnName("TANF")
-                    .HasColumnType("binary(1)");
+                    .HasColumnType("bit");
 
-                entity.Property(e => e.Unemployment).HasColumnType("binary(1)");
+                entity.Property(e => e.Unemployment).HasColumnType("bit");
 
                 entity.Property(e => e.Va)
                     .HasColumnName("VA")
-                    .HasColumnType("binary(1)");
+                    .HasColumnType("bit");
 
                 entity.HasOne(d => d.Application)
                     .WithMany(p => p.IncomeTypes)

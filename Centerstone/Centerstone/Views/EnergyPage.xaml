@@ -3,7 +3,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Centerstone.Views.EnergyPage"
-    xmlns:us="clr-namespace:Centerstone.Views"
+    xmlns:c="clr-namespace:Centerstone.Views;"
     Title="Energy Info">
     <ContentPage.ToolbarItems>
     </ContentPage.ToolbarItems>
@@ -17,8 +17,8 @@
                 <Picker x:Name="HouseholdStatusPicker" SelectedItem="{Binding HouseholdStatus}"/>
 
                 <Label Text="Heat Sources" />
-                <Picker x:Name="HeatSourcesPicker" SelectedItem="{Binding HeatSources}"/>
-                <ListView x:Name="IncomeSource" ItemsSource="{Binding HeatSourcesTypes}" 
+                <!--<Picker x:Name="HeatSourcesPicker" SelectedItem="{Binding HeatSources}"/>-->
+                <ListView x:Name="HeatSources" ItemsSource="{Binding HeatSourcesTypes}" 
                       VerticalOptions="FillAndExpand" HasUnevenRows="true" 
                       IsPullToRefreshEnabled="true" 
                       IsRefreshing="{Binding IsBusy, Mode=OneWay}"
@@ -37,6 +37,8 @@
                 <us:ImageButton />
                 <Switch x:Name="tempS"/>
 
+                <c:ImageButton />
+                
                 <Button Text="Done" Clicked="Handle_Done" />
             </StackLayout>
         </ScrollView>

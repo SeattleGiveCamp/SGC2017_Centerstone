@@ -9,42 +9,55 @@ namespace Centerstone.MobileAppService.Data
     {
         private HifContext context;
         private DbSet<HifApplication> hifSet;
+        private DbSet<HouseholdMembers> peopleSet;
         private DbSet<IncomeRules> incomeRuleSet;
 
         public HifRepository(HifContext context)
         {
             this.context = context;
             hifSet = context.Set<HifApplication>();
+            peopleSet = context.Set<HouseholdMembers>();
             incomeRuleSet = context.Set<IncomeRules>();
         }
 
-        public void Add(HifApplication app)
+        public void AddApplication(HifApplication app)
         {
             hifSet.Add(app);
             context.SaveChanges();
         }
 
-        public HifApplication Get(int id)
+        public HifApplication GetApplication(int id)
         {
             return hifSet.SingleOrDefault(a => a.ApplicationId == id);
         }
 
-        public IEnumerable<HifApplication> GetAll()
+        public IEnumerable<HifApplication> GetAllApplications()
         {
             return hifSet.AsEnumerable();
         }
 
-        public void Remove(int id)
+        public void RemoveApplication(int id)
         {
-            HifApplication app = Get(id);
+            HifApplication app = GetApplication(id);
             hifSet.Remove(app);
             context.SaveChanges();
         }
 
-        public void Update(HifApplication app)
+        public void UpdateApplication(HifApplication app)
         {
             context.Entry(app).State = EntityState.Modified;
             context.SaveChanges();
+        }
+
+        public void AddPerson(HouseholdMembers person)
+        {
+            peopleSet.Add(person);
+            context.SaveChanges();
+        }
+
+        public HouseholdMembers GetPerson(int id)
+        {
+            return peopleSet.SingleOrDefault(p => p.PersonId == id);
         }
 
         public IEnumerable<IncomeRules> GetIncomeRules()

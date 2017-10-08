@@ -38,7 +38,6 @@ namespace Centerstone
             Person.IncomeSources.Remove(selectedIncomeSource);
         }
 
-
         public void InitRacePickerItems()
         {
             Picker picker = RacePicker;
@@ -79,6 +78,11 @@ namespace Centerstone
             //picker.ItemsSource = IncomeSources.All;
 
         }
+
+		public void Handle_SsnReceived (HifImage img)
+		{
+			
+		}
     }
 }
 

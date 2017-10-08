@@ -22,6 +22,7 @@ namespace Centerstone.MobileAppService.Data
         public string MailingCity { get; set; }
         public string MailingState { get; set; }
         public string MailingZipCode { get; set; }
+        public string Email { get; set; }
         public string PhoneNumber { get; set; }
         public string MessagePhone { get; set; }
         public int? DurationYears { get; set; }
@@ -32,12 +33,12 @@ namespace Centerstone.MobileAppService.Data
         public int? NumberBedrooms { get; set; }
         public int TotalPeople { get; set; }
         public decimal HouseholdIncome { get; set; }
-        public string TargetGroup1 { get; set; }
-        public string TargetGroup2 { get; set; }
+        public bool TargetGroup1 { get; set; }
+        public bool TargetGroup2 { get; set; }
         public string HeatSource { get; set; }
         public decimal AnnualHeatCost { get; set; }
-        public byte[] BackupHeatCost { get; set; }
-        public byte[] UsedSurrogate { get; set; }
+        public bool BackupHeatCost { get; set; }
+        public bool UsedSurrogate { get; set; }
         public decimal? TotalEnergyCost { get; set; }
         public decimal TotalAnnualElectricCosts { get; set; }
         public string HifJsonData { get; set; }
