@@ -21,19 +21,19 @@ CREATE TABLE HiffApplication
 	DurationYears int,
 	DurationMonth int,
 	HousingStatus nvarchar(30),
-	CostMontly decimal (18, 2),
+	CostMonthly decimal (18, 2),
 	HousingType nvarchar(30),
 	NumberBedrooms int,
 	TotalPeople int NOT NULL,
 	HouseholdIncome decimal(18,2) NOT NULL,
 	TargetGroup1 nchar,
-	TargetGrouop2 nchar,
+	TargetGroup2 nchar,
 	HeatSource nvarchar(30) NOT NULL,
 	AnnualHeatCost decimal(18,2) NOT NULL,
-	BakupHeatCost binary,
+	BackupHeatCost binary,
 	UsedSurrogate binary,
 	TotalEnergyCost decimal (18, 2),
-	TotalAnnualEletricCosts decimal (18, 2) NOT NULL
+	TotalAnnualElectricCosts decimal (18, 2) NOT NULL
 )
 GO
 
