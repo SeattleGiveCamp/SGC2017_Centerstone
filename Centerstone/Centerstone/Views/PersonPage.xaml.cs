@@ -34,8 +34,11 @@ namespace Centerstone
 
         void Handle_DeleteIncomeTypeClicked(object sender, System.EventArgs e)
         {
-            Person.IncomeSources.Add(new IncomeSource());
+            var selectedIncomeSource = (IncomeSource) ((Button)sender).CommandParameter;
+            Person.IncomeSources.Remove(selectedIncomeSource);
         }
+
+
         public void InitRacePickerItems()
         {
             Picker picker = RacePicker;
