@@ -13,6 +13,7 @@ namespace Centerstone.MobileAppService.Data
         }
 
         public long ApplicationId { get; set; }
+        public string UniqueAppId { get; set; }
         public string LiveStreetAddress { get; set; }
         public string LiveCity { get; set; }
         public string LiveState { get; set; }
@@ -26,19 +27,20 @@ namespace Centerstone.MobileAppService.Data
         public int? DurationYears { get; set; }
         public int? DurationMonth { get; set; }
         public string HousingStatus { get; set; }
-        public decimal? CostMontly { get; set; }
+        public decimal? CostMonthly { get; set; }
         public string HousingType { get; set; }
         public int? NumberBedrooms { get; set; }
         public int TotalPeople { get; set; }
         public decimal HouseholdIncome { get; set; }
         public string TargetGroup1 { get; set; }
-        public string TargetGrouop2 { get; set; }
+        public string TargetGroup2 { get; set; }
         public string HeatSource { get; set; }
         public decimal AnnualHeatCost { get; set; }
-        public byte[] BakupHeatCost { get; set; }
+        public byte[] BackupHeatCost { get; set; }
         public byte[] UsedSurrogate { get; set; }
         public decimal? TotalEnergyCost { get; set; }
-        public decimal TotalAnnualEletricCosts { get; set; }
+        public decimal TotalAnnualElectricCosts { get; set; }
+        public string HifJsonData { get; set; }
 
         public ICollection<HouseholdMembers> HouseholdMembers { get; set; }
         public ICollection<Images> Images { get; set; }
