@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Centerstone.Helpers;
 using Centerstone.Models;
 using Xamarin.Forms;
 
@@ -44,5 +45,18 @@ namespace Centerstone.Views
         {
             Navigation.PushAsync(new TestIncomeRulesPage());
         }
-    }
+
+		protected override void OnAppearing ()
+		{
+			base.OnAppearing ();
+
+			try {
+				hif.WriteFile ();
+				Settings.LastApplicationPath = hif.UniqueApplicationId.ToString ("N");
+			}
+			catch (Exception ex) {
+				Console.WriteLine (ex);
+			}
+		}
+	}
 }

@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using Centerstone.Web.Models;
 
 namespace Centerstone.Web
 {
@@ -56,7 +58,7 @@ namespace Centerstone.Web
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=IncomeGuidelines}/{action=Index}/{id?}");
             });
         }
     }

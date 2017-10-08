@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using Centerstone.Helpers;
+using Newtonsoft.Json;
 
 namespace Centerstone.Models
 {
@@ -95,6 +96,24 @@ namespace Centerstone.Models
 			var toRemove = Children.LastOrDefault ();
 			if (toRemove != null)
 				People.Remove (toRemove);
+		}
+
+		public string ToJson ()
+		{
+			return JsonConvert.SerializeObject (this);
+		}
+
+		public static HIF ReadFile (string path)
+		{
+			return JsonConvert.DeserializeObject<HIF> (System.IO.File.ReadAllText (path));
+		}
+
+		public void WriteFile ()
+		{
+			var j = ToJson ();
+			var path = System.IO.Path.Combine (Environment.GetFolderPath (Environment.SpecialFolder.MyDocuments), UniqueApplicationId.ToString ("N"));
+			Console.WriteLine ("SAVED " + path);
+			System.IO.File.WriteAllText (path, j);
 		}
 	}
 }
