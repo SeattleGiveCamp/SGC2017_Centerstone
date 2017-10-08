@@ -14,9 +14,13 @@ namespace Centerstone
         
         public Person Person { get; set; }
         public string[] IncomeSourceOptions { get; set; } = IncomeSources.All;
-        public PersonPage(HIF hif, Person person)
+
+		readonly HIF hif;
+
+		public PersonPage(HIF hif, Person person)
         {
-            InitializeComponent();
+			this.hif = hif;
+			InitializeComponent ();
 
             Person = person;
             BindingContext = person;
@@ -81,7 +85,8 @@ namespace Centerstone
 
 		public void Handle_SsnReceived (HifImage img)
 		{
-			
+			Person.SocialSecurityImage?.Delete ();
+			Person.SocialSecurityImage = img;
 		}
     }
 }
