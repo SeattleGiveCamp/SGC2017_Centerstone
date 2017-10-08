@@ -12,8 +12,8 @@ namespace Centerstone
 {
     public partial class App : Application
     {
-        public static bool UseMockDataStore = true;
-        public static string BackendUrl = "https://localhost:5000";
+        public static bool UseMockDataStore = false;
+        public static string BackendUrl = "http://hif-registration.azurewebsites.net";
 
         public App()
         {
@@ -30,7 +30,7 @@ namespace Centerstone
             if (UseMockDataStore)
                 DependencyService.Register<MockDataStore>();
             else
-                DependencyService.Register<CloudDataStore>();
+                DependencyService.Register<HIFCloudDataStore>();
 
 			MainPage = new NavigationPage (new HomePage (hif));
         }

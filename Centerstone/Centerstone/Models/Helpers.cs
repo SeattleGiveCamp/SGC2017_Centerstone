@@ -74,4 +74,16 @@ namespace Centerstone.Helpers
             "Unemployment",
         };
     }
+
+    public static class HeatSources
+    {
+        public static readonly string[] All = {
+            "Electrical",
+            "Natural Gas",
+            "Propane",
+            "Oil",
+            "Wood",
+            "Coal",
+        };
+    }
 }

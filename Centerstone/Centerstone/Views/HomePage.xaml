@@ -9,6 +9,7 @@
             <Button Text="People" Clicked="Handle_PeopleClicked" />
             <Button Text="Images" Clicked="Handle_ImagesClicked" />
             <Button Text="Tips" Clicked="Handle_TipsClicked" />
+            <Button Text="Incomes" Clicked="Handle_IncomesClicked" />
         </StackLayout>
 	</ContentPage.Content>
 </ContentPage>
