@@ -17,9 +17,9 @@
                     IsVisible="{Binding Person.IsDesignatedAdult}"/>
             <Button Text="Add Income Source" Clicked="Handle_AddIncomeTypeClicked" 
                     IsVisible="{Binding Person.IsDesignatedAdult}"/>
-            <ListView ItemsSource="{Binding Person.IncomeSources}" 
+            <ListView ItemsSource="{Binding Person.IncomeSources}" HeightRequest="10"
                       VerticalOptions="FillAndExpand" HasUnevenRows="true" 
-                      IsPullToRefreshEnabled="true" 
+                      IsPullToRefreshEnabled="true"                      
                       IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                       CachingStrategy="RecycleElement">
                 <ListView.ItemTemplate>
@@ -38,7 +38,7 @@
                 </ListView.ItemTemplate>
             </ListView>
             
-            <Label Text="SocialSecurityNumber"/>
+            <Label Text="Social Security Number"/>
             <Entry Text="{Binding Person.SocialSecurityNumber}"/>
 
             <c:HifImageView HifImage="{Binding Person.SocialSecurityImage}"/>
