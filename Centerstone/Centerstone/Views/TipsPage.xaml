@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Centerstone.Views.TipsPage"
     Title="Energy Tips">
-	<ContentPage.Content>
-        <Label Text="Turn the heater off. Insulate windows." />
-	</ContentPage.Content>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
+                <Label Text="• Unplug electronic devices when not in use or when leaving home"></Label>
+                <Label Text="• Consider investing in a power strip to easily turn off multiple devices"></Label>
+                <Label Text="• Turn off lights in rooms that aren't being used"></Label>
+                <Label Text="• Reduce your refrigerator's temperature (36 to 38 degrees)"></Label>
+                <Label Text="• Make sure appliances are turned off after each use"></Label>
+                <Label Text="• Consider replacing bulbs with energy efficient lighting (CFL and LED lightbulbs)"></Label>
+                <Label Text="• Seal drafts in windows and doors with weather stripping, caulking, or plastic film"></Label>
+                <Label Text="• Avoid using space heaters as much as possible, as they are expensive, unsafe, and not the most energy efficient when it comes to heating your entire home"></Label>
+                <Label Text="• Vacuum vents and heating baseboards regularly"></Label>
+                <Label Text="• Add light colored curtains to windows and keep shades open during the day for sunlight and closed at night to keep warm air in"></Label>
+                <Label Text="• Consider installing a water saving shower head"></Label>
+                <Label Text="• Lower water heaters thermostat to 120 degrees"></Label>
+                <Label Text="• Dust light fixtures regularly"></Label>
+                <Label Text="• Take showers, not baths"></Label>
+                <Label Text="• Run the dishwasher with full loads only and let dishes air dry"></Label>
+                <Label Text="• Lower the thermostat every time you leave the house"></Label>
+                <Label Text="• Wash full loads of laundry with cold water, air dry clothes, and clean lint trap"></Label>
+                <Label Text="• Raise the heat temperature in your home gradually, since sudden increases will substantially increase your energy usage"></Label>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
 </ContentPage>
