@@ -40,9 +40,6 @@
     <Compile Include="..\Centerstone\Models\HeatSource.cs">
       <Link>Models\HeatSource.cs</Link>
     </Compile>
-    <Compile Include="..\Centerstone\Models\HeatSources.cs">
-      <Link>Models\HeatSources.cs</Link>
-    </Compile>
     <Compile Include="..\Centerstone\Models\Helpers.cs">
       <Link>Models\Helpers.cs</Link>
     </Compile>

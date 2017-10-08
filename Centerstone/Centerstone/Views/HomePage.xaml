@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Centerstone.Views.HomePage"
-    Title="Centerstone HIF App">
+    Title="Energy Assistance Application">
 	<ContentPage.Content>
         <StackLayout Orientation="Vertical">
-            <Label Text="You're almost ready to save money!" HorizontalOptions="Center" />
+            <Label Text="This app will help you apply to Centerstone's Energy Assistance Program" HorizontalOptions="Center" />
             <Button Text="Basic" Clicked="Handle_BasicInfoClicked" />
             <Button Text="Household" Clicked="Handle_EnergyClicked" />
             <Button Text="People" Clicked="Handle_PeopleClicked" />
             <Button Text="Images" Clicked="Handle_ImagesClicked" />
-            <Button Text="Tips" Clicked="Handle_TipsClicked" />
+            <Button Text="Ways to Conserve Energy" Clicked="Handle_TipsClicked" />
             <!--<Button Text="No Income Form" Clicked="Handle_IncomesClicked" />-->
             <Button Text="Submit Application" Clicked="Handle_Submit" />
             <Button Text="Start Over" Clicked="Handle_StartOver" />

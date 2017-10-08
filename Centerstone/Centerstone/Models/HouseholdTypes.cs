@@ -4,8 +4,8 @@ namespace Centerstone.Models
 	public class HouseholdTypes
 	{
 		public static string[] All = {
-			"1-3 Families",
-			"4+ Families",
+			"Single Family Home",
+			"Duplex or Triplex",
 			"Hi-rise",
 			"Mobilehome",
 			"RV",
