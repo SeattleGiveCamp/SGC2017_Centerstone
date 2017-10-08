@@ -1,0 +1,146 @@
+﻿[
+  {
+    "rowId": 1,
+    "householdSize": 1,
+    "maxIncome": 1256.00,
+    "householdAdjust": 1.00
+  },
+  {
+    "rowId": 2,
+    "householdSize": 2,
+    "maxIncome": 1692.00,
+    "householdAdjust": 1.35
+  },
+  {
+    "rowId": 3,
+    "householdSize": 3,
+    "maxIncome": 2127.00,
+    "householdAdjust": 1.69
+  },
+  {
+    "rowId": 4,
+    "householdSize": 4,
+    "maxIncome": 2563.00,
+    "householdAdjust": 2.04
+  },
+  {
+    "rowId": 5,
+    "householdSize": 5,
+    "maxIncome": 2998.00,
+    "householdAdjust": 2.39
+  },
+  {
+    "rowId": 6,
+    "householdSize": 6,
+    "maxIncome": 3433.00,
+    "householdAdjust": 2.73
+  },
+  {
+    "rowId": 7,
+    "householdSize": 7,
+    "maxIncome": 3869.00,
+    "householdAdjust": 3.08
+  },
+  {
+    "rowId": 8,
+    "householdSize": 8,
+    "maxIncome": 4304.00,
+    "householdAdjust": 3.43
+  },
+  {
+    "rowId": 9,
+    "householdSize": 9,
+    "maxIncome": 4740.00,
+    "householdAdjust": 3.77
+  },
+  {
+    "rowId": 10,
+    "householdSize": 10,
+    "maxIncome": 5175.00,
+    "householdAdjust": 4.12
+  },
+  {
+    "rowId": 11,
+    "householdSize": 11,
+    "maxIncome": 5610.00,
+    "householdAdjust": 4.47
+  },
+  {
+    "rowId": 12,
+    "householdSize": 12,
+    "maxIncome": 6046.00,
+    "householdAdjust": 4.81
+  },
+  {
+    "rowId": 13,
+    "householdSize": 13,
+    "maxIncome": 6481.00,
+    "householdAdjust": 5.16
+  },
+  {
+    "rowId": 14,
+    "householdSize": 14,
+    "maxIncome": 6917.00,
+    "householdAdjust": 5.51
+  },
+  {
+    "rowId": 15,
+    "householdSize": 15,
+    "maxIncome": 7352.00,
+    "householdAdjust": 5.85
+  },
+  {
+    "rowId": 16,
+    "householdSize": 16,
+    "maxIncome": 7788.00,
+    "householdAdjust": 6.20
+  },
+  {
+    "rowId": 17,
+    "householdSize": 17,
+    "maxIncome": 8223.00,
+    "householdAdjust": 6.55
+  },
+  {
+    "rowId": 18,
+    "householdSize": 18,
+    "maxIncome": 8658.00,
+    "householdAdjust": 6.89
+  },
+  {
+    "rowId": 19,
+    "householdSize": 19,
+    "maxIncome": 9094.00,
+    "householdAdjust": 7.24
+  },
+  {
+    "rowId": 20,
+    "householdSize": 20,
+    "maxIncome": 9529.00,
+    "householdAdjust": 7.59
+  },
+  {
+    "rowId": 21,
+    "householdSize": 21,
+    "maxIncome": 9965.00,
+    "householdAdjust": 7.93
+  },
+  {
+    "rowId": 22,
+    "householdSize": 22,
+    "maxIncome": 10400.00,
+    "householdAdjust": 8.28
+  },
+  {
+    "rowId": 23,
+    "householdSize": 23,
+    "maxIncome": 10835.00,
+    "householdAdjust": 8.63
+  },
+  {
+    "rowId": 24,
+    "householdSize": 24,
+    "maxIncome": 11271.00,
+    "householdAdjust": 8.97
+  }
+]

@@ -128,4 +128,7 @@
       </Generator>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Data\incomerule.json" />
+  </ItemGroup>
 </Project>
