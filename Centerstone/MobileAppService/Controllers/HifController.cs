@@ -14,45 +14,38 @@ namespace Centerstone.MobileAppService.Controllers
     [Route("api/[controller]")]
     public class HifController : Controller
     {
-		//private readonly IHifRepository _hifRepository;
+        private HifContext context;
+		private readonly IHifRepository _hifRepository;
 
         public HifController()
         {
             //_hifRepository = hifRepository;
-            //var context = new HifContext();
-            //_hifRepository = new HifRepository(context);
+            context = new HifContext();
+            _hifRepository = new HifRepository(context);
         }
 
 		[HttpGet]
         public IEnumerable<HifApplication> Get()
         {
-            using (var context = new HifContext())
-            {
-                HifRepository repo = new HifRepository(context);
-                var ret = repo.GetAllApplications();
+                var ret = _hifRepository.GetAllApplications();
                 return ret;
-            }
+            
         }
 
         [HttpGet("{id}")]
         public HifApplication Get(int id)
         {
-
-            using (var context = new HifContext())
-            {
-                HifRepository repo = new HifRepository(context);
-                var ret = repo.GetApplication(id);
+            
+                var ret = _hifRepository.GetApplication(id);
                 return ret;
-            }
+            
         }
 
         [HttpPost]
         public void Post([FromBody]Centerstone.Models.HIF hif)
         {
             bool success = false;
-            using (var context = new HifContext())
-            {
-                HifRepository repo = new HifRepository(context);
+           
                 using (var transaction = context.Database.BeginTransaction())
                 {
                     try
@@ -81,7 +74,7 @@ namespace Centerstone.MobileAppService.Controllers
                         {
                             if (person.SocialSecurityNumber != null)
                             {
-                                repo.AddPerson(new HouseholdMembers()
+                                _hifRepository.AddPerson(new HouseholdMembers()
                                 {
                                     IsPrimary = person.IsPrimary,
                                     FullName = person.FullName,
@@ -98,7 +91,7 @@ namespace Centerstone.MobileAppService.Controllers
                         using (StreamReader reader = new StreamReader(Request.Body, Encoding.UTF8))
                             hifEntity.HifJsonData = reader.ReadToEnd();
 
-                        repo.AddApplication(hifEntity);
+                        _hifRepository.AddApplication(hifEntity);
 
                         transaction.Commit();
                         success = true;
@@ -108,7 +101,7 @@ namespace Centerstone.MobileAppService.Controllers
                         transaction.Rollback();
                     }
                 }
-            }
+            
         }
 
         [HttpPost("postimage")]
@@ -120,17 +113,16 @@ namespace Centerstone.MobileAppService.Controllers
         [HttpGet("incomerules")]
         public IEnumerable<IncomeRules> GetIncomeRules()
         {
-            using (var context = new HifContext())
-            {
-                HifRepository repo = new HifRepository(context);
-                var ret = repo.GetIncomeRules();
+           
+                
+                var ret = _hifRepository.GetIncomeRules();
                 return ret;
-            }
+            
         }
 
         [HttpGet("test")]
         [Authorize]
-        public string GetTest()
+        public String GetTest()
         {
             return "Hello World!";
         }

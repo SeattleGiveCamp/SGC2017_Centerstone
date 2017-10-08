@@ -3,13 +3,17 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Xamarin.Forms;
+using Centerstone.Models;
 
 namespace Centerstone.Views
 {
 	public partial class TipsPage : ContentPage
 	{
-		public TipsPage ()
+		readonly HIF hif;
+
+		public TipsPage (HIF hif)
 		{
+			this.hif = hif;
 			InitializeComponent ();
             signature.StrokeCompleted += (sender, e) =>
             {
@@ -21,20 +25,15 @@ namespace Centerstone.Views
         {
 			if (signature.IsBlank == false) {
 				// export the signature bitmap
-				var stream = await signature.GetImageStreamAsync (SignatureImageFormat.Png);
-
-				if (stream != null) {
-					using (var memStream = new MemoryStream ()) {
-						stream.CopyTo (memStream);
-						byte[] bytesOfSignature = memStream.ToArray ();
-
-						//TODO: these bytes need to be stored in some model.
-					}
+				using (var stream = await signature.GetImageStreamAsync(SignatureImageFormat.Png))
+				{
+					hif.TipsSignature?.Delete(); 
+					hif.TipsSignature = HifImage.FromPngStream(stream);
 				}
-				await Navigation.PopToRootAsync (false);
+				await Navigation.PopToRootAsync (true);
 			}
 			else {
-				DisplayAlert ("Please sign", "A signature is needed as proof that you read these tips.", "OK");
+				await DisplayAlert ("Please sign", "A signature is needed as proof that you read these tips.", "OK");
 			}
         }
         
