@@ -5,7 +5,12 @@ namespace Centerstone.Models
 {
 	public class Person : BaseModel
 	{
-		public bool IsDesignatedAdult { get; set; }
+        bool isDesignatedAdult;
+		public bool IsDesignatedAdult
+        {
+            get => isDesignatedAdult;
+            set => SetProperty(ref isDesignatedAdult, value);
+        }
 		public bool IsPrimary { get; set; }
 
 		public string FullName { get; set; }
@@ -44,5 +49,15 @@ namespace Centerstone.Models
 				IsDesignatedAdult = true,
 			};
 		}
-	}
+
+        //No Income
+        HifImage noIncomeSingurate;
+        public HifImage NoIncomeSingurate
+        {
+            get => noIncomeSingurate;
+            set => SetProperty(ref noIncomeSingurate, value);
+        }
+        public string NoIncomeReason { get; set; }
+        public string WayOfBasicLiving { get; set; }
+    }
 }

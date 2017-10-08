@@ -2,16 +2,33 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using Centerstone.Helpers;
+using Newtonsoft.Json;
 
 namespace Centerstone.Models
 {
-	public class HIF : BaseModel
-	{
-		public Guid UniqueApplicationId { get; set; }
-		public string Zip { get; set; }
+    public class Temp
+    {
+        public string Name { get; set; }
+        public bool Value { get; set; } = false;
+        public Temp(string name)
+        {
+            Name = name;
+        }
+    }
+    public class HIF : BaseModel
+    {
+        public Guid UniqueApplicationId { get; set; }
 
-		public ObservableCollection<Person> People { get; set; } = 
-			new ObservableCollection<Person> ();
+		public DateTimeOffset CreatedTime { get; set; }
+
+        public string Zip { get; set; }
+        public Temp[] HeatSourcesTypes => Helpers.HeatSources.All.Select(x => new Temp(x)).ToArray();
+        public ObservableCollection<IncomeSource> HeatSourcess { get; set; } =
+        new ObservableCollection<IncomeSource>();
+
+		public ObservableCollection<Person> People { get; set; } =
+            new ObservableCollection<Person> ();
 		
 		public IEnumerable<Person> Adults => People.Where (x => x.IsDesignatedAdult);
 		public IEnumerable<Person> Children => People.Where (x => !x.IsDesignatedAdult);
@@ -48,6 +65,7 @@ namespace Centerstone.Models
 			UniqueApplicationId = Guid.NewGuid ();
 			People.Add (Person.CreateAdult ());
 			People.CollectionChanged += People_CollectionChanged;
+			CreatedTime = DateTimeOffset.Now;
 		}
 
 		void People_CollectionChanged (object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
@@ -78,9 +96,27 @@ namespace Centerstone.Models
 
 		public void DecreaseChildren ()
 		{
-			var toRemove = People.LastOrDefault ();
+			var toRemove = Children.LastOrDefault ();
 			if (toRemove != null)
 				People.Remove (toRemove);
+		}
+
+		public string ToJson ()
+		{
+			return JsonConvert.SerializeObject (this);
+		}
+
+		public static HIF ReadFile (string path)
+		{
+			return JsonConvert.DeserializeObject<HIF> (System.IO.File.ReadAllText (path));
+		}
+
+		public void WriteFile ()
+		{
+			var j = ToJson ();
+			var path = System.IO.Path.Combine (Environment.GetFolderPath (Environment.SpecialFolder.MyDocuments), UniqueApplicationId.ToString ("N"));
+			Console.WriteLine ("SAVED " + path);
+			System.IO.File.WriteAllText (path, j);
 		}
 	}
 }

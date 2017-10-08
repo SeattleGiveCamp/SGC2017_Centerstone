@@ -6,20 +6,23 @@ using Centerstone.Models;
 using Xamarin.Forms;
 using Centerstone.Helpers;
 using System.ComponentModel;
+using Centerstone.Views;
 
 namespace Centerstone
 {
     public partial class PersonPage : ContentPage
     {
-        
+        readonly HIF hif;
         public Person Person { get; set; }
         public string[] IncomeSourceOptions { get; set; } = IncomeSources.All;
-        public PersonPage(HIF hif, Person person)
+
+		public PersonPage(HIF hif, Person person)
         {
+			this.hif = hif;
+            Person = person;
             InitializeComponent();
 
-            Person = person;
-            BindingContext = person;
+			BindingContext = new PersonViewModel (person);
             InitRacePickerItems();
             InitGenderPickerItems();
             InitEthnicityPickerItmes();
@@ -29,7 +32,7 @@ namespace Centerstone
 
         void Handle_AddIncomeTypeClicked(object sender, System.EventArgs e)
         {
-            Person.IncomeSources.Add(new IncomeSource());
+            Person.IncomeSources.Add(new Centerstone.Models.IncomeSource());
         }
 
         void Handle_DeleteIncomeTypeClicked(object sender, System.EventArgs e)
@@ -81,8 +84,14 @@ namespace Centerstone
 
 		public void Handle_SsnReceived (HifImage img)
 		{
-			
+			Person.SocialSecurityImage?.Delete ();
+			Person.SocialSecurityImage = img;
 		}
+
+        public void Handle_GotoSingPageClicked(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new NoIncomePage(hif, Person));
+        }
     }
 }
 

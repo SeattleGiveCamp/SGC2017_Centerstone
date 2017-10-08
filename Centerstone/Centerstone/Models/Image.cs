@@ -6,5 +6,15 @@ namespace Centerstone.Models
 	{
 		public Guid Id { get; set; }
 		public string Path { get; set; }
+
+        public void Delete ()
+		{
+			try {
+				System.IO.File.Delete (Path);
+			}
+			catch (Exception ex) {
+				Console.WriteLine (ex);
+			}
+		}
 	}
 }

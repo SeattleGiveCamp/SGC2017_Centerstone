@@ -30,9 +30,9 @@ namespace Centerstone.Droid
             base.OnActivityResult(requestCode, resultCode, data);
         }
 
-		public override void OnRequestPermissionsResult (int requestCode, string[] permissions, Permission[] grantResults)
-		{
-			PermissionsImplementation.Current.OnRequestPermissionsResult (requestCode, permissions, grantResults);
-		}
+		//public override void OnRequestPermissionsResult (int requestCode, string[] permissions, Permission[] grantResults)
+		//{
+		//	PermissionsImplementation.Current.OnRequestPermissionsResult (requestCode, permissions, grantResults);
+		//}
     }
 }
