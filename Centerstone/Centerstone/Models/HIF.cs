@@ -7,6 +7,7 @@ namespace Centerstone.Models
 {
 	public class HIF : BaseModel
 	{
+		public Guid UniqueApplicationId { get; set; }
 		public string Zip { get; set; }
 
 		public ObservableCollection<Person> People { get; set; } = 
@@ -35,15 +36,16 @@ namespace Centerstone.Models
 
 		public ObservableCollection<string> HeatSources { get; set; } =
 			new ObservableCollection<string> ();
-		public ObservableCollection<Image> HeatImages { get; set; } =
-			new ObservableCollection<Image> ();
-		public ObservableCollection<Image> LeaseImages { get; set; } =
-			new ObservableCollection<Image> ();
+		public ObservableCollection<HifImage> HeatImages { get; set; } =
+			new ObservableCollection<HifImage> ();
+		public ObservableCollection<HifImage> LeaseImages { get; set; } =
+			new ObservableCollection<HifImage> ();
 
-		public Image TipsSignatuure { get; set; }
+		public HifImage TipsSignatuure { get; set; }
 
 		public HIF ()
 		{
+			UniqueApplicationId = Guid.NewGuid ();
 			People.Add (Person.CreateAdult ());
 			People.CollectionChanged += People_CollectionChanged;
 		}

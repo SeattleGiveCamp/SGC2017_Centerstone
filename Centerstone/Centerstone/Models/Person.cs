@@ -6,6 +6,7 @@ namespace Centerstone.Models
 	public class Person : BaseModel
 	{
 		public bool IsDesignatedAdult { get; set; }
+		public bool IsPrimary { get; set; }
 
 		public string FullName { get; set; }
 		public DateTime DateOfBirth { get; set; }
@@ -16,8 +17,8 @@ namespace Centerstone.Models
 			set => SetProperty (ref socialSecurityNumber, value);
 		}
 
-		Image socialSecurityImage;
-		public Image SocialSecurityImage {
+		HifImage socialSecurityImage;
+		public HifImage SocialSecurityImage {
 			get => socialSecurityImage;
 			set => SetProperty (ref socialSecurityImage, value);
 		}

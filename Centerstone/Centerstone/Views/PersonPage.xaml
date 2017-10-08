@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Centerstone.PersonPage" xmlns:vm="clr-namespace:Centerstone;" Title="{Binding Title}">
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Centerstone.PersonPage"
+    xmlns:c="clr-namespace:Centerstone.Views;"
+    Title="{Binding Title}">
     <!--<ContentPage.BindingContext>
         <vm:AboutViewModel />
     </ContentPage.BindingContext>-->
@@ -23,10 +28,10 @@
                             <StackLayout Padding="10">
                                 <Picker ItemsSource="{Binding IncomeSourceOptions}" 
                                         SelectedItem="{Binding IncomeSourceType}"/>
-                                <Button Clicked="Handle_DeleteIncomeTypeClicked"
-                                        CommandParameter="{Binding .}"
-                                        Text="Delete"></Button>
-                                <Button Text="Take Photoes"></Button>
+                                <ImageButton Clicked="Handle_DeleteIncomeTypeClicked"
+                                             CommandParameter="{Binding .}"
+                                             Text="Delete" />
+                                <Button Text="Take Photos"></Button>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
@@ -35,13 +40,13 @@
             
             <Label Text="SocialSecurityNumber"/>
             <Entry Text="{Binding SocialSecurityNumber}"/>
+
+            <c:ImageButton ImageReceived="Handle_SsnReceived" />
             
             <Label Text="{Binding CensusData.Gender}"/>
 
             <Label Text="Gender"/>
             <Picker x:Name="GenderPicker" SelectedItem="{Binding CensusData.Gender}"/>
-            <!--<Picker x:Name="GenderPicker" ItemsSource="{Binding SelectGender}" 
-                    SelectedIndex="{Binding CensusData.Gender}" />-->
 
             <Label Text="Relation To Primary"/>
             <Picker x:Name="RelationPicker" SelectedItem="{Binding CensusData.Relation}"/>
