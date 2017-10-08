@@ -10,6 +10,7 @@
             <Button Text="Images" Clicked="Handle_ImagesClicked" />
             <Button Text="Tips" Clicked="Handle_TipsClicked" />
             <!--<Button Text="No Income Form" Clicked="Handle_IncomesClicked" />-->
+            <Button Text="Start Over" Clicked="Handle_StartOver" />
         </StackLayout>
 	</ContentPage.Content>
 </ContentPage>
