@@ -5,9 +5,7 @@
     x:Class="Centerstone.PersonPage"
     xmlns:c="clr-namespace:Centerstone.Views;"
     Title="{Binding Title}">
-    <!--<ContentPage.BindingContext>
-        <vm:AboutViewModel />
-    </ContentPage.BindingContext>-->
+ 
     <ScrollView>
         <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
             <Label Text="Name"/>
@@ -28,13 +26,12 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Padding="10">
-                                <Label Text="{Binding IncomeSourceType}"/>
                                 <Picker ItemsSource="{Binding IncomeSourceOptions}" 
                                         SelectedItem="{Binding IncomeSourceType}"/>
                                 <Button Clicked="Handle_DeleteIncomeTypeClicked"
                                              CommandParameter="{Binding .}"
                                              Text="Delete" />
-                                <ImageButton Text="Take Photos"></ImageButton>
+                                <c:ImageButton Text="Take Photos"></c:ImageButton>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
