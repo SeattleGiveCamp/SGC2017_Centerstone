@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Centerstone.MobileAppService.Data;
 using Centerstone.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Centerstone.MobileAppService.Controllers
 {
@@ -125,6 +126,13 @@ namespace Centerstone.MobileAppService.Controllers
                 var ret = repo.GetIncomeRules();
                 return ret;
             }
+        }
+
+        [HttpGet("test")]
+        [Authorize]
+        public string GetTest()
+        {
+            return "Hello World!";
         }
     }
 }
