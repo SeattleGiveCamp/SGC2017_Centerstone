@@ -12,10 +12,10 @@ namespace Centerstone
     {
         public Person Person { get; set; }
 
-        public PersonViewModel()
+        public PersonViewModel(Person person)
         {
-            Title = "Browse";
-            Person = new Person();
+			Person = person;
+			person.PropertyChanged += (sender, e) => OnPropertyChanged ("Person");
         }
         
     }

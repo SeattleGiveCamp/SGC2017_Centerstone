@@ -41,10 +41,10 @@ namespace Centerstone.MobileAppService
             })
             .AddAzureAd(options => Configuration.Bind("AzureAd", options))
             .AddCookie();
+            
+            //services.AddTransient<HifContext, HifContext>();
+            //services.AddTransient<IHifRepository, HifRepository>();
             services.AddMvc();
-            services.AddSingleton<HifContext, HifContext>();
-            services.AddSingleton<IHifRepository, HifRepository>();
-
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });

@@ -7,7 +7,7 @@ namespace Centerstone.Views
 {
 	public class ImageButton : Button
 	{
-		public event Action<HifImage> ImageReceived;
+		public event ImageTakenEventHandler ImageTaken;
 
 		public ImageButton ()
 		{
@@ -28,8 +28,10 @@ namespace Centerstone.Views
 				Id = Guid.NewGuid (),
 				Path = imageMediaFile.Path,
 			};
-			ImageReceived?.Invoke (i);
+			ImageTaken?.Invoke (i);
 		}
 	}
+
+	public delegate void ImageTakenEventHandler (HifImage image);
 }
 

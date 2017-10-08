@@ -29,4 +29,8 @@
     <Folder Include="wwwroot\js\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MobileAppService\Centerstone.MobileAppService.csproj" />
+  </ItemGroup>
+
 </Project>
