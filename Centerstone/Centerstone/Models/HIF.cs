@@ -2,14 +2,26 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using Centerstone.Helpers;
 
 namespace Centerstone.Models
 {
-	public class HIF : BaseModel
-	{
-		public string Zip { get; set; }
-
-		public ObservableCollection<Person> People { get; set; } = 
+    public class Temp
+    {
+        public string Name { get; set; }
+        public bool Value { get; set; } = false;
+        public Temp(string name)
+        {
+            Name = name;
+        }
+    }
+    public class HIF : BaseModel
+    {
+        public string Zip { get; set; }
+        public Temp[] HeatSourcesTypes => Helpers.HeatSources.All.Select(x => new Temp(x)).ToArray();
+        public ObservableCollection<IncomeSource> HeatSourcess { get; set; } =
+        new ObservableCollection<IncomeSource>();
+        public ObservableCollection<Person> People { get; set; } = 
 			new ObservableCollection<Person> ();
 		
 		public IEnumerable<Person> Adults => People.Where (x => x.IsDesignatedAdult);

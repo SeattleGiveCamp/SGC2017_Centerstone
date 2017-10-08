@@ -18,9 +18,25 @@
 
                 <Label Text="Heat Sources" />
                 <Picker x:Name="HeatSourcesPicker" SelectedItem="{Binding HeatSources}"/>
-
+                <ListView x:Name="IncomeSource" ItemsSource="{Binding HeatSourcesTypes}" 
+                      VerticalOptions="FillAndExpand" HasUnevenRows="true" 
+                      IsPullToRefreshEnabled="true" 
+                      IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                      CachingStrategy="RecycleElement">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" Padding="10">
+                                    <Label Text="{Binding Name}"/>
+                                    <Switch IsToggled="{Binding Value}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
                 <us:ImageButton />
-                
+                <Switch x:Name="tempS"/>
+
                 <Button Text="Done" Clicked="Handle_Done" />
             </StackLayout>
         </ScrollView>

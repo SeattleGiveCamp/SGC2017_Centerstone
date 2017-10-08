@@ -71,7 +71,6 @@
       <DependentUpon>ImagesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\ImageButton.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\HeatSources.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\HouseholdTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\HouseholdStatuses.cs" />
   </ItemGroup>
