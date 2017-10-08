@@ -23,7 +23,7 @@ namespace Centerstone
 			InitializeComponent ();
 
             Person = person;
-            BindingContext = person;
+			BindingContext = new PersonViewModel (person);
             InitRacePickerItems();
             InitGenderPickerItems();
             InitEthnicityPickerItmes();
