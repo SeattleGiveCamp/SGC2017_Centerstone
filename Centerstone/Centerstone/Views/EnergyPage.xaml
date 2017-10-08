@@ -17,14 +17,16 @@
                 <Picker x:Name="HouseholdStatusPicker" SelectedItem="{Binding HouseholdStatus}"/>
 
                 <Label Text="Heat Sources" />
-                <Picker x:Name="HeatSourcesPicker" SelectedItem="{Binding HeatSources}"/>
-                <ListView x:Name="HeatSourcesxListItem" ItemsSource="{Binding HeatSourcesTypes}">
+                <!--<Picker x:Name="HeatSourcesPicker" SelectedItem="{Binding HeatSources}"/>-->
+                <ListView x:Name="HeatSourcesxListItem" ItemsSource="{Binding HeatSourcesTypes}"  VerticalOptions="FillAndExpand" HasUnevenRows="true" >
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Orientation="Horizontal" Padding="10">
-                                    <Label Text="{Binding Name}"/>
-                                    <Switch IsToggled="{Binding Value}"/>
+                                    <BoxView VerticalOptions="Center" HorizontalOptions="Fill" />
+
+                                    <Label Text="{Binding Name}" />
+                                        <Switch IsToggled="{Binding Value}"/>
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>

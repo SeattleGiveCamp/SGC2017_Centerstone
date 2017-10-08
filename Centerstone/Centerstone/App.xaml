@@ -7,12 +7,56 @@
 			<Color x:Key="Accent">#96d1ff</Color>
 			<Color x:Key="LightBackgroundColor">#FAFAFA</Color>
 			<Color x:Key="DarkBackgroundColor">#C0C0C0</Color>
-			<Color x:Key="MediumGrayTextColor">#4d4d4d</Color>
+            <Color x:Key="BlackTextColor">#000</Color>
+            <Color x:Key="MediumGrayTextColor">#4d4d4d</Color>
 			<Color x:Key="LightTextColor">#999999</Color>
-			<Style TargetType="NavigationPage">
+            <Color x:Key="RedTextColor">#b55441</Color>
+            <Color x:Key="WhiteTextColor">#fff</Color>
+            <Color x:Key="DarkerBeigeTextColor">#7e6b57</Color>
+            <Color x:Key="LighterBeigeTextColor">#ada197</Color>
+            <Style TargetType="NavigationPage">
 				<Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
 				<Setter Property="BarTextColor" Value="White" />
 			</Style>
-		</ResourceDictionary>
+            <Style TargetType="Entry">
+                <Setter Property="HorizontalOptions" Value="Fill" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <!--<Setter Property="BackgroundColor" Value="{StaticResource RedTextColor}" />-->
+                <Setter Property="FontAttributes" Value="Italic" />
+                <Setter Property="Margin" Value="5" />
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource DarkerBeigeTextColor}" />
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="Margin" Value="5" />
+            </Style>
+            <Style x:Key="ChildAndAdultLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource WhiteTextColor}" />
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="Margin" Value="5" />
+            </Style>
+
+            <Style x:Key="TitleLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource BlackTextColor}" />
+                <Setter Property="FontSize" Value="Large"/>
+                <!--<Setter Property="FontAttributes" Value="Italic, Bold" />-->
+                <Setter Property="FontFamily" Value="Helvetica"/>
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="Margin" Value="10" />
+            </Style>
+            <Style x:Key="buttonStyle" TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="BackgroundColor" Value="#5DC29D" />
+                <Setter Property="BorderRadius" Value="4" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="WidthRequest" Value="200" />
+                <Setter Property="TextColor" Value="#fff" />
+            </Style>
+        </ResourceDictionary>
 	</Application.Resources>
 </Application>
