@@ -93,11 +93,25 @@ namespace Centerstone.Models
 			}
 		}
 
-		HifImage tipsSignatuure;
-		public HifImage TipsSignatuure
+		HifImage tipsSignature;
+		public HifImage TipsSignature
 		{
-			get => tipsSignatuure;
-			set => SetProperty(ref  tipsSignatuure, value);
+			get => tipsSignature;
+			set => SetProperty(ref  tipsSignature, value);
+		}
+
+		bool submitted = false;
+		public bool Submitted
+		{
+			get => submitted;
+			set => SetProperty(ref submitted, value);
+		}
+
+		DateTimeOffset submittedTime = DateTimeOffset.Now;
+		public DateTimeOffset SubmittedTime
+		{
+			get => submittedTime;
+			set => SetProperty(ref submittedTime, value);
 		}
 
 		public HIF ()

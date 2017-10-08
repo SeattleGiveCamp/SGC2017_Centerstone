@@ -25,22 +25,14 @@ namespace Centerstone.Views
         {
             if (signature.IsBlank == false)
             {
-                // export the signature bitmap
-                var stream = await signature.GetImageStreamAsync(SignatureImageFormat.Png);
-
-                if (stream != null)
-                {
-                    using (var memStream = new MemoryStream())
-                    {
-                        stream.CopyTo(memStream);
-                        byte[] bytesOfSignature = memStream.ToArray();
-                        //TODO: these bytes need to be stored in some model.
-                        //Person.NoIncomeSingurate
-                    }
-                }
-                await Navigation.PopToRootAsync(true);
+				// export the signature bitmap
+				using (var stream = await signature.GetImageStreamAsync(SignatureImageFormat.Png))
+				{
+					Person.NoIncomeSingurate?.Delete();
+					Person.NoIncomeSingurate = HifImage.FromPngStream(stream);
+				}
+				await Navigation.PopToRootAsync(true);
             }
         }
-
-    }
+	}
 }
