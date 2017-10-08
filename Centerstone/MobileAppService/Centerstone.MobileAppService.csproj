@@ -18,5 +18,59 @@
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="DBScripts\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Centerstone\Models\BaseModel.cs">
+      <Link>Models\BaseModel.cs</Link>
+    </Compile>
+    <Compile Include="..\Centerstone\Models\CensusData.cs">
+      <Link>Models\CensusData.cs</Link>
+    </Compile>
+    <Compile Include="..\Centerstone\Models\EducationType.cs">
+      <Link>Models\EducationType.cs</Link>
+    </Compile>
+    <Compile Include="..\Centerstone\Models\GenderType.cs">
+      <Link>Models\GenderType.cs</Link>
+    </Compile>
+    <Compile Include="..\Centerstone\Models\HeatSource.cs">
+      <Link>Models\HeatSource.cs</Link>
+    </Compile>
+    <Compile Include="..\Centerstone\Models\HeatSources.cs">
+      <Link>Models\HeatSources.cs</Link>
+    </Compile>
+    <Compile Include="..\Centerstone\Models\Helpers.cs">
+      <Link>Models\Helpers.cs</Link>
+    </Compile>
+    <Compile Include="..\Centerstone\Models\HIF.cs">
+      <Link>Models\HIF.cs</Link>
+    </Compile>
+    <Compile Include="..\Centerstone\Models\HouseholdStatuses.cs">
+      <Link>Models\HouseholdStatuses.cs</Link>
+    </Compile>
+    <Compile Include="..\Centerstone\Models\HouseholdTypes.cs">
+      <Link>Models\HouseholdTypes.cs</Link>
+    </Compile>
+    <Compile Include="..\Centerstone\Models\Image.cs">
+      <Link>Models\Image.cs</Link>
+    </Compile>
+    <Compile Include="..\Centerstone\Models\IncomeSource.cs">
+      <Link>Models\IncomeSource.cs</Link>
+    </Compile>
+    <Compile Include="..\Centerstone\Models\IncomeSourceType.cs">
+      <Link>Models\IncomeSourceType.cs</Link>
+    </Compile>
+    <Compile Include="..\Centerstone\Models\Item.cs">
+      <Link>Models\Item.cs</Link>
+    </Compile>
+    <Compile Include="..\Centerstone\Models\Person.cs">
+      <Link>Models\Person.cs</Link>
+    </Compile>
+    <Compile Include="..\Centerstone\Models\RaceType.cs">
+      <Link>Models\RaceType.cs</Link>
+    </Compile>
+    <Compile Include="..\Centerstone\Models\RelationType.cs">
+      <Link>Models\RelationType.cs</Link>
+    </Compile>
   </ItemGroup>
 </Project>
