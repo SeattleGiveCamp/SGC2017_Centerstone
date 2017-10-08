@@ -39,5 +39,10 @@ namespace Centerstone.Views
 		{
 			Navigation.PushAsync (new TipsPage ());
 		}
-	}
+
+        void Handle_IncomesClicked(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new TestIncomeRulesPage());
+        }
+    }
 }
