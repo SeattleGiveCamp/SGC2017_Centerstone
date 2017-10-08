@@ -5,12 +5,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Centerstone.MobileAppService.Data
 {
-    public class ApplicationRepository : IApplicationRepository
+    public class HifRepository : IHifRepository
     {
         private HIFContext context;
         private DbSet<HifApplication> hifSet;
 
-        public ApplicationRepository(HIFContext context)
+        public HifRepository(HIFContext context)
         {
             this.context = context;
             hifSet = context.Set<HifApplication>();
