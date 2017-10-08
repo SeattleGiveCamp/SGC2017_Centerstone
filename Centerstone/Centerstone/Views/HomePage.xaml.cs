@@ -22,7 +22,7 @@ namespace Centerstone.Views
 
 		void Handle_EnergyClicked (object sender, System.EventArgs e)
 		{
-			Navigation.PushAsync (new EnergyPage ());
+			Navigation.PushAsync (new EnergyPage (hif));
 		}
 
 		void Handle_PeopleClicked (object sender, System.EventArgs e)

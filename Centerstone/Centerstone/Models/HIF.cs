@@ -15,15 +15,32 @@ namespace Centerstone.Models
 		public IEnumerable<Person> Adults => People.Where (x => x.IsDesignatedAdult);
 		public IEnumerable<Person> Children => People.Where (x => !x.IsDesignatedAdult);
 
-		public string ContactEmail { get; set; } = "";
-		public string ContactPhone { get; set; } = "";
+		string contactEmail = "";
+		public string ContactEmail { get { return contactEmail; } set { SetProperty (ref contactEmail, value); } }
 
-		public decimal MonthlyHouseholdIncome { get; set; }
+		string contactPhone = "";
+		public string ContactPhone { get { return contactPhone; } set { SetProperty (ref contactPhone, value); } }
 
-		public HouseholdType HouseholdType { get; set; } = HouseholdType.Family1To3;
-		public HouseholdStatus HouseholdStatus { get; set; } = HouseholdStatus.OwnOrBuy;
+		decimal monthlyHouseholdIncome;
+		public decimal MonthlyHouseholdIncome {
+			get => monthlyHouseholdIncome;
+			set => SetProperty (ref monthlyHouseholdIncome, value);
+		}
 
-		public bool TipsAgreedTo { get; set; }
+		string householdType = "";
+		public string HouseholdType { get { return householdType; } set { SetProperty (ref householdType, value); } }
+
+		string householdStatus = "";
+		public string HouseholdStatus { get { return householdStatus; } set { SetProperty (ref householdStatus, value); } }
+
+		public ObservableCollection<string> HeatSources { get; set; } =
+			new ObservableCollection<string> ();
+		public ObservableCollection<Image> HeatImages { get; set; } =
+			new ObservableCollection<Image> ();
+		public ObservableCollection<Image> LeaseImages { get; set; } =
+			new ObservableCollection<Image> ();
+
+		public Image TipsSignatuure { get; set; }
 
 		public HIF ()
 		{
@@ -34,6 +51,8 @@ namespace Centerstone.Models
 		void People_CollectionChanged (object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
 		{
 			OnPropertyChanged ("People");
+			OnPropertyChanged ("Adults");
+			OnPropertyChanged ("Children");
 		}
 
 		public void IncreaseAdults ()

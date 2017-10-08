@@ -49,8 +49,6 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Models\HIF.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Person.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\HouseholdType.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\HouseholdStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\HeatSource.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\IncomeSource.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\CensusData.cs" />
@@ -72,6 +70,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\ImagesPage.xaml.cs">
       <DependentUpon>ImagesPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ImageButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\HeatSources.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\HouseholdTypes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\HouseholdStatuses.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml">
