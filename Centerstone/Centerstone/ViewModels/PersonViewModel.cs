@@ -15,6 +15,7 @@ namespace Centerstone
         public PersonViewModel(Person person)
         {
 			Person = person;
+			person.PropertyChanged += (sender, e) => OnPropertyChanged ("Person");
         }
         
     }

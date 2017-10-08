@@ -19,10 +19,10 @@ namespace Centerstone
 		public PersonPage(HIF hif, Person person)
         {
 			this.hif = hif;
-            this.Person = person;
-            
+            Person = person;
             InitializeComponent();
-            BindingContext = this;
+
+			BindingContext = new PersonViewModel (person);
             InitRacePickerItems();
             InitGenderPickerItems();
             InitEthnicityPickerItmes();

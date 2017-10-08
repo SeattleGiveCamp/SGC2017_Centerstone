@@ -122,7 +122,7 @@ CREATE TABLE StoredImages
 (
     RowId bigint identity(1,1) PRIMARY KEY NOT NULL,
     ImageID bigint,
-    ImageData VARBINARY,
+    ImageData VARBINARY(max),
 )
 
 ALTER TABLE StoredImages  WITH NOCHECK ADD CONSTRAINT FK_Images_StoredImages_ImageID FOREIGN KEY(ImageId) REFERENCES Images (ImageId)

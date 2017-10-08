@@ -44,6 +44,7 @@
             <Label Text="SocialSecurityNumber"/>
             <Entry Text="{Binding Person.SocialSecurityNumber}"/>
 
+            <c:HifImageView HifImage="{Binding Person.SocialSecurityImage}"/>
             <c:ImageButton ImageTaken="Handle_SsnReceived" />
             
             <Label Text="{Binding Person.CensusData.Gender}"/>

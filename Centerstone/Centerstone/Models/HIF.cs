@@ -20,6 +20,8 @@ namespace Centerstone.Models
     {
         public Guid UniqueApplicationId { get; set; }
 
+		public DateTimeOffset CreatedTime { get; set; }
+
         public string Zip { get; set; }
         public Temp[] HeatSourcesTypes => Helpers.HeatSources.All.Select(x => new Temp(x)).ToArray();
         public ObservableCollection<IncomeSource> HeatSourcess { get; set; } =
@@ -63,6 +65,7 @@ namespace Centerstone.Models
 			UniqueApplicationId = Guid.NewGuid ();
 			People.Add (Person.CreateAdult ());
 			People.CollectionChanged += People_CollectionChanged;
+			CreatedTime = DateTimeOffset.Now;
 		}
 
 		void People_CollectionChanged (object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)

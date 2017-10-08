@@ -87,6 +87,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\HouseholdStatuses.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\BasePage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\Settings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\HifImageView.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml">
