@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Centerstone.MobileAppService.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -9,8 +10,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 using Swashbuckle.AspNetCore.Swagger;
-
-using Centerstone.Models;
 
 namespace Centerstone.MobileAppService
 {
@@ -33,7 +32,7 @@ namespace Centerstone.MobileAppService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddSingleton<IItemRepository, ItemRepository>();
+            services.AddSingleton<IApplicationRepository, ApplicationRepository>();
 
             services.AddSwaggerGen(c =>
             {
