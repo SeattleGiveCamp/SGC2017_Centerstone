@@ -7,7 +7,7 @@ namespace Centerstone.Models
 		public Guid Id { get; set; }
 		public string Path { get; set; }
 
-		public void Delete ()
+        public void Delete ()
 		{
 			try {
 				System.IO.File.Delete (Path);

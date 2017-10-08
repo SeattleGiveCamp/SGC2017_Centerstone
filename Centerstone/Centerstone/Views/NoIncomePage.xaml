@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="Centerstone.Views.NoIncomePage"
+             xmlns:sig="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             xmlns:helper="clr-namespace:Centerstone.Helpers"
+    Title="No Income">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <helper:NegateBooleanConverter x:Key="inverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
+                <Label Text="DECLARATION OF NO INCOME"></Label>
+                <Label Text="*Each person in the household 18 years or older with no income must complete their own form. "></Label>
+                <Label Text="The reason that I have had no income for the months listed above is as follows:"></Label>
+                <Entry Text="{Binding NoIncomeReason}" FontSize="Small" />
+                <Label Text="I have been meeting my basic living needs for food, shelter, and utilities in the following way:"></Label>
+                <Entry Text="{Binding WayOfBasicLiving}" FontSize="Small" />
+                <Label Text="I certify that the information contained above is complete and accurate to the best of my knowledge. I understand that I am signing this statement under penalty of prosecution. If I knowingly give false information, which results in assistance I may be denied future services."></Label>
+
+                <sig:SignaturePadView
+		            x:Name="signature"
+                    MinimumHeightRequest="20"
+		            StrokeWidth="3"
+		            StrokeColor="Black">
+                </sig:SignaturePadView>
+                <Button Text="Sign Document" Clicked="Handle_AcceptSignature" x:Name="ButtonAccept" IsEnabled="False"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
