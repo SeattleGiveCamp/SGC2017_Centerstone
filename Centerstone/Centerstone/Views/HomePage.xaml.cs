@@ -60,6 +60,32 @@ namespace Centerstone.Views
 			}
 		}
 
+		public async void Handle_Submit(object sender, EventArgs e)
+		{
+			var cont = await DisplayAlert("Submit Current Application?", "You can only submit an application once. Please make sure it's completely filled out before continuing to submit.", "Submit", "Cancel");
+			if (!cont)
+				return;
+
+			try
+			{
+				var client = new System.Net.Http.HttpClient();
+				client.BaseAddress = new Uri("https://hif-registration.azurewebsites.net/");
+
+				var json = hif.ToJson();
+				await client.PostAsync("/api/Hif", new System.Net.Http.StringContent(json));
+
+				await DisplayAlert("Success!", "Your application was succesfully posted to Centerstone. You will hear back from us soon!", "OK");
+
+				hif.Submitted = true;
+				hif.SubmittedTime = DateTimeOffset.Now;
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex);
+				await DisplayAlert("Failed to Communicate", ex.Message, "OK");
+			}
+		}
+
 		public async void Handle_StartOver(object sender, EventArgs e)
 		{
 			var cont = await DisplayAlert("Delete Current Application?", "A new application will be blank and you will have to enter all your information again.", "Start Over", "Cancel");
