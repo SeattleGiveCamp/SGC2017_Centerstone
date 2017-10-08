@@ -20,10 +20,10 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Padding="10">
-                                <Label Text="{Binding IncomeSourceType}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
-                                <!--<Picker x:Name="IncomeSourceTypePicker" SelectedItem="{Binding IncomeSourceType}"/>-->
-
-                                <!--<Button Text="Delete" Clicked="Handle_DeleteIncomeTypeClicked" CommandParameter="{Binding }" CommandParameter="" />-->
+                                <Picker ItemsSource="{Binding IncomeSourceOptions}" 
+                                        SelectedItem="{Binding IncomeSourceType}"/>
+                                <Button>Delete</Button>
+                                <Button>Take Photoes</Button>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
