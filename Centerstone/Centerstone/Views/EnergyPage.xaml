@@ -3,7 +3,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Centerstone.Views.EnergyPage"
-    xmlns:us="clr-namespace:Centerstone.Views"
+    xmlns:c="clr-namespace:Centerstone.Views;"
     Title="Energy Info">
     <ContentPage.ToolbarItems>
     </ContentPage.ToolbarItems>
@@ -19,7 +19,7 @@
                 <Label Text="Heat Sources" />
                 <Picker x:Name="HeatSourcesPicker" SelectedItem="{Binding HeatSources}"/>
 
-                <us:ImageButton />
+                <c:ImageButton />
                 
                 <Button Text="Done" Clicked="Handle_Done" />
             </StackLayout>

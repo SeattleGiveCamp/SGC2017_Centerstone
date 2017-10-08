@@ -74,6 +74,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\HeatSources.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\HouseholdTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\HouseholdStatuses.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\BasePage.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml">
