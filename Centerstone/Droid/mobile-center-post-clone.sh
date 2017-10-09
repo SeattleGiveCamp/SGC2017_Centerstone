@@ -1,2 +1,2 @@
-rm '../Centerstone.Web.sln'
-exit 1
+#!/bin/bash
+rm Centerstone/Centerstone.Web.sln
