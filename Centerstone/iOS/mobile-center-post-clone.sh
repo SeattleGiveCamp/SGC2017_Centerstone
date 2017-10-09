@@ -1,3 +1,2 @@
-cd ..
-rm Centerstone.Web.sln
+rm Centerstone/Centerstone.Web.sln
 exit 1
