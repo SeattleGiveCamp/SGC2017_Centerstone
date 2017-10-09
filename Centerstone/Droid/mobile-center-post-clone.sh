@@ -1,2 +1,2 @@
-rm '..\Centerstone.Web.sln'
+rm '../Centerstone.Web.sln'
 exit 1
