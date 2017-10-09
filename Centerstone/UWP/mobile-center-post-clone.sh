@@ -1,2 +1,1 @@
-rm *.Web.sln
-rm ..\*.Web.sln
+rm '..\Centerstone.Web.sln'
