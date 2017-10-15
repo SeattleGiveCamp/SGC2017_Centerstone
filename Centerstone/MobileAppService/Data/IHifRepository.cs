@@ -15,5 +15,8 @@ namespace Centerstone.MobileAppService.Data
         void AddPerson(HouseholdMembers person);
         HouseholdMembers GetPerson(int id);
         IEnumerable<IncomeRules> GetIncomeRules();
-	}
+        void UpdateIncomeRule(IncomeRules rule);
+        void UpdateImages(HifApplication app, Images newImage);
+
+    }
 }

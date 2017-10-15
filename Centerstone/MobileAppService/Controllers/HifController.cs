@@ -44,8 +44,10 @@ namespace Centerstone.MobileAppService.Controllers
         [HttpPost]
         public void Post([FromBody]Centerstone.Models.HIF hif)
         {
-            bool success = false;
-           
+            if (hif != null && ModelState.IsValid)
+            {
+                bool success = false;
+
                 using (var transaction = context.Database.BeginTransaction())
                 {
                     try
@@ -62,9 +64,9 @@ namespace Centerstone.MobileAppService.Controllers
                             HousingStatus = hif.HouseholdStatus,
                             HousingType = hif.HouseholdType,
                             HeatSource = hif.HeatSources?.Aggregate((current, next) => current + ", " + next),
-                            //TODO: HeatImages
-                            //TODO: LeaseImages
-                            //TODO: TipsSignatuure
+                            //TODO: HeatImages - these are just a list of GUIDs for images.
+                            //TODO: LeaseImages  -  these are just a list of GUIDs for images.
+                            //TODO: TipsSignatuure -  these are just a list of GUIDs for images.
                         };
 
                         //TODO: Adults ???
@@ -81,7 +83,7 @@ namespace Centerstone.MobileAppService.Controllers
                                     DateOfBirth = person.DateOfBirth,
                                     Ssn = person.SocialSecurityNumber,
                                     PaidAdult = person.IsDesignatedAdult,
-                                    //TODO: person.SocialSecurityImage
+                                    //TODO: person.SocialSecurityImage -  these are just a list of GUIDs for images.
                                     //TODO: IncomeTypes = person.IncomeSources.Select(new IncomeTypes() {  } })
                                     //TODO: person.CensusData
                                 });
@@ -101,23 +103,49 @@ namespace Centerstone.MobileAppService.Controllers
                         transaction.Rollback();
                     }
                 }
-            
+            }
         }
 
         [HttpPost("postimage")]
-        public void PostImage(int id, string type, [FromBody]byte[] image)
+        public void PostImage(string imageId, int appId, [FromBody]byte[] image)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrWhiteSpace(imageId) == false
+                && appId > 0
+                && image != null 
+                && ModelState.IsValid)
+            {
+                var foundApp = _hifRepository.GetApplication(appId);
+                if (foundApp != null && foundApp.ApplicationId == appId)
+                {
+                    Images objImage = new Images();
+                    objImage.ApplicantGuid = imageId;
+
+                    StoredImages storedImage = new StoredImages();
+                    storedImage.ImageData = image;
+
+                    objImage.StoredImages.Add(storedImage);
+                    foundApp.Images.Add(objImage);
+
+                    _hifRepository.UpdateImages(foundApp, objImage);
+                }
+            }
         }
 
         [HttpGet("incomerules")]
         public IEnumerable<IncomeRules> GetIncomeRules()
         {
-           
-                
                 var ret = _hifRepository.GetIncomeRules();
                 return ret;
-            
+        }
+
+        [HttpPost("incomerules")]
+        public void EditIncomeRule([FromBody] IncomeRules rule)
+        {
+            if (rule != null)
+            {
+                _hifRepository.UpdateIncomeRule(rule);
+            }
+
         }
 
         [HttpGet("test")]

@@ -7,62 +7,35 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Centerstone.Web.Models;
 using Centerstone.MobileAppService.Data;
+using Centerstone.MobileAppService.Controllers;
 
 namespace Centerstone.Web.Controllers
 {
     public class IncomeGuidelinesController : Controller
     {
+        private HifController hifCont;
+        public IncomeGuidelinesController()
+        {
+            hifCont = new HifController();
+        }
+
         // GET: IncomeGuidelines
         public async Task<IActionResult> Index()
         {
-            //TODO: get list of guidelines.
-            List<IncomeRules> list = new List<IncomeRules>()
-            {
-                new IncomeRules(){HouseholdSize=1, MaxIncome=1256 },
-                new IncomeRules(){HouseholdSize=2, MaxIncome=1692 },
-                new IncomeRules(){HouseholdSize=3, MaxIncome=2127 },
-                new IncomeRules(){HouseholdSize=4, MaxIncome=2563 },
-                new IncomeRules(){HouseholdSize=5, MaxIncome=2998 },
+            var results = hifCont.GetIncomeRules();
 
-            };
-
-
-            return View(list);
+            return View(results);
         }
-
-        // GET: IncomeGuidelines/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            object incomeGuideline = null; //TODO: get the guideline.
-            if (incomeGuideline == null)
-            {
-                return NotFound();
-            }
-
-            return View(incomeGuideline);
-        }
-
-        // GET: IncomeGuidelines/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
+        
         // POST: IncomeGuidelines/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("HouseholdSize,MaxIncome")] IncomeRules incomeGuideline)
+        public async Task<IActionResult> Create([Bind("RowId,HouseholdSize,MaxIncome")] IncomeRules incomeGuideline)
         {
             if (ModelState.IsValid)
             {
-                //TODO: Call Save New IncomeGuidelines.
                 return RedirectToAction(nameof(Index));
             }
             return View(incomeGuideline);
@@ -75,9 +48,10 @@ namespace Centerstone.Web.Controllers
             {
                 ModelState.AddModelError("", "Bad Request.");
             }
-            
+
             //Sample: await _context.IncomeGuideline.SingleOrDefaultAsync(m => m.myKey == id);
-            object incomeGuideline = null; //TODO: call GetIncomeGuideline, switch back to var.
+
+            var incomeGuideline = hifCont.GetIncomeRules().FirstOrDefault(r => r.RowId == id);
             
             if (incomeGuideline == null)
             {
@@ -93,27 +67,24 @@ namespace Centerstone.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("HouseholdSize,MaxIncome")] IncomeRules incomeGuideline)
         {
-            //if (id != incomeGuideline.myKey)
-            //{
-            //    ModelState.AddModelError("", "Bad Request.");
-            //}
+            //if (id != incomeGuideline.RowId)
+            if (id <= 0)
+            {
+                ModelState.AddModelError("", "Bad Request.");
+            }
 
             if (ModelState.IsValid)
             {
                 try
                 {
-                    //TODO: Call Edit Guidelines
+                    incomeGuideline.RowId = id;
+                    hifCont.EditIncomeRule(incomeGuideline);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    //if (!IncomeGuidelineExists(incomeGuideline.myKey))
-                    //{
-                    //    ModelState.AddModelError("", "Record not found");
-                    //}
-                    //else
-                    //{
-                    //    ModelState.AddModelError("", "Database error!");
-                    //}
+                  
+                        ModelState.AddModelError("", "Database error!");
+                    
                 }
                 catch (Exception ex)
                 {
@@ -132,10 +103,10 @@ namespace Centerstone.Web.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool IncomeGuidelineExists(int id)
-        {
-            return false; //TODO: call GET api
-            //return _context.IncomeGuideline.Any(e => e.myKey == id);
-        }
+        //private bool IncomeGuidelineExists(int id)
+        //{
+        //    return false; //TODO: call GET api
+        //    //return _context.IncomeGuideline.Any(e => e.myKey == id);
+        //}
     }
 }
