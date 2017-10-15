@@ -7,7 +7,7 @@
     Title="{Binding Title}">
  
     <ScrollView>
-        <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
+        <StackLayout Orientation="Vertical">
             <Label Text="Name"/>
             <Entry Text="{Binding Person.FullName}" />
             
@@ -17,9 +17,9 @@
                     IsVisible="{Binding Person.IsDesignatedAdult}"/>
             <Button Text="Add Income Source" Clicked="Handle_AddIncomeTypeClicked" 
                     IsVisible="{Binding Person.IsDesignatedAdult}"/>
-            <ListView ItemsSource="{Binding Person.IncomeSources}" 
+            <ListView ItemsSource="{Binding Person.IncomeSources}" HeightRequest="10"
                       VerticalOptions="FillAndExpand" HasUnevenRows="true" 
-                      IsPullToRefreshEnabled="true" 
+                      IsPullToRefreshEnabled="true"                      
                       IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                       CachingStrategy="RecycleElement">
                 <ListView.ItemTemplate>
@@ -38,7 +38,7 @@
                 </ListView.ItemTemplate>
             </ListView>
             
-            <Label Text="SocialSecurityNumber"/>
+            <Label Text="Social Security Number"/>
             <Entry Text="{Binding Person.SocialSecurityNumber}"/>
 
             <c:HifImageView HifImage="{Binding Person.SocialSecurityImage}"/>
@@ -58,17 +58,18 @@
             <Label Text="Education (24 Years or Order)" />
             <Picker x:Name="EducationPicker" SelectedItem="{Binding Person.CensusData.Education}"/>
             <Grid>
-                <Label Text="Disabled"/>
+                <Label Text="Do you have a disabling condition?"/>
                 <Switch x:Name="DisabledSwitch" IsToggled="{Binding Person.CensusData.Disabled}"/>
             </Grid>
             <Grid>
-                <Label Text="Military Veteran"/>
+                <Label Text="Are you a Military Veteran?"/>
                 <Switch x:Name="MilitarySwitch" IsToggled="{Binding Person.CensusData.IsMilitaryVeteran}"/>
             </Grid>
             <Grid>
-                <Label Text="Health Insurance"/>
+                <Label Text="Do you have Health Insurance?"/>
                 <Switch x:Name="HealthInsuranceSwitch" IsToggled="{Binding Person.CensusData.HealthInsurance}"/>
             </Grid>
+
         </StackLayout>
     </ScrollView>
 </ContentPage>

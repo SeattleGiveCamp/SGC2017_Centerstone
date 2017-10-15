@@ -16,6 +16,11 @@ namespace Centerstone.Models
 		public string FullName { get; set; }
 		public DateTime DateOfBirth { get; set; }
 
+		public string DisplayFullName =>
+			string.IsNullOrWhiteSpace(FullName) ?
+		          (isDesignatedAdult ? "Unknown Adult" : "Unknown Child") :
+		          FullName;
+
 		string socialSecurityNumber;
 		public string SocialSecurityNumber {
 			get => socialSecurityNumber;

@@ -130,6 +130,7 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\ImagesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Data\incomerule.json" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\PersonPage.xaml">
@@ -137,8 +138,5 @@
       <Generator>
       </Generator>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="$(MSBuildThisFileDirectory)Data\incomerule.json" />
   </ItemGroup>
 </Project>

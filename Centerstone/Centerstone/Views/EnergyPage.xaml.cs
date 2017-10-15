@@ -18,7 +18,7 @@ namespace Centerstone.Views
 			BindingContext = hif;
 			HouseholdTypePicker.ItemsSource = HouseholdTypes.All;
 			HouseholdStatusPicker.ItemsSource = HouseholdStatuses.All;
-			HeatSourcesPicker.ItemsSource = HeatSources.All;
+			//HeatSourcesPicker.ItemsSource = HeatSources.All;
         }
 
         void Handle_ItemClicked(object sender, System.EventArgs e)
@@ -28,7 +28,7 @@ namespace Centerstone.Views
 
         void Handle_Done (object sender, System.EventArgs e)
 		{
-			Navigation.PopToRootAsync (false);
+			Navigation.PopToRootAsync (true);
 		}
 
         //void Handle_AddIncomeTypeClicked(object sender, System.EventArgs e)

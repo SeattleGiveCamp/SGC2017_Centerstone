@@ -14,7 +14,6 @@
         <ScrollView>
             <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
                 <Label Text="DECLARATION OF NO INCOME"></Label>
-                <Label Text="*Each person in the household 18 years or older with no income must complete their own form. "></Label>
                 <Label Text="The reason that I have had no income for the months listed above is as follows:"></Label>
                 <Entry Text="{Binding NoIncomeReason}" FontSize="Small" />
                 <Label Text="I have been meeting my basic living needs for food, shelter, and utilities in the following way:"></Label>
@@ -23,7 +22,7 @@
 
                 <sig:SignaturePadView
 		            x:Name="signature"
-                    MinimumHeightRequest="20"
+                    MinimumHeightRequest="40"
 		            StrokeWidth="3"
 		            StrokeColor="Black">
                 </sig:SignaturePadView>

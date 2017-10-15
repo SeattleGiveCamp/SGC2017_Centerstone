@@ -24,6 +24,19 @@ namespace Centerstone.Models
 
         public string Zip { get; set; }
 
+		decimal maximumIncome = 0.0M;
+		public decimal MaximumIncome
+		{
+			get => maximumIncome;
+			set
+			{
+				if (SetProperty(ref maximumIncome, value))
+					OnPropertyChanged("MaximumIncomeText");
+			}
+		}
+
+		public string MaximumIncomeText => MaximumIncome.ToString("C");
+
         public Temp[] HeatSourcesTypes => Helpers.HeatSources.All.Select(x => new Temp(x)).ToArray();
         public ObservableCollection<IncomeSource> HeatSourcess { get; set; } =
         new ObservableCollection<IncomeSource>();
@@ -80,7 +93,26 @@ namespace Centerstone.Models
 			}
 		}
 
-		public HifImage TipsSignatuure { get; set; }
+		HifImage tipsSignature;
+		public HifImage TipsSignature
+		{
+			get => tipsSignature;
+			set => SetProperty(ref  tipsSignature, value);
+		}
+
+		bool submitted = false;
+		public bool Submitted
+		{
+			get => submitted;
+			set => SetProperty(ref submitted, value);
+		}
+
+		DateTimeOffset submittedTime = DateTimeOffset.Now;
+		public DateTimeOffset SubmittedTime
+		{
+			get => submittedTime;
+			set => SetProperty(ref submittedTime, value);
+		}
 
 		public HIF ()
 		{
@@ -202,6 +234,29 @@ namespace Centerstone.Models
 			catch (Exception ex)
 			{
 				Console.WriteLine(ex);
+			}
+		}
+
+		public static readonly int[] ValidZipCodes = {
+			98101, 98102, 98103, 98104, 98105, 98107, 98109, 98122, 98115, 98116, 98117, 98118, 98119, 98121, 98125, 98122, 98126, 98133, 98134, 98144, 98136, 98155, 98177, 98199,
+		};
+
+		public List<string> CantSubmitReasons {
+			get {
+				var r = new List<string> ();
+				var hasContact = !string.IsNullOrWhiteSpace (ContactEmail) ||
+				                       !string.IsNullOrWhiteSpace (ContactPhone);
+				if (!hasContact) {
+					r.Add ("You must supply an email or phone number in the Basic Info section.");
+				}
+
+				int zip;
+				Int32.TryParse ((Zip ?? "").Trim(), out zip);
+				if (!ValidZipCodes.Contains (zip)) {
+					r.Add ($"You live in a ZIP code served by another organization, please call us at (206) 812-4940 to check if you can receive services.");
+				}
+
+				return r;
 			}
 		}
 	}

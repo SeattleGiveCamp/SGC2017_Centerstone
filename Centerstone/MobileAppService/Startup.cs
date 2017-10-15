@@ -60,6 +60,7 @@ namespace Centerstone.MobileAppService
             loggerFactory.AddDebug();
 
             app.UseMvc();
+            app.UseAuthentication();
 
             app.UseSwagger();
             app.UseSwaggerUI(c =>

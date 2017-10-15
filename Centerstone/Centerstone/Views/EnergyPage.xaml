@@ -10,21 +10,23 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <Label Text="Household Type" />
+                <Label Text="Housing Type" />
                 <Picker x:Name="HouseholdTypePicker" SelectedItem="{Binding HouseholdType}" />
                 
                 <Label Text="Household Status" />
                 <Picker x:Name="HouseholdStatusPicker" SelectedItem="{Binding HouseholdStatus}"/>
 
                 <Label Text="Heat Sources" />
-                <Picker x:Name="HeatSourcesPicker" SelectedItem="{Binding HeatSources}"/>
-                <ListView x:Name="HeatSourcesxListItem" ItemsSource="{Binding HeatSourcesTypes}">
+                <!--<Picker x:Name="HeatSourcesPicker" SelectedItem="{Binding HeatSources}"/>-->
+                <ListView x:Name="HeatSourcesxListItem" ItemsSource="{Binding HeatSourcesTypes}"  VerticalOptions="FillAndExpand" HasUnevenRows="true" >
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Orientation="Horizontal" Padding="10">
-                                    <Label Text="{Binding Name}"/>
-                                    <Switch IsToggled="{Binding Value}"/>
+                                    <BoxView VerticalOptions="Center" HorizontalOptions="Fill" />
+
+                                    <Label Text="{Binding Name}" />
+                                        <Switch IsToggled="{Binding Value}"/>
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
@@ -32,10 +34,12 @@
                 </ListView>
                 <Switch x:Name="tempS"/>
 
-                <Label Text="Heat Bills" />
+                <Label Text="Account Verification" />
+                <Label Text="Please take a picture of your last heating bill." />
                 <c:HifImagesPickerView Images="{Binding HeatImages}" />
                 
-                <Label Text="Home Lease (if renting)" />
+                <Label Text="Address Verification" />
+                <Label Text="Please take a picture of your rental agreement." />
                 <c:HifImagesPickerView Images="{Binding LeaseImages}" />
                 
                 <Button Text="Done" Clicked="Handle_Done" />

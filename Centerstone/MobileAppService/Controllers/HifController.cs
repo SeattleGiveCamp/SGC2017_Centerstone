@@ -150,7 +150,7 @@ namespace Centerstone.MobileAppService.Controllers
 
         [HttpGet("test")]
         [Authorize]
-        public string GetTest()
+        public String GetTest()
         {
             return "Hello World!";
         }

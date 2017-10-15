@@ -17,7 +17,7 @@ namespace Centerstone.Views
 
 		void Handle_StartApplication (object sender, System.EventArgs e)
 		{
-			Navigation.PopToRootAsync (false);
+			Navigation.PopToRootAsync (true);
 		}
 	}
 }
