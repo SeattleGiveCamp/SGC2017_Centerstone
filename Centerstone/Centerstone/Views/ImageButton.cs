@@ -11,24 +11,48 @@ namespace Centerstone.Views
 
 		public ImageButton ()
 		{
-			Text = "Take a Picture!";
+			Text = "Take a Picture";
 			Clicked += Handle_Click;
 		}
 
 		async void Handle_Click (object sender, EventArgs e)
 		{
-			if (!CrossMedia.Current.IsTakePhotoSupported) {
-				return;
-			}
-			var imageMediaFile = await CrossMedia.Current.TakePhotoAsync (new Plugin.Media.Abstractions.StoreCameraMediaOptions () {
-				MaxWidthHeight = 2048,
-			});
-			Console.WriteLine ("IMAGE " + imageMediaFile.Path);
-			var i = new HifImage {
-				Id = Guid.NewGuid (),
-				Path = imageMediaFile.Path,
-			};
-			ImageTaken?.Invoke (i);
+            try
+            {
+                if (!CrossMedia.Current.IsTakePhotoSupported)
+                {
+                    return;
+                }
+                var imageMediaFile = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions()
+                {
+                    MaxWidthHeight = 2048,
+                });
+
+                if (imageMediaFile == null)
+                    return;
+
+                Console.WriteLine("IMAGE " + imageMediaFile.Path);
+                var i = new HifImage
+                {
+                    Id = Guid.NewGuid(),
+                    Path = imageMediaFile.Path,
+                };
+
+                /*using (var stream = new System.IO.FileStream(imageMediaFile.Path, System.IO.FileMode.Open))
+                {
+                    using (var memoryStream = new System.IO.MemoryStream())
+                    {
+                        stream.CopyTo(memoryStream);
+                        var bytes = memoryStream.ToArray();
+                    }
+                }*/
+
+                ImageTaken?.Invoke(i);
+            }
+            catch
+            {
+                //Handle exception
+            }
 		}
 	}
 
