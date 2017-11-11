@@ -43,9 +43,7 @@
 
             <c:HifImageView HifImage="{Binding Person.SocialSecurityImage}"/>
             <c:ImageButton ImageTaken="Handle_SsnReceived" />
-            
-            <Label Text="{Binding Person.CensusData.Gender}"/>
-
+           
             <Label Text="Gender"/>
             <Picker x:Name="GenderPicker" SelectedItem="{Binding Person.CensusData.Gender}"/>
 

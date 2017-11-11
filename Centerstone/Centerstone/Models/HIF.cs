@@ -118,9 +118,10 @@ namespace Centerstone.Models
 		{
 			CreatedTime = DateTimeOffset.Now;
 			UniqueApplicationId = Guid.NewGuid ();
+            People.CollectionChanged += (s, e) => OnPropertyChanged("People");
 
-			People.CollectionChanged += People_CollectionChanged;
-			HeatSources.CollectionChanged += (s, e) => OnPropertyChanged ("HeatSources");
+            //People.CollectionChanged += People_CollectionChanged;
+            HeatSources.CollectionChanged += (s, e) => OnPropertyChanged ("HeatSources");
 			HeatImages.CollectionChanged += (s, e) => OnPropertyChanged ("HeatImages");
 			LeaseImages.CollectionChanged += (s, e) => OnPropertyChanged ("LeaseImages");
 		}

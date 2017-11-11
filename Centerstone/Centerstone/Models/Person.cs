@@ -27,7 +27,7 @@ namespace Centerstone.Models
 			set => SetProperty (ref socialSecurityNumber, value);
 		}
 
-		HifImage socialSecurityImage;
+        HifImage socialSecurityImage;
 		public HifImage SocialSecurityImage {
 			get => socialSecurityImage;
 			set => SetProperty (ref socialSecurityImage, value);
