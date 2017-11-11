@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Centerstone.MobileAppService.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     public class HifController : Controller
     {
         private HifContext context;
@@ -42,7 +42,8 @@ namespace Centerstone.MobileAppService.Controllers
         }
 
         [HttpPost]
-        public void Post([FromBody]Centerstone.Models.HIF hif)
+        [ActionName("sumbmit")]
+        public void Sumbmit([FromBody]Centerstone.Models.HIF hif)
         {
             if (hif != null && ModelState.IsValid)
             {
@@ -106,7 +107,8 @@ namespace Centerstone.MobileAppService.Controllers
             }
         }
 
-        [HttpPost("postimage")]
+        [HttpPost]
+        [ActionName("postimage")]
         public void PostImage(string imageId, int appId, [FromBody]byte[] image)
         {
             if (string.IsNullOrWhiteSpace(imageId) == false

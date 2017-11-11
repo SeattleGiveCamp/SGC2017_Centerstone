@@ -59,7 +59,12 @@ namespace Centerstone.MobileAppService
 			loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            app.UseMvc();
+            app.UseMvc(routes =>
+
+            routes.MapRoute(
+    name: "DefaultApi",
+    template: "api/{controller}/{action}"
+));
             app.UseAuthentication();
 
             app.UseSwagger();
