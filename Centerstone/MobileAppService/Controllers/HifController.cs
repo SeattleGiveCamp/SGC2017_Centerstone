@@ -106,7 +106,7 @@ namespace Centerstone.MobileAppService.Controllers
             }
         }
 
-        [HttpPost("postimage")]
+        [HttpPost("/PostImage")]
         public void PostImage(string imageId, int appId, [FromBody]byte[] image)
         {
             if (string.IsNullOrWhiteSpace(imageId) == false
