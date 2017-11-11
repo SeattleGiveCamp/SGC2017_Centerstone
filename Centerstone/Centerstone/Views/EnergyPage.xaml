@@ -24,9 +24,8 @@
                             <ViewCell>
                                 <StackLayout Orientation="Horizontal" Padding="10">
                                     <BoxView VerticalOptions="Center" HorizontalOptions="Fill" />
-
                                     <Label Text="{Binding Name}" />
-                                        <Switch IsToggled="{Binding Value}"/>
+                                    <Switch IsToggled="{Binding Value}" Toggled="Handle_Toggled"/>
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>

@@ -24,6 +24,7 @@ namespace Centerstone
             Person = person;
             viewModel = new PersonViewModel(person);
             BindingContext = viewModel;
+
             InitPickerItmes(RacePicker, Races.All, viewModel.Person.CensusData.Race);
             InitPickerItmes(GenderPicker, Genders.All, viewModel.Person.CensusData.Gender);
             InitPickerItmes(EthnicityPicker, Ethnicities.All, viewModel.Person.CensusData.Ethnicity);
@@ -53,15 +54,15 @@ namespace Centerstone
 
         }
 
-        void Handle_AddIncomeTypeClicked(object sender, System.EventArgs e)
+        void Handle_AddIncomeTypeClicked(object sender, EventArgs e)
         {
-            Person.IncomeSources.Add(new Centerstone.Models.IncomeSource());
+            viewModel.Person.IncomeSources.Add(new IncomeSource());
         }
 
-        void Handle_DeleteIncomeTypeClicked(object sender, System.EventArgs e)
+        void Handle_DeleteIncomeTypeClicked(object sender, EventArgs e)
         {
             var selectedIncomeSource = (IncomeSource) ((Button)sender).CommandParameter;
-            Person.IncomeSources.Remove(selectedIncomeSource);
+            viewModel.Person.IncomeSources.Remove(selectedIncomeSource);
         }
 
         public void InitPickerItmes(Picker picker, string[] allItmes, string selectedItem)
@@ -81,9 +82,6 @@ namespace Centerstone
         }
         public void InitIncomeSourceItems()
         {
-            ////Picker picker = IncomeSourceTypePicker;
-            //picker.ItemsSource = IncomeSources.All;
-
         }
 
 		public void Handle_SsnReceived (HifImage img)

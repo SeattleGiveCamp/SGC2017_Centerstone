@@ -12,25 +12,23 @@
             <Entry Text="{Binding Person.FullName}" />
             
             <Label Text="Birth of Date"/>
-            <DatePicker VerticalOptions="CenterAndExpand"></DatePicker>
+            <DatePicker VerticalOptions="CenterAndExpand" Date="{Binding Person.DateOfBirth}"></DatePicker>
             <Button Text="No Income. Please Sign a form" Clicked="Handle_GotoSingPageClicked" 
                     IsVisible="{Binding Person.IsDesignatedAdult}"/>
             <Button Text="Add Income Source" Clicked="Handle_AddIncomeTypeClicked" 
                     IsVisible="{Binding Person.IsDesignatedAdult}"/>
-            <ListView ItemsSource="{Binding Person.IncomeSources}" HeightRequest="10"
-                      VerticalOptions="FillAndExpand" HasUnevenRows="true" 
-                      IsPullToRefreshEnabled="true"                      
-                      IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                      CachingStrategy="RecycleElement">
+            <ListView  x:Name="PersonIncomeSources" ItemsSource="{Binding Person.IncomeSources}"
+                         VerticalOptions="FillAndExpand" HasUnevenRows="true">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Padding="10">
+                            <StackLayout   Orientation="Horizontal" Padding="10">
+                                <BoxView VerticalOptions="Center" HorizontalOptions="Fill" />
                                 <Picker ItemsSource="{Binding IncomeSourceOptions}" 
                                         SelectedItem="{Binding IncomeSourceType}"/>
                                 <Button Clicked="Handle_DeleteIncomeTypeClicked"
-                                             CommandParameter="{Binding .}"
-                                             Text="Delete" />
+                                        CommandParameter="{Binding .}"
+                                        Text="Delete" />
                                 <c:ImageButton Text="Take Photos"></c:ImageButton>
                             </StackLayout>
                         </ViewCell>

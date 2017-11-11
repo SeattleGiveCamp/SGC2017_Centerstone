@@ -38,8 +38,8 @@ namespace Centerstone.Models
 		public string MaximumIncomeText => MaximumIncome.ToString("C");
 
         public Temp[] HeatSourcesTypes => Helpers.HeatSources.All.Select(x => new Temp(x)).ToArray();
-        public ObservableCollection<IncomeSource> HeatSourcess { get; set; } =
-        new ObservableCollection<IncomeSource>();
+        public ObservableCollection<string> HeatSourcess { get; set; } =
+        new ObservableCollection<string>();
 		
 		public ObservableCollection<Person> People { get; set; } =
             new ObservableCollection<Person> ();

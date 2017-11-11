@@ -11,7 +11,9 @@ namespace Centerstone.Models
             get => isDesignatedAdult;
             set => SetProperty(ref isDesignatedAdult, value);
         }
-		public bool IsPrimary { get; set; }
+
+        public string DisplayAdult => IsDesignatedAdult ? "Adult" : "Child";
+        public bool IsPrimary { get; set; }
 
 		public string FullName { get; set; }
 		public DateTime DateOfBirth { get; set; }
