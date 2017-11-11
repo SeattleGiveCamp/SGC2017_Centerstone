@@ -1,0 +1,193 @@
+﻿@model Centerstone.MobileAppService.Data.HifApplication
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>HifApplication</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UniqueAppId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UniqueAppId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LiveStreetAddress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LiveStreetAddress)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LiveCity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LiveCity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LiveState)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LiveState)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LiveZipCode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LiveZipCode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MailingAddress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MailingAddress)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MailingCity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MailingCity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MailingState)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MailingState)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MailingZipCode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MailingZipCode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MessagePhone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MessagePhone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DurationYears)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DurationYears)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DurationMonth)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DurationMonth)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HousingStatus)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HousingStatus)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CostMonthly)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CostMonthly)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HousingType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HousingType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberBedrooms)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NumberBedrooms)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalPeople)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TotalPeople)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HouseholdIncome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HouseholdIncome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TargetGroup1)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TargetGroup1)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TargetGroup2)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TargetGroup2)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HeatSource)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HeatSource)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AnnualHeatCost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AnnualHeatCost)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BackupHeatCost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BackupHeatCost)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UsedSurrogate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UsedSurrogate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalEnergyCost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TotalEnergyCost)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalAnnualElectricCosts)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TotalAnnualElectricCosts)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HifJsonData)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HifJsonData)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ApplicationId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

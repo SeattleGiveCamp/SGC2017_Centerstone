@@ -15,7 +15,7 @@ namespace Centerstone.MobileAppService.Controllers
     public class HifController : Controller
     {
         private HifContext context;
-		private readonly IHifRepository _hifRepository;
+        private readonly IHifRepository _hifRepository;
 
         public HifController()
         {
@@ -24,26 +24,26 @@ namespace Centerstone.MobileAppService.Controllers
             _hifRepository = new HifRepository(context);
         }
 
-		[HttpGet]
+        [HttpGet]
         public IEnumerable<HifApplication> Get()
         {
-                var ret = _hifRepository.GetAllApplications();
-                return ret;
-            
+            var ret = _hifRepository.GetAllApplications();
+            return ret;
+
         }
 
         [HttpGet("{id}")]
         public HifApplication Get(int id)
         {
-            
-                var ret = _hifRepository.GetApplication(id);
-                return ret;
-            
+
+            var ret = _hifRepository.GetApplication(id);
+            return ret;
+
         }
 
         [HttpPost]
-        [ActionName("sumbmit")]
-        public void Sumbmit([FromBody]Centerstone.Models.HIF hif)
+        [ActionName("SubmitApplication")]
+        public void SubmitApplication([FromBody]Centerstone.Models.HIF hif)
         {
             if (hif != null && ModelState.IsValid)
             {
@@ -108,12 +108,16 @@ namespace Centerstone.MobileAppService.Controllers
         }
 
         [HttpPost]
-        [ActionName("postimage")]
-        public void PostImage(string imageId, int appId, [FromBody]byte[] image)
+        [ActionName("UploadImage")]
+        public void UploadImage([FromBody] Post_R postData) //, [FromBody] int appId, [FromBody]byte[] image
         {
+            int appId = int.Parse(postData.AppID);
+            byte[] image = postData.Image;
+            string imageId = postData.ImageID;
+
             if (string.IsNullOrWhiteSpace(imageId) == false
                 && appId > 0
-                && image != null 
+                && image != null
                 && ModelState.IsValid)
             {
                 var foundApp = _hifRepository.GetApplication(appId);
@@ -130,14 +134,22 @@ namespace Centerstone.MobileAppService.Controllers
 
                     _hifRepository.UpdateImages(foundApp, objImage);
                 }
+                else
+                {
+                    throw new ApplicationException("Application could not be found.");
+                }
+            }
+            else
+            {
+                throw new ApplicationException("Parameters are invalid.");
             }
         }
 
         [HttpGet("incomerules")]
         public IEnumerable<IncomeRules> GetIncomeRules()
         {
-                var ret = _hifRepository.GetIncomeRules();
-                return ret;
+            var ret = _hifRepository.GetIncomeRules();
+            return ret;
         }
 
         [HttpPost("incomerules")]
@@ -147,7 +159,6 @@ namespace Centerstone.MobileAppService.Controllers
             {
                 _hifRepository.UpdateIncomeRule(rule);
             }
-
         }
 
         [HttpGet("test")]
@@ -156,5 +167,12 @@ namespace Centerstone.MobileAppService.Controllers
         {
             return "Hello World!";
         }
+    }
+
+    public class Post_R
+    {
+        public string ImageID { get; set; }
+        public string AppID { get; set; }
+        public byte[] Image { get; set; }
     }
 }
