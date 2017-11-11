@@ -25,22 +25,22 @@
                                 <StackLayout Orientation="Horizontal" Padding="10">
                                     <BoxView VerticalOptions="Center" HorizontalOptions="Fill" />
                                     <Label Text="{Binding Name}" />
-                                    <Switch IsToggled="{Binding Value}" Toggled="Handle_Toggled"/>
+                                    <Switch IsToggled="{Binding Value}"/>
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Switch x:Name="tempS"/>
-
-                <Label Text="Account Verification" />
-                <Label Text="Please take a picture of your last heating bill." />
+                <StackLayout>
+                    <Label Text="Account Verification" />
+                    <Label Text="Please take a picture of your last heating bill." />
+                </StackLayout>
                 <c:HifImagesPickerView Images="{Binding HeatImages}" />
-                
-                <Label Text="Address Verification" />
-                <Label Text="Please take a picture of your rental agreement." />
+                <StackLayout>
+                    <Label Text="Address Verification" />
+                    <Label Text="Please take a picture of your rental agreement." />
+                </StackLayout>
                 <c:HifImagesPickerView Images="{Binding LeaseImages}" />
-                
                 <Button Text="Done" Clicked="Handle_Done" />
             </StackLayout>
         </ScrollView>
