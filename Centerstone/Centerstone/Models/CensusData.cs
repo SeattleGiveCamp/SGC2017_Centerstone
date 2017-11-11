@@ -3,7 +3,6 @@ namespace Centerstone.Models
 {
     public class CensusData : BaseModel
     {
-
         string gender;
         public string Gender
         {
