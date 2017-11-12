@@ -90,6 +90,11 @@ namespace Centerstone
 			Person.SocialSecurityImage = img;
 		}
 
+        public void Handle_IncomesorucedReceiced(HifImage img)
+        {
+            Person.IncomeSourcesImage.Add(img);
+        }
+
         public void Handle_GotoSingPageClicked(object sender, System.EventArgs e)
         {
             Navigation.PushAsync(new NoIncomePage(Hif, Person));

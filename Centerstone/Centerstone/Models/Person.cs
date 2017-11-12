@@ -37,8 +37,26 @@ namespace Centerstone.Models
 
 		public ObservableCollection<IncomeSource> IncomeSources { get; set; } =
 			new ObservableCollection<IncomeSource> ();
+        ObservableCollection<HifImage> incomeSourcesImage = new ObservableCollection<HifImage>();
 
-		public CensusData CensusData { get; set; } = new CensusData ();
+        public ObservableCollection<HifImage> IncomeSourcesImage
+        {
+            get => incomeSourcesImage;
+            set
+            {
+                if (SetProperty(ref incomeSourcesImage, value))
+                    OnCollectionPropertyChanged("IncomeSourcesImage");
+            }
+        }
+        void OnCollectionPropertyChanged(string propertyName)
+        {        
+            if (propertyName == "HeatImages" && incomeSourcesImage != null)
+            {
+                incomeSourcesImage.CollectionChanged += (s, e) => OnPropertyChanged("IncomeSourcesImage");
+            }
+           
+        }
+        public CensusData CensusData { get; set; } = new CensusData ();
 
 		public Person ()
 		{

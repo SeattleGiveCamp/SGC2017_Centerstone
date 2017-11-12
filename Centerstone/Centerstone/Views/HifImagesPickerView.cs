@@ -7,7 +7,9 @@ namespace Centerstone.Views
 {
 	public class HifImagesPickerView : StackLayout
 	{
-		public static BindableProperty ImagesProperty =
+        //public event ImagesTakenEventHandler ImagesTaken;
+
+        public static BindableProperty ImagesProperty =
 			BindableProperty.Create("Images", typeof(ObservableCollection<HifImage>), typeof(HifImagesPickerView), null);
 
 		public ObservableCollection<HifImage> Images
@@ -40,6 +42,10 @@ namespace Centerstone.Views
             {
                 Source = FileImageSource.FromFile(image.Path)
             });
-		}
-	}
+
+            Images.Add(image);
+
+        }
+        //public delegate void ImagesTakenEventHandler(ObservableCollection<HifImage> Images);
+    }
 }

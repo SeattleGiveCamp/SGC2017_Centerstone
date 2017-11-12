@@ -29,7 +29,7 @@
                                 <Button Clicked="Handle_DeleteIncomeTypeClicked"
                                         CommandParameter="{Binding .}"
                                         Text="Delete" />
-                                <c:ImageButton Text="Take Photos"></c:ImageButton>
+                                <c:ImageButton Text="Take Photos"  ImageTaken="Handle_IncomesorucedReceiced"></c:ImageButton>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
@@ -65,7 +65,6 @@
                 <Label Text="Do you have Health Insurance?"/>
                 <Switch x:Name="HealthInsuranceSwitch" IsToggled="{Binding Person.CensusData.HealthInsurance}"/>
             </Grid>
-
         </StackLayout>
     </ScrollView>
 </ContentPage>

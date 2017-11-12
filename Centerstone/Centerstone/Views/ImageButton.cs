@@ -37,16 +37,6 @@ namespace Centerstone.Views
                     Id = Guid.NewGuid(),
                     Path = imageMediaFile.Path,
                 };
-
-                /*using (var stream = new System.IO.FileStream(imageMediaFile.Path, System.IO.FileMode.Open))
-                {
-                    using (var memoryStream = new System.IO.MemoryStream())
-                    {
-                        stream.CopyTo(memoryStream);
-                        var bytes = memoryStream.ToArray();
-                    }
-                }*/
-
                 ImageTaken?.Invoke(i);
             }
             catch
