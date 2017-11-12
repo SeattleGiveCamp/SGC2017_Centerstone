@@ -31,7 +31,7 @@ namespace Centerstone.MobileAppService.Data
 
                 entity.Property(e => e.BackupHeatCost).HasColumnType("bit");
 
-                entity.Property(e => e.HeatSource)
+                entity.Property(e => e.HeatSources)
                     .IsRequired()
                     .HasMaxLength(30);
 

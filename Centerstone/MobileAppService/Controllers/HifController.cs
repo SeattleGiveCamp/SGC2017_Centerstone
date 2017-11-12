@@ -64,10 +64,12 @@ namespace Centerstone.MobileAppService.Controllers
                             HouseholdIncome = hif.MonthlyHouseholdIncome,
                             HousingStatus = hif.HouseholdStatus,
                             HousingType = hif.HouseholdType,
-                            HeatSource = hif.HeatSources?.Aggregate((current, next) => current + ", " + next),
-                            //TODO: HeatImages - these are just a list of GUIDs for images.
-                            //TODO: LeaseImages  -  these are just a list of GUIDs for images.
-                            //TODO: TipsSignatuure -  these are just a list of GUIDs for images.
+
+                            HeatSources = hif.HeatSourcesTypes.Where(x => x.Value)?.Select(x=> x.Name).Aggregate((current, next) => current + ", " + next),                
+                            //HeatSource = hif.HeatSources?.Aggregate((current, next) => current + ", " + next),
+                            //TODO: HeatImages
+                            //TODO: LeaseImages
+                            //TODO: TipsSignatuure
                         };
 
                         //TODO: Adults ???
