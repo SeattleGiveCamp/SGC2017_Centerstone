@@ -41,7 +41,7 @@ namespace Centerstone.MobileAppService
             })
             .AddAzureAd(options => Configuration.Bind("AzureAd", options))
             .AddCookie();
-            
+            //services.AddDbContext<>
             //services.AddTransient<HifContext, HifContext>();
             //services.AddTransient<IHifRepository, HifRepository>();
             services.AddMvc();
