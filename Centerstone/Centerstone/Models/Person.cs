@@ -11,7 +11,9 @@ namespace Centerstone.Models
             get => isDesignatedAdult;
             set => SetProperty(ref isDesignatedAdult, value);
         }
-		public bool IsPrimary { get; set; }
+
+        public string DisplayAdult => IsDesignatedAdult ? "Adult" : "Child";
+        public bool IsPrimary { get; set; }
 
 		public string FullName { get; set; }
 		public DateTime DateOfBirth { get; set; }
@@ -27,7 +29,7 @@ namespace Centerstone.Models
 			set => SetProperty (ref socialSecurityNumber, value);
 		}
 
-		HifImage socialSecurityImage;
+        HifImage socialSecurityImage;
 		public HifImage SocialSecurityImage {
 			get => socialSecurityImage;
 			set => SetProperty (ref socialSecurityImage, value);
@@ -35,8 +37,26 @@ namespace Centerstone.Models
 
 		public ObservableCollection<IncomeSource> IncomeSources { get; set; } =
 			new ObservableCollection<IncomeSource> ();
+        ObservableCollection<HifImage> incomeSourcesImage = new ObservableCollection<HifImage>();
 
-		public CensusData CensusData { get; set; } = new CensusData ();
+        public ObservableCollection<HifImage> IncomeSourcesImage
+        {
+            get => incomeSourcesImage;
+            set
+            {
+                if (SetProperty(ref incomeSourcesImage, value))
+                    OnCollectionPropertyChanged("IncomeSourcesImage");
+            }
+        }
+        void OnCollectionPropertyChanged(string propertyName)
+        {        
+            if (propertyName == "HeatImages" && incomeSourcesImage != null)
+            {
+                incomeSourcesImage.CollectionChanged += (s, e) => OnPropertyChanged("IncomeSourcesImage");
+            }
+           
+        }
+        public CensusData CensusData { get; set; } = new CensusData ();
 
 		public Person ()
 		{

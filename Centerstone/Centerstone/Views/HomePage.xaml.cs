@@ -105,5 +105,5 @@ namespace Centerstone.Views
 			hif = newHif;
 			BindingContext = newHif;
 		}
-	}
+    }
 }
