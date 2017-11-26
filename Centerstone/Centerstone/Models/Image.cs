@@ -7,13 +7,7 @@ namespace Centerstone.Models
     {
         public Guid Id { get; set; }
         public string Path { get; set; }
-        public byte[] byteImage
-        {
-            get
-            {
-                return ConvertImageToByteArray();
-            }
-        }
+        public byte[] byteImage { get; set; }
         public void Delete()
         {
             try
@@ -41,19 +35,6 @@ namespace Centerstone.Models
                 Path = path,
             };
         }
-
-
-        public byte[] ConvertImageToByteArray()
-        {
-            if (string.IsNullOrEmpty(Path)) { return new byte[0]; }
-            using (var stream = new System.IO.FileStream(Path, System.IO.FileMode.Open))
-            {
-                using (var memoryStream = new System.IO.MemoryStream())
-                {
-                    stream.CopyTo(memoryStream);
-                    return memoryStream.ToArray();
-                }
-            }
-        }
+        
     }
 }

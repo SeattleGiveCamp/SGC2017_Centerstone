@@ -1,9 +1,14 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Console;
 
 namespace Centerstone.MobileAppService.Data
 {
+    //public static readonly LoggerFactory MyLoggerFactory
+    //= new LoggerFactory(new[] { new ConsoleLoggerProvider((_, __) => true, true) });
+
     public partial class HifContext : DbContext
     {
         public virtual DbSet<HifApplication> HifApplication { get; set; }
@@ -12,13 +17,18 @@ namespace Centerstone.MobileAppService.Data
         public virtual DbSet<IncomeRules> IncomeRules { get; set; }
         public virtual DbSet<IncomeTypes> IncomeTypes { get; set; }
         public virtual DbSet<StoredImages> StoredImages { get; set; }
+        //public ILoggerFactory MyLoggerFactory { get; private set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(@"Server=tcp:centerstone-hif.database.windows.net,1433;Initial Catalog=centerstone-hif-sandbox;Persist Security Info=False;User ID=appSVC;Password=C0rnerSt0ne!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+                optionsBuilder
+                    //.UseLoggerFactory(MyLoggerFactory)
+                    .UseSqlServer(@"Server=tcp:centerstone-hif.database.windows.net,1433;Initial Catalog=centerstone-hif-sandbox;Persist Security Info=False;User ID=appSVC;Password=C0rnerSt0ne!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             }
+           
+         
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -31,13 +41,13 @@ namespace Centerstone.MobileAppService.Data
 
                 entity.Property(e => e.BackupHeatCost).HasColumnType("bit");
 
-                entity.Property(e => e.HeatSources)
+                entity.Property(e => e.HeatSource)
                     .IsRequired()
-                    .HasMaxLength(30);
+                    .HasColumnType("nvarchar(max)");
 
-                entity.Property(e => e.HousingStatus).HasMaxLength(30);
+                entity.Property(e => e.HousingStatus).HasColumnType("nvarchar(max)");
 
-                entity.Property(e => e.HousingType).HasMaxLength(30);
+                entity.Property(e => e.HousingType).HasColumnType("nvarchar(max)");
 
                 entity.Property(e => e.LiveCity)
                     .IsRequired()

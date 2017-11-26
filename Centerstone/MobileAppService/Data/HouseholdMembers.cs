@@ -25,6 +25,7 @@ namespace Centerstone.MobileAppService.Data
         public bool HealthInsurance { get; set; }
         public bool IsPrimary { get; set; }
         public bool PaidAdult { get; set; }
+        public bool IsAdult { get; set; }
 
         public HifApplication Application { get; set; }
         public ICollection<IncomeTypes> IncomeTypes { get; set; }

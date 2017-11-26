@@ -65,7 +65,7 @@ namespace Centerstone.MobileAppService.Controllers
                             HousingStatus = hif.HouseholdStatus,
                             HousingType = hif.HouseholdType,
 
-                            HeatSources = hif.HeatSourcesTypes.Where(x => x.Value)?.Select(x=> x.Name).Aggregate((current, next) => current + ", " + next),                
+                            HeatSource = hif.HeatSourcesTypes.Where(x => x.Value)?.Select(x=> x.Name).Aggregate((current, next) => current + ", " + next),                
                             //HeatSource = hif.HeatSources?.Aggregate((current, next) => current + ", " + next),
                             //TODO: HeatImages
                             //TODO: LeaseImages
@@ -79,13 +79,26 @@ namespace Centerstone.MobileAppService.Controllers
                         {
                             if (person.SocialSecurityNumber != null)
                             {
-                                _hifRepository.AddPerson(new HouseholdMembers()
+                                string ssnImageName = "SSN_Card_" + person.SocialSecurityNumber;
+
+                                //Add SSN Image.
+                                hifEntity.Images.Add(new Images()
+                                { 
+                                    FileName = ssnImageName + ".jpg",
+                                    ImageName = ssnImageName,
+                                    ImageData = person.SocialSecurityImage.byteImage
+                                });
+
+                                hifEntity.HouseholdMembers.Add(new HouseholdMembers()
                                 {
                                     IsPrimary = person.IsPrimary,
                                     FullName = person.FullName,
                                     DateOfBirth = person.DateOfBirth,
                                     Ssn = person.SocialSecurityNumber,
                                     PaidAdult = person.IsDesignatedAdult,
+                                    IsAdult = person.IsDesignatedAdult,
+                                    
+                                    
                                     //TODO: person.SocialSecurityImage -  these are just a list of GUIDs for images.
                                     //TODO: IncomeTypes = person.IncomeSources.Select(new IncomeTypes() {  } })
                                     //TODO: person.CensusData

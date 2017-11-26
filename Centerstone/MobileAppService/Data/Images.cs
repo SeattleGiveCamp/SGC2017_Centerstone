@@ -17,6 +17,7 @@ namespace Centerstone.MobileAppService.Data
         public string FileName { get; set; }
         public string ImageName { get; set; }
         public string ImageType { get; set; }
+        public byte[] ImageData { get; set; }
 
         public HifApplication Application { get; set; }
         public ICollection<StoredImages> StoredImages { get; set; }
