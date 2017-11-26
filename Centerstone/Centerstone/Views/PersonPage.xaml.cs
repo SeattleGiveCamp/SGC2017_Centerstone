@@ -29,7 +29,7 @@ namespace Centerstone
             InitPickerItmes(GenderPicker, Genders.All, viewModel.Person.CensusData.Gender);
             InitPickerItmes(EthnicityPicker, Ethnicities.All, viewModel.Person.CensusData.Ethnicity);
             InitPickerItmes(EducationPicker, Educations.All, viewModel.Person.CensusData.Education);
-            InitPickerItmes(RelationPicker, Educations.All, viewModel.Person.CensusData.Relation);
+            InitPickerItmes(RelationPicker, Relations.All, viewModel.Person.CensusData.Relation);
 
             RacePicker.SelectedIndexChanged += (sender, args) =>
             {
