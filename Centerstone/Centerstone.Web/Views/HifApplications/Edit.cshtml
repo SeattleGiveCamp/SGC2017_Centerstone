@@ -1,0 +1,183 @@
+﻿@model Centerstone.MobileAppService.Data.HifApplication
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<h4>HifApplication</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ApplicationId" />
+            <div class="form-group">
+                <label asp-for="UniqueAppId" class="control-label"></label>
+                <input asp-for="UniqueAppId" class="form-control" />
+                <span asp-validation-for="UniqueAppId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LiveStreetAddress" class="control-label"></label>
+                <input asp-for="LiveStreetAddress" class="form-control" />
+                <span asp-validation-for="LiveStreetAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LiveCity" class="control-label"></label>
+                <input asp-for="LiveCity" class="form-control" />
+                <span asp-validation-for="LiveCity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LiveState" class="control-label"></label>
+                <input asp-for="LiveState" class="form-control" />
+                <span asp-validation-for="LiveState" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LiveZipCode" class="control-label"></label>
+                <input asp-for="LiveZipCode" class="form-control" />
+                <span asp-validation-for="LiveZipCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MailingAddress" class="control-label"></label>
+                <input asp-for="MailingAddress" class="form-control" />
+                <span asp-validation-for="MailingAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MailingCity" class="control-label"></label>
+                <input asp-for="MailingCity" class="form-control" />
+                <span asp-validation-for="MailingCity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MailingState" class="control-label"></label>
+                <input asp-for="MailingState" class="form-control" />
+                <span asp-validation-for="MailingState" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MailingZipCode" class="control-label"></label>
+                <input asp-for="MailingZipCode" class="form-control" />
+                <span asp-validation-for="MailingZipCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MessagePhone" class="control-label"></label>
+                <input asp-for="MessagePhone" class="form-control" />
+                <span asp-validation-for="MessagePhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DurationYears" class="control-label"></label>
+                <input asp-for="DurationYears" class="form-control" />
+                <span asp-validation-for="DurationYears" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DurationMonth" class="control-label"></label>
+                <input asp-for="DurationMonth" class="form-control" />
+                <span asp-validation-for="DurationMonth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HousingStatus" class="control-label"></label>
+                <input asp-for="HousingStatus" class="form-control" />
+                <span asp-validation-for="HousingStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CostMonthly" class="control-label"></label>
+                <input asp-for="CostMonthly" class="form-control" />
+                <span asp-validation-for="CostMonthly" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HousingType" class="control-label"></label>
+                <input asp-for="HousingType" class="form-control" />
+                <span asp-validation-for="HousingType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumberBedrooms" class="control-label"></label>
+                <input asp-for="NumberBedrooms" class="form-control" />
+                <span asp-validation-for="NumberBedrooms" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalPeople" class="control-label"></label>
+                <input asp-for="TotalPeople" class="form-control" />
+                <span asp-validation-for="TotalPeople" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HouseholdIncome" class="control-label"></label>
+                <input asp-for="HouseholdIncome" class="form-control" />
+                <span asp-validation-for="HouseholdIncome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="TargetGroup1" /> @Html.DisplayNameFor(model => model.TargetGroup1)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="TargetGroup2" /> @Html.DisplayNameFor(model => model.TargetGroup2)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="HeatSource" class="control-label"></label>
+                <input asp-for="HeatSource" class="form-control" />
+                <span asp-validation-for="HeatSource" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnnualHeatCost" class="control-label"></label>
+                <input asp-for="AnnualHeatCost" class="form-control" />
+                <span asp-validation-for="AnnualHeatCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="BackupHeatCost" /> @Html.DisplayNameFor(model => model.BackupHeatCost)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="UsedSurrogate" /> @Html.DisplayNameFor(model => model.UsedSurrogate)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalEnergyCost" class="control-label"></label>
+                <input asp-for="TotalEnergyCost" class="form-control" />
+                <span asp-validation-for="TotalEnergyCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalAnnualElectricCosts" class="control-label"></label>
+                <input asp-for="TotalAnnualElectricCosts" class="form-control" />
+                <span asp-validation-for="TotalAnnualElectricCosts" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HifJsonData" class="control-label"></label>
+                <input asp-for="HifJsonData" class="form-control" />
+                <span asp-validation-for="HifJsonData" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

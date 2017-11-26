@@ -32,6 +32,7 @@ namespace Centerstone.Web
                 sharedOptions.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
             })
             .AddAzureAd(options => Configuration.Bind("AzureAd", options))
+            //TODO: Just allow the "EAP" group.
             .AddCookie();
 
             services.AddMvc();

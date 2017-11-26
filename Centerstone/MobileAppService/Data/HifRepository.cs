@@ -49,6 +49,16 @@ namespace Centerstone.MobileAppService.Data
             context.SaveChanges();
         }
 
+        public void UpdateImages(HifApplication app, Images newImage)
+        {
+            if (app.Images.Contains(newImage) == false)
+            {
+                app.Images.Add(newImage);
+            }
+            context.Images.Add(newImage);
+            UpdateApplication(app);
+        }
+
         public void AddPerson(HouseholdMembers person)
         {
             peopleSet.Add(person);
@@ -63,6 +73,12 @@ namespace Centerstone.MobileAppService.Data
         public IEnumerable<IncomeRules> GetIncomeRules()
         {
             return incomeRuleSet.AsEnumerable();
+        }
+
+        public void UpdateIncomeRule(IncomeRules rule)
+        {
+            context.Entry(rule).State = EntityState.Modified;
+            context.SaveChanges();
         }
     }
 }

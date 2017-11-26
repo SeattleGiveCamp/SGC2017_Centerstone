@@ -7,7 +7,9 @@ namespace Centerstone.Views
 {
 	public class HifImagesPickerView : StackLayout
 	{
-		public static BindableProperty ImagesProperty =
+        //public event ImagesTakenEventHandler ImagesTaken;
+
+        public static BindableProperty ImagesProperty =
 			BindableProperty.Create("Images", typeof(ObservableCollection<HifImage>), typeof(HifImagesPickerView), null);
 
 		public ObservableCollection<HifImage> Images
@@ -21,7 +23,10 @@ namespace Centerstone.Views
 
 		public HifImagesPickerView()
 		{
-		}
+            Orientation = StackOrientation.Vertical;
+            MinimumHeightRequest = 20;
+            CreateUI();
+        }
 
 		void CreateUI()
 		{
@@ -31,8 +36,16 @@ namespace Centerstone.Views
 			Children.Add(ib);
 		}
 
-		void Ib_ImageTaken(Models.HifImage image)
+		void Ib_ImageTaken(HifImage image)
 		{
-		}
-	}
+            Children.Add(new Image
+            {
+                Source = FileImageSource.FromFile(image.Path)
+            });
+
+            Images.Add(image);
+
+        }
+        //public delegate void ImagesTakenEventHandler(ObservableCollection<HifImage> Images);
+    }
 }

@@ -11,11 +11,11 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Centerstone.MobileAppService.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     public class HifController : Controller
     {
         private HifContext context;
-		private readonly IHifRepository _hifRepository;
+        private readonly IHifRepository _hifRepository;
 
         public HifController()
         {
@@ -24,28 +24,31 @@ namespace Centerstone.MobileAppService.Controllers
             _hifRepository = new HifRepository(context);
         }
 
-		[HttpGet]
+        [HttpGet]
         public IEnumerable<HifApplication> Get()
         {
-                var ret = _hifRepository.GetAllApplications();
-                return ret;
-            
+            var ret = _hifRepository.GetAllApplications();
+            return ret;
+
         }
 
         [HttpGet("{id}")]
         public HifApplication Get(int id)
         {
-            
-                var ret = _hifRepository.GetApplication(id);
-                return ret;
-            
+
+            var ret = _hifRepository.GetApplication(id);
+            return ret;
+
         }
 
         [HttpPost]
-        public void Post([FromBody]Centerstone.Models.HIF hif)
+        [ActionName("SubmitApplication")]
+        public void SubmitApplication([FromBody]Centerstone.Models.HIF hif)
         {
-            bool success = false;
-           
+            if (hif != null && ModelState.IsValid)
+            {
+                bool success = false;
+
                 using (var transaction = context.Database.BeginTransaction())
                 {
                     try
@@ -61,7 +64,9 @@ namespace Centerstone.MobileAppService.Controllers
                             HouseholdIncome = hif.MonthlyHouseholdIncome,
                             HousingStatus = hif.HouseholdStatus,
                             HousingType = hif.HouseholdType,
-                            HeatSource = hif.HeatSources?.Aggregate((current, next) => current + ", " + next),
+
+                            HeatSources = hif.HeatSourcesTypes.Where(x => x.Value)?.Select(x=> x.Name).Aggregate((current, next) => current + ", " + next),                
+                            //HeatSource = hif.HeatSources?.Aggregate((current, next) => current + ", " + next),
                             //TODO: HeatImages
                             //TODO: LeaseImages
                             //TODO: TipsSignatuure
@@ -81,7 +86,7 @@ namespace Centerstone.MobileAppService.Controllers
                                     DateOfBirth = person.DateOfBirth,
                                     Ssn = person.SocialSecurityNumber,
                                     PaidAdult = person.IsDesignatedAdult,
-                                    //TODO: person.SocialSecurityImage
+                                    //TODO: person.SocialSecurityImage -  these are just a list of GUIDs for images.
                                     //TODO: IncomeTypes = person.IncomeSources.Select(new IncomeTypes() {  } })
                                     //TODO: person.CensusData
                                 });
@@ -101,23 +106,61 @@ namespace Centerstone.MobileAppService.Controllers
                         transaction.Rollback();
                     }
                 }
-            
+            }
         }
 
-        [HttpPost("postimage")]
-        public void PostImage(int id, string type, [FromBody]byte[] image)
+        [HttpPost]
+        [ActionName("UploadImage")]
+        public void UploadImage([FromBody] Post_R postData) //, [FromBody] int appId, [FromBody]byte[] image
         {
-            throw new NotImplementedException();
+            int appId = int.Parse(postData.AppID);
+            byte[] image = postData.Image;
+            string imageId = postData.ImageID;
+
+            if (string.IsNullOrWhiteSpace(imageId) == false
+                && appId > 0
+                && image != null
+                && ModelState.IsValid)
+            {
+                var foundApp = _hifRepository.GetApplication(appId);
+                if (foundApp != null && foundApp.ApplicationId == appId)
+                {
+                    Images objImage = new Images();
+                    objImage.ApplicantGuid = imageId;
+
+                    StoredImages storedImage = new StoredImages();
+                    storedImage.ImageData = image;
+
+                    objImage.StoredImages.Add(storedImage);
+                    foundApp.Images.Add(objImage);
+
+                    _hifRepository.UpdateImages(foundApp, objImage);
+                }
+                else
+                {
+                    throw new ApplicationException("Application could not be found.");
+                }
+            }
+            else
+            {
+                throw new ApplicationException("Parameters are invalid.");
+            }
         }
 
         [HttpGet("incomerules")]
         public IEnumerable<IncomeRules> GetIncomeRules()
         {
-           
-                
-                var ret = _hifRepository.GetIncomeRules();
-                return ret;
-            
+            var ret = _hifRepository.GetIncomeRules();
+            return ret;
+        }
+
+        [HttpPost("incomerules")]
+        public void EditIncomeRule([FromBody] IncomeRules rule)
+        {
+            if (rule != null)
+            {
+                _hifRepository.UpdateIncomeRule(rule);
+            }
         }
 
         [HttpGet("test")]
@@ -126,5 +169,12 @@ namespace Centerstone.MobileAppService.Controllers
         {
             return "Hello World!";
         }
+    }
+
+    public class Post_R
+    {
+        public string ImageID { get; set; }
+        public string AppID { get; set; }
+        public byte[] Image { get; set; }
     }
 }

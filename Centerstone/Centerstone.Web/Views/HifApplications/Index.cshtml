@@ -1,0 +1,204 @@
+﻿@model IEnumerable<Centerstone.MobileAppService.Data.HifApplication>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.UniqueAppId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LiveStreetAddress)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LiveCity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LiveState)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LiveZipCode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MailingAddress)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MailingCity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MailingState)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MailingZipCode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MessagePhone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DurationYears)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DurationMonth)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.HousingStatus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CostMonthly)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.HousingType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NumberBedrooms)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalPeople)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.HouseholdIncome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TargetGroup1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TargetGroup2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.HeatSource)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AnnualHeatCost)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BackupHeatCost)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UsedSurrogate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalEnergyCost)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalAnnualElectricCosts)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.HifJsonData)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UniqueAppId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LiveStreetAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LiveCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LiveState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LiveZipCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MailingAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MailingCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MailingState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MailingZipCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MessagePhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DurationYears)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DurationMonth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HousingStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CostMonthly)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HousingType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberBedrooms)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalPeople)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HouseholdIncome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TargetGroup1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TargetGroup2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HeatSource)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnnualHeatCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BackupHeatCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UsedSurrogate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalEnergyCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalAnnualElectricCosts)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HifJsonData)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ApplicationId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ApplicationId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ApplicationId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
