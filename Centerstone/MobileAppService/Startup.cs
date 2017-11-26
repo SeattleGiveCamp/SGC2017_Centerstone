@@ -42,8 +42,8 @@ namespace Centerstone.MobileAppService
             .AddAzureAd(options => Configuration.Bind("AzureAd", options))
             .AddCookie();
             //services.AddDbContext<>
-            //services.AddTransient<HifContext, HifContext>();
-            //services.AddTransient<IHifRepository, HifRepository>();
+            services.AddTransient<HifContext, HifContext>();
+            services.AddTransient<IHifRepository, HifRepository>();
             services.AddMvc();
             services.AddSwaggerGen(c =>
             {
@@ -59,7 +59,7 @@ namespace Centerstone.MobileAppService
 			loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            app.UseMvc();
+            app.UseMvc(route => route.MapRoute("default", "api/{controller}/{action?}/{id?}"));
             app.UseAuthentication();
 
             app.UseSwagger();
