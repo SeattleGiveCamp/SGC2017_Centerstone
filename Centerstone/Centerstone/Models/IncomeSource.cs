@@ -8,7 +8,7 @@ namespace Centerstone.Models
 	{
 		public string IncomeSourceType { get; set; }
 
-		public ObservableCollection<HifImage> Image { get; set; }
+		//public ObservableCollection<HifImage> Image { get; set; }
         public string[] IncomeSourceOptions => IncomeSources.All;
 
     }

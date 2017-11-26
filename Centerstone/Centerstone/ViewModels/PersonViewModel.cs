@@ -16,6 +16,10 @@ namespace Centerstone
         {
 			Person = person;
 			person.PropertyChanged += (sender, e) => OnPropertyChanged ("Person");
+            Person.PropertyChanged += (sender, e) => {
+                OnPropertyChanged("Person");
+               
+            };
         }
         
     }

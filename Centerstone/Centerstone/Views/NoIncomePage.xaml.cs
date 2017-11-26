@@ -9,11 +9,14 @@ namespace Centerstone.Views
 {
     public partial class NoIncomePage : ContentPage
     {
-        readonly HIF hif;
+        readonly HIF Hif;
         public Person Person { get; set; }
         public NoIncomePage(HIF hif, Person person)
         {
+            
             InitializeComponent();
+            Hif = hif;
+            Person = person;
             BindingContext = person;
             signature.StrokeCompleted += (sender, e) =>
             {
@@ -32,6 +35,10 @@ namespace Centerstone.Views
 					Person.NoIncomeSingurate = HifImage.FromPngStream(stream);
 				}
 				await Navigation.PopToRootAsync(true);
+            }
+            else
+            {
+                await DisplayAlert("Please sign", "A signature is needed as proof.", "OK");
             }
         }
 	}

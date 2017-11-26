@@ -35,7 +35,7 @@ namespace Centerstone.MobileAppService.Data
         public decimal HouseholdIncome { get; set; }
         public bool TargetGroup1 { get; set; }
         public bool TargetGroup2 { get; set; }
-        public string HeatSource { get; set; }
+        public string HeatSources { get; set; }
         public decimal AnnualHeatCost { get; set; }
         public bool BackupHeatCost { get; set; }
         public bool UsedSurrogate { get; set; }

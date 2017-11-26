@@ -37,9 +37,9 @@ namespace Centerstone.Models
 
 		public string MaximumIncomeText => MaximumIncome.ToString("C");
 
-        public Temp[] HeatSourcesTypes => Helpers.HeatSources.All.Select(x => new Temp(x)).ToArray();
-        public ObservableCollection<IncomeSource> HeatSourcess { get; set; } =
-        new ObservableCollection<IncomeSource>();
+        public Temp[] HeatSourcesTypes { get; set; } = HeatSources.All.Select(x => new Temp(x)).ToArray();
+        //public ObservableCollection<string> HeatSourcess { get; set; } =
+        //new ObservableCollection<string>();
 		
 		public ObservableCollection<Person> People { get; set; } =
             new ObservableCollection<Person> ();
@@ -65,17 +65,17 @@ namespace Centerstone.Models
 		string householdStatus = "";
 		public string HouseholdStatus { get { return householdStatus; } set { SetProperty (ref householdStatus, value); } }
 
-		ObservableCollection<string> heatSources = new ObservableCollection<string> ();
+		//ObservableCollection<string> heatSources = new ObservableCollection<string> ();
 		ObservableCollection<HifImage> heatImages = new ObservableCollection<HifImage> ();
 		ObservableCollection<HifImage> leaseImages = new ObservableCollection<HifImage> ();
 
-		public ObservableCollection<string> HeatSources {
-			get => heatSources;
-			set {
-				if (SetProperty(ref heatSources, value))
-					OnCollectionPropertyChanged("HeatSources");
-			}
-		}
+		//public ObservableCollection<string> HeatSources {
+		//	get => heatSources;
+		//	set {
+		//		if (SetProperty(ref heatSources, value))
+		//			OnCollectionPropertyChanged("HeatSources");
+		//	}
+		//}
 
 		public ObservableCollection<HifImage> HeatImages {
 			get => heatImages;
@@ -118,9 +118,10 @@ namespace Centerstone.Models
 		{
 			CreatedTime = DateTimeOffset.Now;
 			UniqueApplicationId = Guid.NewGuid ();
+            People.CollectionChanged += (s, e) => OnPropertyChanged("People");
 
-			People.CollectionChanged += People_CollectionChanged;
-			HeatSources.CollectionChanged += (s, e) => OnPropertyChanged ("HeatSources");
+            //People.CollectionChanged += People_CollectionChanged;
+            //HeatSources.CollectionChanged += (s, e) => OnPropertyChanged ("HeatSources");
 			HeatImages.CollectionChanged += (s, e) => OnPropertyChanged ("HeatImages");
 			LeaseImages.CollectionChanged += (s, e) => OnPropertyChanged ("LeaseImages");
 		}
@@ -130,9 +131,9 @@ namespace Centerstone.Models
 			if (propertyName == "People" && People != null) {
 				People.CollectionChanged += People_CollectionChanged;
 			}
-			if (propertyName == "HeatSources" && HeatSources != null) {
-				HeatSources.CollectionChanged += (s, e) => OnPropertyChanged ("HeatSources");
-			}
+			//if (propertyName == "HeatSources" && HeatSources != null) {
+			//	HeatSources.CollectionChanged += (s, e) => OnPropertyChanged ("HeatSources");
+			//}
 			if (propertyName == "HeatImages" && HeatImages != null) {
 				HeatImages.CollectionChanged += (s, e) => OnPropertyChanged ("HeatImages");
 			}

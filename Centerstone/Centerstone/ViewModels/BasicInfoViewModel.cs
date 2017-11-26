@@ -5,14 +5,12 @@ using Centerstone.Models;
 using Xamarin.Forms;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 
 namespace Centerstone.ViewModels
 {
-	public class BasicInfoViewModel : ViewModelBase
+    public class BasicInfoViewModel : ViewModelBase
 	{
 		public HIF HIF { get; set; }
 		public static List<IncomeRules> IncomeRules { get; private set; }
