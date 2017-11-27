@@ -6,11 +6,12 @@ using Microsoft.Extensions.Logging.Console;
 
 namespace Centerstone.MobileAppService.Data
 {
-    //public static readonly LoggerFactory MyLoggerFactory
-    //= new LoggerFactory(new[] { new ConsoleLoggerProvider((_, __) => true, true) });
 
     public partial class HifContext : DbContext
     {
+        public static readonly LoggerFactory MyLoggerFactory
+    = new LoggerFactory(new[] { new ConsoleLoggerProvider((_, __) => true, true) });
+
         public virtual DbSet<HifApplication> HifApplication { get; set; }
         public virtual DbSet<HouseholdMembers> HouseholdMembers { get; set; }
         public virtual DbSet<Images> Images { get; set; }
@@ -24,7 +25,7 @@ namespace Centerstone.MobileAppService.Data
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder
-                    //.UseLoggerFactory(MyLoggerFactory)
+                    .UseLoggerFactory(MyLoggerFactory)
                     .UseSqlServer(@"Server=tcp:centerstone-hif.database.windows.net,1433;Initial Catalog=centerstone-hif-sandbox;Persist Security Info=False;User ID=appSVC;Password=C0rnerSt0ne!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             }
            
