@@ -43,7 +43,7 @@ namespace Centerstone.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-
+                var results = hifCont.SaveIncomeRules(incomeGuideline);
                 return RedirectToAction(nameof(Index));
             }
             return View(incomeGuideline);

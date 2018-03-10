@@ -203,9 +203,9 @@ namespace Centerstone.MobileAppService.Migrations
 
             modelBuilder.Entity("Centerstone.MobileAppService.Data.IncomeRules", b =>
                 {
-                    b.Property<long>("RowId")
-                        .HasColumnName("RowID")
-                        .HasColumnType("bigint");
+                    b.Property<int>("RowId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("RowID");
 
                     b.Property<decimal>("HouseholdAdjust")
                         .HasColumnType("decimal(4, 2)");
@@ -221,10 +221,9 @@ namespace Centerstone.MobileAppService.Migrations
 
             modelBuilder.Entity("Centerstone.MobileAppService.Data.IncomeTypes", b =>
                 {
-                    b.Property<long>("RowId")
+                    b.Property<int>("RowId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("RowID")
-                        .HasColumnType("bigint");
+                        .HasColumnName("RowID");
 
                     b.Property<long>("ApplicationId")
                         .HasColumnName("ApplicationID")
@@ -285,7 +284,7 @@ namespace Centerstone.MobileAppService.Migrations
 
             modelBuilder.Entity("Centerstone.MobileAppService.Data.StoredImages", b =>
                 {
-                    b.Property<long>("RowId")
+                    b.Property<int>("RowId")
                         .ValueGeneratedOnAdd();
 
                     b.Property<byte[]>("ImageData")

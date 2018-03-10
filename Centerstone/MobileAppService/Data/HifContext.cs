@@ -121,7 +121,6 @@ namespace Centerstone.MobileAppService.Data
 
             modelBuilder.Entity<Images>(entity =>
             {
-                entity.HasKey(e => e.ImageId);
 
                 entity.Property(e => e.ImageId).HasColumnName("ImageID");
 
@@ -155,16 +154,13 @@ namespace Centerstone.MobileAppService.Data
                 entity.HasKey(e => e.RowId);
 
                 entity.Property(e => e.RowId)
-                    .HasColumnName("RowID")
-                    .ValueGeneratedNever();
+                    .HasColumnName("RowID");
 
                 entity.Property(e => e.HouseholdAdjust).HasColumnType("decimal(4, 2)");
             });
 
             modelBuilder.Entity<IncomeTypes>(entity =>
             {
-                entity.HasKey(e => e.RowId);
-
                 entity.Property(e => e.RowId).HasColumnName("RowID");
 
                 entity.Property(e => e.ApplicationId).HasColumnName("ApplicationID");
