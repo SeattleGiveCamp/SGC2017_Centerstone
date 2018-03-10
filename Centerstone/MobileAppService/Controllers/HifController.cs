@@ -81,7 +81,7 @@ namespace Centerstone.MobileAppService.Controllers
                             {
                                 _hifRepository.AddPerson(new HouseholdMembers()
                                 {
-                                    ApplicationId = hif.UniqueApplicationId.ToString(),
+                                    //ApplicationId = hif.UniqueApplicationId.ToString(),
                                     IsPrimary = person.IsPrimary,
                                     FullName = person.FullName,
                                     DateOfBirth = person.DateOfBirth,
