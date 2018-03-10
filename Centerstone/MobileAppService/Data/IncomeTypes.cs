@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Centerstone.MobileAppService.Data
 {
     public partial class IncomeTypes
     {
-        [Column(TypeName = "bigint")]
-        public long RowId { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int RowId { get; set; }
         [Column(TypeName = "bigint")]
         public long ApplicationId { get; set; }
         [Column(TypeName = "bigint")]

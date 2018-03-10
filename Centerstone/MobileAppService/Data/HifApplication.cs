@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Centerstone.MobileAppService.Data
 {
@@ -11,7 +13,7 @@ namespace Centerstone.MobileAppService.Data
             Images = new HashSet<Images>();
             IncomeTypes = new HashSet<IncomeTypes>();
         }
-
+        [Key]
         public long ApplicationId { get; set; }
         public string UniqueAppId { get; set; }
         public string LiveStreetAddress { get; set; }

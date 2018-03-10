@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Centerstone.MobileAppService.Data
 {
@@ -9,7 +10,7 @@ namespace Centerstone.MobileAppService.Data
         {
             StoredImages = new HashSet<StoredImages>();
         }
-
+        [Key]
         public long ImageId { get; set; }
         public string UniqueImageId { get; set; }
         public string ApplicantGuid { get; set; }

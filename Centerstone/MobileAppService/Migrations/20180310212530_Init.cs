@@ -54,7 +54,8 @@ namespace Centerstone.MobileAppService.Migrations
                 name: "IncomeRules",
                 columns: table => new
                 {
-                    RowID = table.Column<long>(type: "bigint", nullable: false),
+                    RowID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     HouseholdAdjust = table.Column<decimal>(type: "decimal(4, 2)", nullable: false),
                     HouseholdSize = table.Column<int>(type: "int", nullable: false),
                     MaxIncome = table.Column<decimal>(type: "decimal(18, 2)", nullable: false)
@@ -124,7 +125,7 @@ namespace Centerstone.MobileAppService.Migrations
                 name: "IncomeTypes",
                 columns: table => new
                 {
-                    RowID = table.Column<long>(type: "bigint", nullable: false)
+                    RowID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     ApplicationID = table.Column<long>(type: "bigint", nullable: false),
                     ChildSupport = table.Column<bool>(type: "bit", nullable: false),
@@ -162,7 +163,7 @@ namespace Centerstone.MobileAppService.Migrations
                 name: "StoredImages",
                 columns: table => new
                 {
-                    RowId = table.Column<long>(type: "bigint", nullable: false)
+                    RowId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     ImageData = table.Column<byte[]>(type: "varbinary(1)", maxLength: 1, nullable: false),
                     ImageID = table.Column<long>(type: "bigint", nullable: false)

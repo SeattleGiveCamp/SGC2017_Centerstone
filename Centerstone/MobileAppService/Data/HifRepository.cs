@@ -80,5 +80,11 @@ namespace Centerstone.MobileAppService.Data
             context.Entry(rule).State = EntityState.Modified;
             context.SaveChanges();
         }
+
+        public bool SaveIncomeRule(IncomeRules rule)
+        {
+            context.IncomeRules.Add(rule);
+            return context.SaveChanges() > 0;
+        }
     }
 }

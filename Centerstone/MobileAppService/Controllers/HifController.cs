@@ -154,6 +154,12 @@ namespace Centerstone.MobileAppService.Controllers
             return ret;
         }
 
+
+        public bool SaveIncomeRules(IncomeRules rule)
+        {
+            return _hifRepository.SaveIncomeRule(rule);
+        }
+
         [HttpPost("incomerules")]
         public void EditIncomeRule([FromBody] IncomeRules rule)
         {
