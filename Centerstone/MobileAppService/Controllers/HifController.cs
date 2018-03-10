@@ -64,7 +64,6 @@ namespace Centerstone.MobileAppService.Controllers
                             HouseholdIncome = hif.MonthlyHouseholdIncome,
                             HousingStatus = hif.HouseholdStatus,
                             HousingType = hif.HouseholdType,
-
                             HeatSources = hif.HeatSourcesTypes.Where(x => x.Value)?.Select(x=> x.Name).Aggregate((current, next) => current + ", " + next),                
                             //HeatSource = hif.HeatSources?.Aggregate((current, next) => current + ", " + next),
                             //TODO: HeatImages
@@ -79,9 +78,8 @@ namespace Centerstone.MobileAppService.Controllers
                         {
                             if (person.SocialSecurityNumber != null)
                             {
-                                _hifRepository.AddPerson(new HouseholdMembers()
+                                hifEntity.HouseholdMembers.Add(new HouseholdMembers()
                                 {
-                                    ApplicationId = hif.UniqueApplicationId.ToString(),
                                     IsPrimary = person.IsPrimary,
                                     FullName = person.FullName,
                                     DateOfBirth = person.DateOfBirth,
@@ -94,6 +92,7 @@ namespace Centerstone.MobileAppService.Controllers
                                     MilitaryVeteran = person.CensusData.IsMilitaryVeteran,
                                     Education = person.CensusData.Education,
                                     Ethnicity = person.CensusData.Ethnicity,
+                                    
                                     //TODO: person.SocialSecurityImage -  these are just a list of GUIDs for images.
                                     //TODO: IncomeTypes = person.IncomeSources.Select(new IncomeTypes() {  } })
                                     //TODO: person.CensusData
