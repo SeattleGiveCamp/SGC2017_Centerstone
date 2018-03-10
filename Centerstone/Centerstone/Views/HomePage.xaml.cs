@@ -42,11 +42,6 @@ namespace Centerstone.Views
 			Navigation.PushAsync (new TipsPage (hif));
 		}
 
-        //void Handle_IncomesClicked(object sender, System.EventArgs e)
-        //{
-        //    Navigation.PushAsync(new NoIncomePage(hif));
-        //}
-
 		protected override void OnAppearing ()
 		{
 			base.OnAppearing ();
@@ -82,7 +77,7 @@ namespace Centerstone.Views
 				var json = hif.ToJson();
 				await client.PostAsync("/api/Hif", new System.Net.Http.StringContent(json));
 
-				await DisplayAlert("Success!", "Your application was succesfully posted to Centerstone. You will hear back from us soon!", "OK");
+				await DisplayAlert("Success!", "Your application was succesfully posted to Roberta Byrd Barr. You will hear back from us soon!", "OK");
 
 				hif.Submitted = true;
 				hif.SubmittedTime = DateTimeOffset.Now;

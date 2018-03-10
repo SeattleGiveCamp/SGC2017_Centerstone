@@ -26,13 +26,20 @@ namespace Centerstone.Web.Controllers
 
             return View(results);
         }
-        
+        [HttpGet]
+        [ActionName("Create")]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
         // POST: IncomeGuidelines/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [ActionName("Create")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("RowId,HouseholdSize,MaxIncome")] IncomeRules incomeGuideline)
+        public async Task<IActionResult> CreatePost([Bind("RowId,HouseholdSize,MaxIncome")] IncomeRules incomeGuideline)
         {
             if (ModelState.IsValid)
             {

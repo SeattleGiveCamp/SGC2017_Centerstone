@@ -3,7 +3,7 @@
     Title="Energy Assistance Application">
 	<ContentPage.Content>
         <StackLayout Orientation="Vertical">
-            <Label Text="This app will help you apply to Centerstone's Energy Assistance Program" HorizontalOptions="Center" />
+            <Label Text="This app will help you apply to Roberta Byrd Barr's Energy Assistance Program" HorizontalOptions="Center" />
             <Button Text="Basic Information" Clicked="Handle_BasicInfoClicked" />
             <Button Text="Heating Information" Clicked="Handle_EnergyClicked" />
             <Button Text="People in the Household" Clicked="Handle_PeopleClicked" />
