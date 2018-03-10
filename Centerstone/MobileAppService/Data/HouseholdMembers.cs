@@ -17,6 +17,7 @@ namespace Centerstone.MobileAppService.Data
         public string Ssn { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string RelationToPrimary { get; set; }
+        [Required]
         public string Gender { get; set; }
         public string Ethnicity { get; set; }
         public string Race { get; set; }

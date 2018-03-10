@@ -81,11 +81,19 @@ namespace Centerstone.MobileAppService.Controllers
                             {
                                 _hifRepository.AddPerson(new HouseholdMembers()
                                 {
+                                    ApplicationId = hif.UniqueApplicationId.ToString(),
                                     IsPrimary = person.IsPrimary,
                                     FullName = person.FullName,
                                     DateOfBirth = person.DateOfBirth,
                                     Ssn = person.SocialSecurityNumber,
                                     PaidAdult = person.IsDesignatedAdult,
+                                    Gender = person.CensusData.Gender,
+                                    RelationToPrimary = person.CensusData.Relation,
+                                    Race = person.CensusData.Race,
+                                    HealthInsurance = person.CensusData.HealthInsurance,
+                                    MilitaryVeteran = person.CensusData.IsMilitaryVeteran,
+                                    Education = person.CensusData.Education,
+                                    Ethnicity = person.CensusData.Ethnicity,
                                     //TODO: person.SocialSecurityImage -  these are just a list of GUIDs for images.
                                     //TODO: IncomeTypes = person.IncomeSources.Select(new IncomeTypes() {  } })
                                     //TODO: person.CensusData
