@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Centerstone.MobileAppService.Data;
 
-namespace Centerstone.Web
+namespace Centerstone.Web.Controllers
 {
     public class HifApplicationsController : Controller
     {

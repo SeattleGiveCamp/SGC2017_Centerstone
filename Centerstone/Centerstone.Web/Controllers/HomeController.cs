@@ -21,7 +21,7 @@ using Microsoft.Owin.Security;
 
 namespace Centerstone.Web.Controllers
 {
-    [Authorize]
+    
     public class HomeController : Controller
     {
         private const string TenantIdClaimType = "http://schemas.microsoft.com/identity/claims/tenantid";
@@ -36,15 +36,18 @@ namespace Centerstone.Web.Controllers
             AuthenticationResult authresult = null;
             try
             {
-                string userObjectID = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/objectidentifier").Value;
-                AuthenticationContext authContext = new AuthenticationContext(adAuthority);
-                ClientCredential credential = new ClientCredential(clientId, appKey);
-                authresult = await authContext.AcquireTokenSilentAsync(resourceId, credential, new UserIdentifier(userObjectID, UserIdentifierType.UniqueId));
-                HttpClient client = new HttpClient();
-                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, apiBaseAddress + "/api/todolist");
-                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", authresult.AccessToken);
-                HttpResponseMessage response = await client.SendAsync(request);
-                return View(response.Content);
+                //string userObjectID = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/objectidentifier").Value;
+                //AuthenticationContext authContext = new AuthenticationContext(adAuthority);
+                //ClientCredential credential = new ClientCredential(clientId, appKey);
+                //authresult = await authContext.AcquireTokenSilentAsync(resourceId, credential, new UserIdentifier(userObjectID, UserIdentifierType.UniqueId));
+                //HttpClient client = new HttpClient();
+                //HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, apiBaseAddress + "/api/todolist");
+                //request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", authresult.AccessToken);
+                //HttpResponseMessage response = await client.SendAsync(request);
+                //return View(response.Content);
+
+                //TODO: put authentication back in for AzureAD.
+                return View();
             }
             catch (AdalException ee)
             {

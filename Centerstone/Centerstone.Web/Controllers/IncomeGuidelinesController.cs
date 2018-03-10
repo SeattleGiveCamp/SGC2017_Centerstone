@@ -43,6 +43,7 @@ namespace Centerstone.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 return RedirectToAction(nameof(Index));
             }
             return View(incomeGuideline);
