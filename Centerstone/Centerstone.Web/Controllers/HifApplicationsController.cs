@@ -13,9 +13,9 @@ namespace Centerstone.Web.Controllers
     {
         private readonly HifContext _context;
 
-        public HifApplicationsController(HifContext context)
+        public HifApplicationsController()
         {
-            _context = context;
+            _context = new HifContext();
         }
 
         // GET: HifApplications
@@ -53,7 +53,7 @@ namespace Centerstone.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ApplicationId,UniqueAppId,LiveStreetAddress,LiveCity,LiveState,LiveZipCode,MailingAddress,MailingCity,MailingState,MailingZipCode,Email,PhoneNumber,MessagePhone,DurationYears,DurationMonth,HousingStatus,CostMonthly,HousingType,NumberBedrooms,TotalPeople,HouseholdIncome,TargetGroup1,TargetGroup2,HeatSource,AnnualHeatCost,BackupHeatCost,UsedSurrogate,TotalEnergyCost,TotalAnnualElectricCosts,HifJsonData")] HifApplication hifApplication)
+        public async Task<IActionResult> Create([Bind("ApplicationId,UniqueAppId,LiveStreetAddress,LiveCity,LiveState,LiveZipCode,MailingAddress,MailingCity,MailingState,MailingZipCode,Email,PhoneNumber,MessagePhone,DurationYears,DurationMonth,HousingStatus,CostMonthly,HousingType,NumberBedrooms,TotalPeople,HouseholdIncome,TargetGroup1,TargetGroup2,HeatSources,AnnualHeatCost,BackupHeatCost,UsedSurrogate,TotalEnergyCost,TotalAnnualElectricCosts,HifJsonData")] HifApplication hifApplication)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace Centerstone.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("ApplicationId,UniqueAppId,LiveStreetAddress,LiveCity,LiveState,LiveZipCode,MailingAddress,MailingCity,MailingState,MailingZipCode,Email,PhoneNumber,MessagePhone,DurationYears,DurationMonth,HousingStatus,CostMonthly,HousingType,NumberBedrooms,TotalPeople,HouseholdIncome,TargetGroup1,TargetGroup2,HeatSource,AnnualHeatCost,BackupHeatCost,UsedSurrogate,TotalEnergyCost,TotalAnnualElectricCosts,HifJsonData")] HifApplication hifApplication)
+        public async Task<IActionResult> Edit(long id, [Bind("ApplicationId,UniqueAppId,LiveStreetAddress,LiveCity,LiveState,LiveZipCode,MailingAddress,MailingCity,MailingState,MailingZipCode,Email,PhoneNumber,MessagePhone,DurationYears,DurationMonth,HousingStatus,CostMonthly,HousingType,NumberBedrooms,TotalPeople,HouseholdIncome,TargetGroup1,TargetGroup2,HeatSources,AnnualHeatCost,BackupHeatCost,UsedSurrogate,TotalEnergyCost,TotalAnnualElectricCosts,HifJsonData")] HifApplication hifApplication)
         {
             if (id != hifApplication.ApplicationId)
             {
