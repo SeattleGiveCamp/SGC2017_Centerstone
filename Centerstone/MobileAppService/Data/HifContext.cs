@@ -6,18 +6,19 @@ namespace Centerstone.MobileAppService.Data
 {
     public partial class HifContext : DbContext
     {
-        public virtual DbSet<HifApplication> HifApplication { get; set; }
-        public virtual DbSet<HouseholdMembers> HouseholdMembers { get; set; }
-        public virtual DbSet<Images> Images { get; set; }
-        public virtual DbSet<IncomeRules> IncomeRules { get; set; }
-        public virtual DbSet<IncomeTypes> IncomeTypes { get; set; }
-        public virtual DbSet<StoredImages> StoredImages { get; set; }
+        public  DbSet<HifApplication> HifApplication { get; set; }
+        public  DbSet<HouseholdMembers> HouseholdMembers { get; set; }
+        public  DbSet<Images> Images { get; set; }
+        public  DbSet<IncomeRules> IncomeRules { get; set; }
+        public  DbSet<IncomeTypes> IncomeTypes { get; set; }
+        public  DbSet<StoredImages> StoredImages { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(@"Server=tcp:centerstone-hif.database.windows.net,1433;Initial Catalog=centerstone-hif-sandbox;Persist Security Info=False;User ID=appSVC;Password=C0rnerSt0ne!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+                //optionsBuilder.UseSqlServer(@"Server=tcp:centerstone-hif.database.windows.net,1433;Initial Catalog=centerstone-hif-sandbox;Persist Security Info=False;User ID=appSVC;Password=C0rnerSt0ne!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+                optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=centerstone-hif-sandbox;Trusted_Connection=True;");
             }
         }
 
@@ -170,7 +171,7 @@ namespace Centerstone.MobileAppService.Data
 
                 entity.Property(e => e.ChildSupport).HasColumnType("bit");
 
-                entity.Property(e => e.EarnedIncome).HasColumnType("bint");
+                entity.Property(e => e.EarnedIncome).HasColumnType("bit");
 
                 entity.Property(e => e.Ga)
                     .HasColumnName("GA")
