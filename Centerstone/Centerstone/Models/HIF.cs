@@ -23,8 +23,33 @@ namespace Centerstone.Models
 		public DateTimeOffset CreatedTime { get; set; }
 
         public string Zip { get; set; }
+        //public string LiveStreetAddress { get; set; }
+        //public string LiveCity { get; set; }
+        //public string LiveState { get; set; }
+        //public string LiveZipCode { get; set; }
+        string liveStreetAddress = "";
+        public string LiveStreetAddress { get { return liveStreetAddress; } set { SetProperty(ref liveStreetAddress, value); } }
+        string liveCity = "";
+        public string LiveCity { get { return liveCity; } set { SetProperty(ref liveCity, value); } }
+        string liveState = "";
+        public string LiveState { get { return liveState; } set { SetProperty(ref liveState, value); } }
+        string liveZipCode = "";
+        public string LiveZipCode { get { return liveZipCode; } set { SetProperty(ref liveZipCode, value); } }
 
-		decimal maximumIncome = 0.0M;
+        //public string MailingAddress { get; set; }
+        //public string MailingCity { get; set; }
+        //public string MailingState { get; set; }
+        //public string MailingZipCode { get; set; }
+        string mailingStreetAddress = "";
+        public string MailingAddress { get { return mailingStreetAddress; } set { SetProperty(ref mailingStreetAddress, value); } }
+        string mailingCity = "";
+        public string MailingCity { get { return mailingCity; } set { SetProperty(ref mailingCity, value); } }
+        string mailingState = "";
+        public string MailingState { get { return mailingState; } set { SetProperty(ref mailingState, value); } }
+        string mailingZipCode = "";
+        public string MailingZipCode { get { return mailingZipCode; } set { SetProperty(ref mailingZipCode, value); } }
+
+        decimal maximumIncome = 0.0M;
 		public decimal MaximumIncome
 		{
 			get => maximumIncome;

@@ -8,16 +8,26 @@ namespace Centerstone.Views
 {
 	public partial class BasicInfoPage : ContentPage
 	{
-		public BasicInfoPage (HIF hif)
+        private BasicInfoViewModel viewModel;
+
+        public BasicInfoPage (HIF hif)
 		{
 			InitializeComponent ();
-
-			BindingContext = new BasicInfoViewModel (hif);
+            viewModel = new BasicInfoViewModel(hif);
+            BindingContext = viewModel;
 		}
 
 		void Handle_StartApplication (object sender, System.EventArgs e)
 		{
 			Navigation.PopToRootAsync (true);
 		}
-	}
+
+        void Handle_SameAddress(object sender, System.EventArgs e)
+        {
+            viewModel.HIF.MailingAddress = viewModel.HIF.LiveStreetAddress;
+            viewModel.HIF.MailingCity = viewModel.HIF.LiveCity;
+            viewModel.HIF.MailingState = viewModel.HIF.LiveState;
+            viewModel.HIF.MailingZipCode = viewModel.HIF.LiveZipCode;
+        }
+    }
 }
