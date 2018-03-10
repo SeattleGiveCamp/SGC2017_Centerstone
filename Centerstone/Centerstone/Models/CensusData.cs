@@ -1,9 +1,12 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+
 namespace Centerstone.Models
 {
     public class CensusData : BaseModel
     {
         string gender;
+        [Required]
         public string Gender
         {
             get => gender;
