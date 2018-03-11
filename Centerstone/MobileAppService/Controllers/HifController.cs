@@ -81,12 +81,12 @@ namespace Centerstone.MobileAppService.Controllers
 
                         //TODO: Adults ???
                         //TODO: Children ???
-                        foreach (HifImage image in hif.HeatImages)
+                        foreach (HifImage image in hif.AllImages)
                         {
                             var img = new Images()
                             {
                                 ApplicantGuid = hif.UniqueApplicationId.ToString(),
-                                ImageName = "HeatImages",
+                                ImageName = "Images",
 
                             };
                             img.StoredImages.Add(new StoredImages()

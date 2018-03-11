@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.IO;
 
 namespace Centerstone.Models
@@ -7,19 +8,19 @@ namespace Centerstone.Models
     {
         public Guid Id { get; set; }
         public string Path { get; set; }
-        public byte[] byteImage
-        {
-            get
-            {
-                try
-                {
-                    return ConvertImageToByteArray();
-                }catch(Exception ex)
-                {
-                    return null;
-                }
-            }
-        }
+        public byte[] byteImage { get; set; }
+        //{
+        //    get
+        //    {
+        //        try
+        //        {
+        //            return ConvertImageToByteArray();
+        //        }catch(Exception ex)
+        //        {
+        //            return null;
+        //        }
+        //    }
+        //}
         public void Delete()
         {
             try
