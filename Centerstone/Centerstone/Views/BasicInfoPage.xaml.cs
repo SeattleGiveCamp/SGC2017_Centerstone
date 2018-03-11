@@ -24,7 +24,7 @@ namespace Centerstone.Views
 
         void Handle_SameAddress(object sender, System.EventArgs e)
         {
-            viewModel.HIF.MailingAddress = viewModel.HIF.LiveStreetAddress;
+            viewModel.HIF.MailingStreetAddress = viewModel.HIF.LiveStreetAddress;
             viewModel.HIF.MailingCity = viewModel.HIF.LiveCity;
             viewModel.HIF.MailingState = viewModel.HIF.LiveState;
             viewModel.HIF.MailingZipCode = viewModel.HIF.LiveZipCode;

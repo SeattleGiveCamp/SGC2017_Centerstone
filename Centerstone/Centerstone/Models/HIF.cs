@@ -41,7 +41,7 @@ namespace Centerstone.Models
         //public string MailingState { get; set; }
         //public string MailingZipCode { get; set; }
         string mailingStreetAddress = "";
-        public string MailingAddress { get { return mailingStreetAddress; } set { SetProperty(ref mailingStreetAddress, value); } }
+        public string MailingStreetAddress { get { return mailingStreetAddress; } set { SetProperty(ref mailingStreetAddress, value); } }
         string mailingCity = "";
         public string MailingCity { get { return mailingCity; } set { SetProperty(ref mailingCity, value); } }
         string mailingState = "";
