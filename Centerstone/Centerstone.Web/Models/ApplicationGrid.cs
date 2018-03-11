@@ -7,7 +7,7 @@ namespace Centerstone.Web.Models
 {
     public class ApplicationGrid
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public DateTime DateCreated { get; set; }
         public string FullName { get; set; }
     }

@@ -23,9 +23,14 @@ namespace Centerstone.Web.Controllers
         public async Task<IActionResult> Index()
         {
             var apps = await _context.HifApplication.ToListAsync();
-            //apps.Select(a => new ApplicationGrid() { Id = a.ApplicationId,
-            //DateCreated = a.})
-            return View();
+            var gridApps = apps.Select(a => new ApplicationGrid()
+            {
+                Id = a.ApplicationId,
+                DateCreated = a.CreateDate,
+                FullName = a.HouseholdMembers.Where(m => m.IsPrimary).Select(m => m.FullName).FirstOrDefault()
+            });
+
+            return View(gridApps);
         }
 
         // GET: HifApplications/Details/5
