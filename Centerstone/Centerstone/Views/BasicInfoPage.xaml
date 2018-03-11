@@ -30,8 +30,7 @@
                     <Label Text="{Binding HIF.MaximumIncomeText}" FontAttributes="Bold" />
                 </StackLayout>
                 <StackLayout Orientation="Vertical">
-                    <Label Text="Contact Method" Style="{StaticResource TitleLabel}"/>
-                    <Label Text="(Either email or phone)"/>
+                    <Label Text="Contact Method (Either email or phone)" Style="{StaticResource TitleLabel}"/>
                     <StackLayout Orientation="Vertical">
                     <Label Text="Email" />
                     <Entry Text="{Binding HIF.ContactEmail}" />
@@ -40,6 +39,28 @@
                     <Label Text="Phone" />
                     <Entry Text="{Binding HIF.ContactPhone}" />
                 </StackLayout>
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Live Street Address" />
+                        <Entry Text="{Binding HIF.LiveStreetAddress}" />
+                        <Label Text="Live City" />
+                        <Entry Text="{Binding HIF.LiveCity}" />
+                        <Label Text="Live State" />
+                        <Entry Text="{Binding HIF.LiveState}" />
+                        <Label Text="Live Zip Code" />
+                        <Entry Text="{Binding HIF.LiveZipCode}" />
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical">
+                        <Button Text="Same AS Live Address" Clicked="Handle_SameAddress" />
+                        <Label Text=" Mailing Street Address" />
+                        <Entry Text="{Binding HIF.MailingStreetAddress}" />
+                        <Label Text=" Mailing City" />
+                        <Entry Text="{Binding HIF.MailingCity}" />
+                        <Label Text=" Mailing State" />
+                        <Entry Text="{Binding HIF.MailingState}" />
+                        <Label Text=" Mailing Zip Code" />
+                        <Entry Text="{Binding HIF.MailingZipCode}" />
+                    </StackLayout>
+
                 </StackLayout>
                 <Button Text="Done" Clicked="Handle_StartApplication" />
             </StackLayout>

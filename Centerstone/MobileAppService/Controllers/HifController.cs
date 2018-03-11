@@ -57,6 +57,13 @@ namespace Centerstone.MobileAppService.Controllers
                         {
                             UniqueAppId = hif.UniqueApplicationId.ToString(),
                             MailingZipCode = hif.Zip,
+                            LiveStreetAddress = hif.LiveStreetAddress,
+                            LiveCity = hif.LiveCity,
+                            LiveState = hif.LiveState,
+                            LiveZipCode = hif.LiveZipCode,
+                            MailingAddress = hif.MailingAddress,
+                            MailingCity = hif.MailingCity,
+                            MailingState = hif.MailingState,
                             //TODO: hif.HeatSourcesTypes
                             //TODO: hif.HeatSourcess
                             PhoneNumber = hif.ContactPhone,
