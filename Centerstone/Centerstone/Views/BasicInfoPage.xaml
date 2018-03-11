@@ -40,6 +40,10 @@
                     <Entry Text="{Binding HIF.ContactPhone}" />
                 </StackLayout>
                     <StackLayout Orientation="Vertical">
+                        <Label Text="Monthly Household Income" />
+                        <Entry Text="{Binding HIF.MonthlyHouseholdIncome}" />
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical">
                         <Label Text="Live Street Address" />
                         <Entry Text="{Binding HIF.LiveStreetAddress}" />
                         <Label Text="Live City" />

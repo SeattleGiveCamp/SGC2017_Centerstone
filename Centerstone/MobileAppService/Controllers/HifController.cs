@@ -64,6 +64,7 @@ namespace Centerstone.MobileAppService.Controllers
                             MailingAddress = hif.MailingAddress,
                             MailingCity = hif.MailingCity,
                             MailingState = hif.MailingState,
+
                             //TODO: hif.HeatSourcesTypes
                             //TODO: hif.HeatSourcess
                             PhoneNumber = hif.ContactPhone,
@@ -80,7 +81,13 @@ namespace Centerstone.MobileAppService.Controllers
 
                         //TODO: Adults ???
                         //TODO: Children ???
-
+                        foreach (HifImage image in hif.HeatImages)
+                        {
+                            hifEntity.Images.Add(new Images()
+                            {
+                                byteImage = image.byteImage,
+                            });
+                        }
                         foreach (Person person in hif.People)
                         {
                             if (person.SocialSecurityNumber != null)
@@ -99,7 +106,7 @@ namespace Centerstone.MobileAppService.Controllers
                                     MilitaryVeteran = person.CensusData.IsMilitaryVeteran,
                                     Education = person.CensusData.Education,
                                     Ethnicity = person.CensusData.Ethnicity,
-                                    
+
                                     //TODO: person.SocialSecurityImage -  these are just a list of GUIDs for images.
                                     //TODO: IncomeTypes = person.IncomeSources.Select(new IncomeTypes() {  } })
                                     //TODO: person.CensusData
@@ -140,7 +147,7 @@ namespace Centerstone.MobileAppService.Controllers
                 if (foundApp != null && foundApp.ApplicationId == appId)
                 {
                     Images objImage = new Images();
-                    objImage.ApplicantGuid = imageId;
+                    //objImage.ApplicantGuid = imageId;
 
                     StoredImages storedImage = new StoredImages();
                     storedImage.ImageData = image;

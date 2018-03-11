@@ -124,23 +124,23 @@ namespace Centerstone.MobileAppService.Data
 
                 entity.Property(e => e.ImageId).HasColumnName("ImageID");
 
-                entity.Property(e => e.ApplicantGuid).HasColumnName("ApplicantGUID");
+                //entity.Property(e => e.ApplicantGuid).HasColumnName("ApplicantGUID");
 
                 entity.Property(e => e.ApplicationId).HasColumnName("ApplicationID");
 
-                entity.Property(e => e.FileName)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                //entity.Property(e => e.FileName)
+                //    .IsRequired()
+                //    .HasMaxLength(50);
 
-                entity.Property(e => e.ImageName)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                //entity.Property(e => e.ImageName)
+                //    .IsRequired()
+                //    .HasMaxLength(50);
 
-                entity.Property(e => e.ImageType)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                //entity.Property(e => e.ImageType)
+                //    .IsRequired()
+                //    .HasMaxLength(50);
 
-                entity.Property(e => e.UniqueImageId).IsRequired();
+                //entity.Property(e => e.UniqueImageId).IsRequired();
 
                 entity.HasOne(d => d.Application)
                     .WithMany(p => p.Images)
