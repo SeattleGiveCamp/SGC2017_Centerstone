@@ -15,6 +15,7 @@ namespace Centerstone.MobileAppService.Data
         }
         [Key]
         public long ApplicationId { get; set; }
+        public DateTime CreateDate { get; set; }
         public string UniqueAppId { get; set; }
         public string LiveStreetAddress { get; set; }
         public string LiveCity { get; set; }
