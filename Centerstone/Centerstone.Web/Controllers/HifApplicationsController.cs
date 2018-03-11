@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Centerstone.MobileAppService.Data;
+using Centerstone.Web.Models;
 
 namespace Centerstone.Web.Controllers
 {
@@ -21,7 +22,10 @@ namespace Centerstone.Web.Controllers
         // GET: HifApplications
         public async Task<IActionResult> Index()
         {
-            return View(await _context.HifApplication.ToListAsync());
+            var apps = await _context.HifApplication.ToListAsync();
+            //apps.Select(a => new ApplicationGrid() { Id = a.ApplicationId,
+            //DateCreated = a.})
+            return View();
         }
 
         // GET: HifApplications/Details/5
