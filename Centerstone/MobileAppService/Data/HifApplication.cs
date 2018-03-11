@@ -12,6 +12,7 @@ namespace Centerstone.MobileAppService.Data
             HouseholdMembers = new HashSet<HouseholdMembers>();
             Images = new HashSet<Images>();
             IncomeTypes = new HashSet<IncomeTypes>();
+            CreateDate = DateTime.Now;
         }
         [Key]
         public long ApplicationId { get; set; }

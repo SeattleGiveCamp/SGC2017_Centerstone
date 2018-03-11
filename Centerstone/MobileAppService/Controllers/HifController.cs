@@ -61,7 +61,7 @@ namespace Centerstone.MobileAppService.Controllers
                             LiveCity = hif.LiveCity,
                             LiveState = hif.LiveState,
                             LiveZipCode = hif.LiveZipCode,
-                            MailingAddress = hif.MailingAddress,
+                            MailingAddress = hif.MailingStreetAddress,
                             MailingCity = hif.MailingCity,
                             MailingState = hif.MailingState,
                             //TODO: hif.HeatSourcesTypes
