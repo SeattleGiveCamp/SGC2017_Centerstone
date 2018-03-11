@@ -83,11 +83,19 @@ namespace Centerstone.MobileAppService.Controllers
                         //TODO: Children ???
                         foreach (HifImage image in hif.HeatImages)
                         {
-                            hifEntity.Images.Add(new Images()
+                            var img = new Images()
                             {
-                                byteImage = image.byteImage,
+                                ApplicantGuid = hif.UniqueApplicationId.ToString(),
+                                ImageName = "HeatImages",
+
+                            };
+                            img.StoredImages.Add(new StoredImages()
+                            {
+                                ImageData = image.byteImage,
                             });
+                            hifEntity.Images.Add(img);
                         }
+
                         foreach (Person person in hif.People)
                         {
                             if (person.SocialSecurityNumber != null)
@@ -147,7 +155,7 @@ namespace Centerstone.MobileAppService.Controllers
                 if (foundApp != null && foundApp.ApplicationId == appId)
                 {
                     Images objImage = new Images();
-                    //objImage.ApplicantGuid = imageId;
+                    objImage.ApplicantGuid = imageId;
 
                     StoredImages storedImage = new StoredImages();
                     storedImage.ImageData = image;

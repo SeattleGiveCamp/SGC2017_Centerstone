@@ -11,9 +11,10 @@ using System;
 namespace Centerstone.MobileAppService.Migrations
 {
     [DbContext(typeof(HifContext))]
-    partial class HifContextModelSnapshot : ModelSnapshot
+    [Migration("20180311002551_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -175,16 +176,10 @@ namespace Centerstone.MobileAppService.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnName("ImageID");
 
-                    b.Property<string>("ApplicantGuid");
-
                     b.Property<long>("ApplicationId")
                         .HasColumnName("ApplicationID");
 
-                    b.Property<string>("FileName");
-
-                    b.Property<string>("ImageName");
-
-                    b.Property<string>("ImageType");
+                    b.Property<byte[]>("byteImage");
 
                     b.HasKey("ImageId");
 
