@@ -8,9 +8,8 @@
             <Button Text="Heating Information" Clicked="Handle_EnergyClicked" />
             <Button Text="People in the Household" Clicked="Handle_PeopleClicked" />
             <Button Text="Ways to Conserve Energy" Clicked="Handle_TipsClicked" />
-            <!--<Button Text="No Income Form" Clicked="Handle_IncomesClicked" />-->
             <Button Text="Submit Application" Clicked="Handle_Submit" Style="{StaticResource buttonStyle}" />
-            <Button Text="Start Over" Clicked="Handle_StartOver" />
+            <Button Text="Start Over" Clicked="Handle_StartOver" Style="{StaticResource buttonStyle}"/>
         </StackLayout>
 	</ContentPage.Content>
 </ContentPage>

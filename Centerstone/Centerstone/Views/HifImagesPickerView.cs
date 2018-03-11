@@ -41,8 +41,9 @@ namespace Centerstone.Views
             Children.Add(new Image
             {
                 Source = FileImageSource.FromFile(image.Path)
+                
             });
-
+            image.byteImage = image.ConvertImageToByteArray();
             Images.Add(image);
 
         }

@@ -11,9 +11,10 @@ using System;
 namespace Centerstone.MobileAppService.Migrations
 {
     [DbContext(typeof(HifContext))]
-    partial class HifContextModelSnapshot : ModelSnapshot
+    [Migration("20180311003326_recoverImage")]
+    partial class recoverImage
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -64,6 +64,7 @@ namespace Centerstone.MobileAppService.Controllers
                             MailingAddress = hif.MailingStreetAddress,
                             MailingCity = hif.MailingCity,
                             MailingState = hif.MailingState,
+
                             //TODO: hif.HeatSourcesTypes
                             //TODO: hif.HeatSourcess
                             PhoneNumber = hif.ContactPhone,
@@ -80,6 +81,20 @@ namespace Centerstone.MobileAppService.Controllers
 
                         //TODO: Adults ???
                         //TODO: Children ???
+                        foreach (HifImage image in hif.AllImages)
+                        {
+                            var img = new Images()
+                            {
+                                ApplicantGuid = hif.UniqueApplicationId.ToString(),
+                                ImageName = "Images",
+
+                            };
+                            img.StoredImages.Add(new StoredImages()
+                            {
+                                ImageData = image.byteImage,
+                            });
+                            hifEntity.Images.Add(img);
+                        }
 
                         foreach (Person person in hif.People)
                         {
@@ -99,7 +114,7 @@ namespace Centerstone.MobileAppService.Controllers
                                     MilitaryVeteran = person.CensusData.IsMilitaryVeteran,
                                     Education = person.CensusData.Education,
                                     Ethnicity = person.CensusData.Ethnicity,
-                                    
+
                                     //TODO: person.SocialSecurityImage -  these are just a list of GUIDs for images.
                                     //TODO: IncomeTypes = person.IncomeSources.Select(new IncomeTypes() {  } })
                                     //TODO: person.CensusData
