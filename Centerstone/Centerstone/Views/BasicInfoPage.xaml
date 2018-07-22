@@ -30,16 +30,28 @@
                     <Label Text="{Binding HIF.MaximumIncomeText}" FontAttributes="Bold" />
                 </StackLayout>
                 <StackLayout Orientation="Vertical">
+                    <Label Text="LiveStreetAddress" />
+                    <Entry Text="{Binding HIF.LiveStreetAddress}" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                    <Label Text="LiveCity" />
+                    <Entry Text="{Binding HIF.LiveCity}" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                    <Label Text="LiveState" />
+                    <Entry Text="{Binding HIF.LiveState}" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
                     <Label Text="Contact Method" Style="{StaticResource TitleLabel}"/>
                     <Label Text="(Either email or phone)"/>
                     <StackLayout Orientation="Vertical">
-                    <Label Text="Email" />
-                    <Entry Text="{Binding HIF.ContactEmail}" />
-                </StackLayout>
-                <StackLayout Orientation="Vertical">
-                    <Label Text="Phone" />
-                    <Entry Text="{Binding HIF.ContactPhone}" />
-                </StackLayout>
+                        <Label Text="Email" />
+                        <Entry Text="{Binding HIF.ContactEmail}" />
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Phone" />
+                        <Entry Text="{Binding HIF.ContactPhone}" />
+                    </StackLayout>
                 </StackLayout>
                 <Button Text="Done" Clicked="Handle_StartApplication" />
             </StackLayout>

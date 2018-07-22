@@ -23,8 +23,30 @@ namespace Centerstone.Models
 		public DateTimeOffset CreatedTime { get; set; }
 
         public string Zip { get; set; }
+        //public string LiveStreetAddress { get; set; }
+        string liveStreetAddress;
+        public string LiveStreetAddress
+        {
+            get => liveStreetAddress;
+            set => SetProperty(ref liveStreetAddress, value);
+        }
+        string liveCity;
+        public string LiveCity
+        {
+            get => liveCity;
+            set => SetProperty(ref liveCity, value);
+        }
+        //public string LiveCity { get; set; }
+        //public string LiveState { get; set; }
+        string liveState;
+        public string LiveState
+        {
+            get => liveState;
+            set => SetProperty(ref liveState, value);
+        }
+        public string LiveZipCode => this.Zip;
 
-		decimal maximumIncome = 0.0M;
+        decimal maximumIncome = 0.0M;
 		public decimal MaximumIncome
 		{
 			get => maximumIncome;
